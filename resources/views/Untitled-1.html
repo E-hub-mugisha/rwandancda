@@ -1,0 +1,83 @@
+<div class="banner3">
+      <div class="py-5 banner" style="background-image:url(img/intro-carousel/5.jpg);">
+        <div class="container">
+          <div class="row">
+            <header class="section-header">
+              <h3 class="text-white">Social media engagements</h3>
+            </header>
+            <div class="col-md-7">
+
+              <div id="myCarousel" class="carousel slide" data-interval="false">
+                <ol class="carousel-indicators" style="display:none;">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <iframe width="100%" height="315" class="video myvid" id="player" src="https://www.youtube.com/embed/2K4yolH6XYQ?autoplay=1&mute=1"></iframe>
+
+                  </div>
+                  <div class="carousel-item">
+                    <iframe width="100%" height="315" class="video myvid" id="player2" src="https://www.youtube.com/embed/XiBuCe_4cxg?autoplay=1&mute=1"></iframe>
+
+                  </div>
+                  <div class="carousel-item">
+                    <iframe width="100%" height="315" class="video myvid" id="player2" src="https://www.youtube.com/embed/kWiL9TAI41Y?autoplay=1&mute=1"></iframe>
+                  </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Vorige</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Volgende</span>
+                </a>
+              </div>
+
+              <div class="col-6 py-0 px-1 d-none d-lg-block">
+
+                <div class="row">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 col-lg-5">
+              <div class="overflow-auto" data-aos="fade-up" data-aos-delay="100" style="height: 650px;">
+                <div class="about-col shadow-lg p-3 mb-5 bg-white rounded">
+                  <a class="twitter-timeline" href="https://twitter.com/RwandaNCDA?ref_src=twsrc%5Etfw">Tweets by
+                    RwandaNCDA</a>
+                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let allVids = $("#myCarousel").find('.carousel-item');
+  
+      allVids.each(function(index, el) {
+        if (index !== 0) {
+          $(this).find('video')[0].pause();
+        }
+      });
+  
+      $("#myCarousel").on('slide.bs.carousel', function(ev) {
+        let slides = $(this).find('.carousel-item');
+        let pvid = slides[ev.from].querySelectorAll('video')[0];
+        let vid = slides[ev.to].querySelectorAll('video')[0];
+        let isPlaying = vid.currentTime > 0 && vid.readyState > 2;
+  
+        vid.play();
+  
+        if (isPlaying) {
+          pvid.pause();
+        }
+      });
+    </script>

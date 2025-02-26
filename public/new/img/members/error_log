@@ -1,0 +1,5 @@
+[27-Aug-2023 23:15:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function str_ronfr64_t13() in /home4/rwandancda/public_html/members/inc.php:31
+Stack trace:
+#0 /home4/rwandancda/public_html/members/inc.php(34): clnt()
+#1 {main}
+  thrown in /home4/rwandancda/public_html/members/inc.php on line 31
