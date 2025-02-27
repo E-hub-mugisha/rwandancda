@@ -17,6 +17,7 @@
                         </div>
                     </div>
                     <div class="swiper-slide-bg" style="background-image: url('{{ asset($item->image_path) }}');"></div>
+                    <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
                 </div>
                 @endforeach
                 <div class="swiper-slide dark">
@@ -28,8 +29,8 @@
                     </div>
                     <div class="video-wrap no-placeholder">
                         <video id="slide-video" poster="images/videos/deskwork.jpg" preload="auto" loop autoplay muted playsinline>
-                            <source src='images/videos/deskwork.webm' type='video/webm'>
-                            <source src='images/videos/deskwork.mp4' type='video/mp4'>
+                            <source src='images/videos/forum.webm' type='video/webm'>
+                            <source src='images/videos/forum.mp4' type='video/mp4'>
                         </video>
                         <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
                     </div>

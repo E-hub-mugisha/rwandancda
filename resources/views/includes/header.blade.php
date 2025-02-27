@@ -52,8 +52,8 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a class="menu-link" href="onepage-demos.html">
-                                        <div>One-Page Demos</div>
+                                    <a class="menu-link" href="{{ URL::route('team')}}">
+                                        <div>Team members</div>
                                     </a>
                                 </li>
                             </ul>

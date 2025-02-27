@@ -2,157 +2,188 @@
 @section('content')
 @section('title','Contact us')
 
-<!-- PAGE TITLE
-        ================================================== -->
-<section class="page-title-section bg-img cover-background" data-overlay-dark="6" data-background="img/bg/bg-03.jpg">
+
+
+<!-- Page Title
+		============================================= -->
+<section class="page-title bg-transparent">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Contact Us</h1>
+    <div class="page-title-row">
+
+      <div class="page-title-content">
+        <h1>Contact</h1>
+        <span>Get in Touch with Us</span>
       </div>
-      <div class="col-md-12">
-        <div class="breadcrumb">
-          <span class="left-dot"></span>
-          <span class="right-dot"></span>
-          <ul>
-            <li><a href="{{ route('home')}}">Home</a></li>
-            <li><a href="#!">Contact Us</a></li>
+
+    </div>
+  </div>
+</section><!-- .page-title end -->
+
+<!-- Page Sub Menu
+		============================================= -->
+<div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
+  <div id="page-menu-wrap">
+    <div class="container">
+      <div class="page-menu-row">
+
+        <div class="page-menu-title">Get in Touch  <span>with Us</span></div>
+
+        <nav class="page-menu-nav">
+          <ul class="page-menu-container">
+            <li class="page-menu-item current"><a href="#">
+                <div>Start here</div>
+              </a></li>
           </ul>
-        </div>
+        </nav>
+
+        <div id="page-menu-trigger"><i class="bi-list"></i></div>
+
       </div>
     </div>
   </div>
-  <div class="bg-transparent border-width-2 border-solid border-secondary p-3 d-sm-inline-block rounded-circle position-absolute bottom-10 left-5 ani-top-bottom d-none z-index-3"></div>
-  <div class="bg-secondary p-1-6 d-lg-block rounded-circle position-absolute top-25 right-25 ani-top-bottom d-none z-index-3"></div>
-  <div class="bg-white p-2 d-sm-inline-block rounded-circle position-absolute top-40 left-25 ani-left-right d-none z-index-3"></div>
-</section>
+  <div class="page-menu-wrap-clone" style="height: 48px;"></div>
+</div><!-- #page-menu end -->
 
-<!-- CONTACT FORM
-        ================================================== -->
-<section>
-  <div class="container">
-    <div class="row g-0">
-      <div class="col-lg-7">
-        <div class="p-2-2 p-lg-2-9 box-shadow-style1 h-100">
-          <h2 class="mb-4">Get In Touch</h2>
-          <form class="contact quform" action="#" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="quform-elements">
-              <div class="row">
+<!-- Content
+		============================================= -->
+<section id="content">
+  <div class="content-wrap">
+    <div class="container">
 
-                <div class="col-md-6">
-                  <div class="quform-element form-group">
-                    <label for="name">Your Name <span class="quform-required">*</span></label>
-                    <div class="quform-input">
-                      <input class="form-control" id="name" type="text" name="name" placeholder="Your name here" />
-                      @if ($errors->has('name'))
-                      <span class="text-danger">{{ $errors->first('name') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="quform-element form-group">
-                    <label for="email">Your Email <span class="quform-required">*</span></label>
-                    <div class="quform-input">
-                      <input class="form-control" id="email" type="email" name="email" placeholder="Your email here" />
-                      @if ($errors->has('email'))
-                      <span class="text-danger">{{ $errors->first('email') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="quform-element form-group">
-                    <label for="subject">Your Subject <span class="quform-required">*</span></label>
-                    <div class="quform-input">
-                      <input class="form-control" id="subject" type="text" name="subject" placeholder="Your subject here" />
-                      @if ($errors->has('subject'))
-                      <span class="text-danger">{{ $errors->first('subject') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="quform-element form-group">
-                    <label for="message">Message <span class="quform-required">*</span></label>
-                    <div class="quform-input">
-                      <textarea class="form-control" id="message" name="message" rows="3" placeholder="Tell us a few words"></textarea>
-                      @if ($errors->has('message'))
-                      <span class="text-danger">{{ $errors->first('message') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="quform-submit-inner">
-                    <button class="butn border-0" type="submit">Send Message</button>
-                  </div>
-                </div>
+      <div class="row align-items-stretch col-mb-50">
+        <!-- Google Map
+						============================================= -->
+        <div class="col-lg-6">
+          <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.546240411269!2d30.059368073212216!3d-1.933719536672797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5034ddd8ca5%3A0x6b1e1a735c808995!2sRwanda%20NCD%20Alliance!5e0!3m2!1sen!2srw!4v1720425068706!5m2!1sen!2srw" width="100%" height="50" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div><!-- Google Map End -->
 
+        <div class="col-lg-6">
+
+          <div class="row col-mb-50 mb-0">
+            <!-- Contact Info
+								============================================= -->
+            <div class="col-md-5">
+
+              <address>
+                <strong>Headquarters:</strong><br>
+                Kigali - Kinamba, KN8 Av27<br>
+              </address>
+              <abbr title="Phone Number"><strong>Phone:</strong></abbr> +250 791 232 176<br>
+              <abbr title="Email Address"><strong>Email:</strong></abbr> info@rwandancda.org
+
+            </div><!-- Contact Info End -->
+
+            <!-- Testimonials
+								============================================= -->
+            <div class="col-md-7">
+
+              <div class="widget pt-0 border-0">
+                <div class="fslider customjs testimonial twitter-scroll twitter-feed" data-username="envato" data-count="3" data-animation="slide" data-arrows="false">
+                  <div class="alert twitter-widget-alert text-center alert-danger">Could not fetch Tweets from Twitter API. Please try again later.</div>
+                  <div class="row gx-2">
+                    <div class="col-auto">
+                      <i class="i-plain i-large color fa-brands fa-twitter mb-0"></i>
+                    </div>
+                    <div class="col">
+                      <div class="flexslider">
+                        <div class="slider-wrap"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </form>
+
+            </div><!-- Testimonial End -->
+          </div>
+
+          <!-- Modal Contact Form
+							============================================= -->
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactFormModal" class="button button-3d m-0 w-100 button-xlarge d-none d-md-block text-center">Click here to Send an Email</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactFormModal" class="button button-3d m-0 w-100 d-block d-md-none text-center">Send an Email</a>
+
+          <div class="modal fade" id="contactFormModal" tabindex="-1" role="dialog" aria-labelledby="contactFormModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="contactFormModalLabel">Send Us an Email</h4>
+                  <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+
+                  <div class="form-widget">
+                    <div class="form-result"></div>
+                    <form class="mb-0" id="template-contactform" name="template-contactform" action="#" method="post" novalidate="novalidate">
+
+                      <div class="form-process">
+                        <div class="css3-spinner">
+                          <div class="css3-spinner-scaler"></div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-6 form-group">
+                          <label for="template-contactform-name">Name <small>*</small></label>
+                          <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="form-control required">
+                        </div>
+
+                        <div class="col-sm-6 form-group">
+                          <label for="template-contactform-email">Email <small>*</small></label>
+                          <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email form-control">
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col-12 form-group">
+                          <label for="template-contactform-phone">Phone</label>
+                          <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="form-control">
+                        </div>
+
+
+                        <div class="w-100"></div>
+
+                        <div class="col-12 form-group">
+                          <label for="template-contactform-subject">Subject <small>*</small></label>
+                          <input type="text" id="template-contactform-subject" name="subject" value="" class="required form-control">
+                        </div>
+
+                        <div class="col-12 form-group">
+                          <label for="template-contactform-message">Message <small>*</small></label>
+                          <textarea class="required form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+                        </div>
+
+                        <div class="col-12 form-group d-none">
+                          <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="form-control">
+                        </div>
+
+                        <div class="col-12 form-group">
+                          <button class="button button-3d m-0" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+                        </div>
+                      </div>
+
+                      <input type="hidden" name="prefix" value="template-contactform-">
+
+                    </form>
+
+                  </div>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <!-- Modal Contact Form End -->
+
         </div>
       </div>
-      <div class="col-lg-5 bg-img cover-background theme-overlay" data-overlay-dark="9" data-background="img/content/contact-image.jpg">
-        <div class="p-1-9 p-lg-2-9 position-relative z-index-1 h-100">
-          <h2 class="mb-3 text-white">Our Contact Detail</h2>
-          <p class="mb-2-2 text-white display-sm-28">Need any consultations contact with us</p>
-          <div class="d-flex mb-4 pb-3 border-bottom border-color-light-white">
-            <div class="flex-shrink-0 mt-2">
-              <i class="fas fa-phone-alt text-secondary fs-2"></i>
-            </div>
-            <div class="flex-grow-1 ms-4">
-              <h3 class="h5 text-white">Phone Number</h3>
-              <span class="text-white d-block mb-1">+250 791 232 176</span>
-              <!-- <span class="text-white">+250 791 232 176</span> -->
-            </div>
-          </div>
-          <div class="d-flex mb-4 pb-3 border-bottom border-color-light-white">
-            <div class="flex-shrink-0 mt-2">
-              <i class="far fa-envelope-open text-secondary fs-2"></i>
-            </div>
-            <div class="flex-grow-1 ms-4">
-              <h3 class="h5 text-white">Email Address</h3>
-              <span class="text-white d-block mb-1">info@rwandancda.org</span>
-              <!-- <span class="text-white">info@rwandancda.org</span> -->
-            </div>
-          </div>
-          <div class="d-flex mb-4 pb-3 border-bottom border-color-light-white">
-            <div class="flex-shrink-0 mt-2">
-              <i class="fas fa-map-marker-alt text-secondary fs-2"></i>
-            </div>
-            <div class="flex-grow-1 ms-4">
-              <h3 class="h5 text-white">Location</h3>
-              <address class="text-white d-block mb-0 w-md-80 w-xl-70">Kigali - Kinamba, KN8 Av27</address>
-            </div>
-          </div>
-          <ul class="contact-social-icons">
-            <li>
-              <a href="#!"><i class="fab fa-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#!"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#!"><i class="fab fa-youtube"></i></a>
-            </li>
-            <li>
-              <a href="#!"><i class="fab fa-linkedin-in"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
+
     </div>
   </div>
-</section>
-
-<!-- MAP
-        ================================================== -->
-<div>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.546240411269!2d30.059368073212216!3d-1.933719536672797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5034ddd8ca5%3A0x6b1e1a735c808995!2sRwanda%20NCD%20Alliance!5e0!3m2!1sen!2srw!4v1720425068706!5m2!1sen!2srw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+</section><!-- #content end -->
 
 
 @endsection

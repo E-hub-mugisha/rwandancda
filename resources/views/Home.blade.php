@@ -70,8 +70,8 @@
 
             <div class="video-wrap no-placeholder" style="z-index: 1;">
                 <video poster="images/videos/messiermarathon.jpg" preload="none" loop="" autoplay="" muted="" playsinline="" style="width: 800px; height: 450px; left: -69.5px;">
-                    <source src="images/videos/messiermarathon.mp4" type="video/mp4">
-                    <source src="images/videos/messiermarathon.webm" type="video/webm">
+                    <source src="images/videos/forum.mp4" type="video/mp4">
+                    <source src="images/videos/forum.webm" type="video/webm">
                 </video>
                 <div class="video-overlay" style="background-color: rgba(0,0,0,0.1);"></div>
             </div>
@@ -131,220 +131,37 @@
 
         </div>
 
-        <a href="#" class="button button-full text-center mt-5 footer-stick">
-            <div class="container">
-                Need help with your Account? <strong>Start here</strong> <i class="fa-solid fa-caret-right" style="top:4px;"></i>
-            </div>
-        </a>
-
     </div>
 </section>
 
 
-<!-- SERVICE
-        ================================================== -->
-<section>
-    <div class="bg-light section-bg"></div>
-    <div class="container position-relative z-index-9">
-        <div class="section-heading-02 text-center mb-1-9 mb-md-2-9">
-            <div class="sub-title mb-3">
-                <span class="text-secondary">Our Engagements</span>
-                <div class="title-img">
-                    <img src="{{ asset('new/img/icons/habitro-icon.png')}}" alt="...">
-                </div>
-            </div>
-            <h2 class="h1 fw-bolder mb-0">RWANDANCDA ENGAGEMENTS</h2>
-        </div>
-        <div class="row mt-n1-9">
-            @foreach( $groupFocus as $groupFocus)
-            <div class="col-md-6 col-xl-4 mt-1-9">
-                <div class="service-style01">
-                    <img src="{{ asset('new/img/content/service-01.jpg')}}" class="border-radius-10" alt="...">
-                    <div class="services-content">
-                        <div class="d-flex align-items-center service-text">
-                            <div class="flex-shrink-0">
-                                <img src="{{ asset('new/img/icons/icon-34.png')}}" alt="...">
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h5 class="h5 mb-0"><a href="{{ url('ncd_engagements', $groupFocus->title) }}">{{
-                                        $groupFocus->title}}</a></h5>
-                            </div>
-                        </div>
-                        <p class="mb-0">Our nutrition team love the benefits of exercise and healthy food.</p>
-                        <a class="service-btn text-center" href="{{ url('ncd_engagements', $groupFocus->title) }}">More
-                            Details <i class="fas fa-arrow-right align-middle ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-
-<!-- SERVICE
-        ================================================== -->
-<section class="bg-light pt-21 pt-xl-24">
+<div class="section my-0">
     <div class="container">
-        <div class="section-heading">
-            <span class="text-secondary title-font display-25 display-md-23 d-block mb-1">Updates</span>
-            <h2>{!! $header ?? 'Recent<span class="fw-bolder"> News & Events</span>' !!}</h2>
-            <!-- <p class="mb-0 w-md-80 w-lg-70 w-xl-50 mx-auto">We connect buyers and sellers of natural, organic, environmentally sound products. We find the best suppliers and makers of natural and organic products.</p> -->
-        </div>
-        <div class="service-carousel owl-carousel owl-theme">
-            @foreach($posts as $post)
-            <div class="card card-style1 border-0 border-radius-10 mx-2 mx-sm-4 my-4">
-                <img class="border-top-radius-10" src="{{ asset('new/img')}}/{{$post->image }}"
-                    alt="{{ Str::limit($post->title, 60) }}">
-                <div class="card-body border-bottom-radius-10">
-                    <!-- <div class="icon-box">
-                                <img src="{{ asset('new/img')}}/{{$post->image }}" alt="...">
-                            </div> -->
-                    <h3 class="h4 mb-3"><a href="{{ url('ncd_news', $post->slug) }}">{{ Str::limit($post->title, 50)
-                            }}</a></h3>
-                    <p>Our nutrition team love the benefits of exercise and healthy food.</p>
-                    <a href="{{ url('ncd_news', $post->slug) }}" class="link-btn">Read More</a>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-    <div class="bg-secondary p-2-2 rounded-circle position-absolute bottom-10 left-5 d-none d-lg-block"></div>
-    <div class="bg-primary p-3 rounded-circle position-absolute bottom-10 left-5 ani-top-bottom d-none d-lg-block">
-    </div>
-</section>
 
-<!-- ABOUTUS
-        ================================================== -->
-<section class="pt-0 pb-lg-21 pb-xl-24 section-with-bg">
-    <div class="container">
-        <div class="row align-items-xl-center border-top pt-6 pt-sm-8 pt-lg-10 pt-xl-15 border-color-extra-light-gray">
-            <div class="col-lg-6 mb-1-9 mb-lg-0">
-                <div class="position-relative text-end">
-                    <div class="about-block d-inline-block ps-1-9 ps-sm-2-9">
-                        <img src="{{ asset('new/img/content/about-01.jpg')}}"
-                            class="border-radius-10 z-index-1 position-relative" alt="...">
-                    </div>
-                    <div class="bg-primary p-6 border-radius-10 position-absolute bottom-10 right-5 ani-top-bottom">
-                    </div>
-                    <!-- <img src="{{ asset('new/img/content/balance-body-mind-01.jpg')}}" class="position-absolute top-10 left-n5 left-lg-n10 rounded-circle z-index-2 d-none d-sm-block" alt="..." height="300" width="300"> -->
-                </div>
+        <div class="row align-items-center col-mb-30 mt-0 mt-lg-5">
+            <div class="col-md-6">
+                <img src="{{ asset('new/img/content/about-01.jpg')}}" alt="Image">
             </div>
-            <div class="col-lg-6">
-                <div class="ps-xxl-2-3">
-                    <h2 class="display-20 display-sm-15 display-xl-9 font-weight-400 mb-3"><span
-                            class="fw-bolder text-style">NCD STORIES</span></h2>
-                    <p>Most people nowadays face a lot of challenges because of the COVID-19
-                        pandemic either changing their lifestyles,
-                        economy, and health, particularly people living with non-communicable diseases (PLWNCDs) who are
-                        more at
-                        risk for severe complications of COVID-19 and death when they are contracted.</p>
-                    <p>This is a compiled 15 testimonies collected through Our Views Our Voices
-                        Project funded by NCD Alliance to support the involvement of PLWNCDs in “NCD Story Sharing".</p>
 
-                    <a href="#testimonials" class="butn secondary">Read Stories</a>
+            <div class="col-md-6 text-center text-md-start">
+                <div class="heading-block border-bottom-0">
+                    <h2><span class="fw-bolder text-style">NCD STORIES </span></h2>
                 </div>
+
+                <p>Most people nowadays face a lot of challenges because of the COVID-19
+                    pandemic either changing their lifestyles,
+                    economy, and health, particularly people living with non-communicable diseases (PLWNCDs) who are
+                    more at
+                    risk for severe complications of COVID-19 and death when they are contracted.</p>
+
+                <a href="#testimonials" class="button button-border button-rounded button-large button-dark ms-0">Our Stories</a>
             </div>
         </div>
-    </div>
-    <div class="d-inline-block p-3 bg-secondary position-absolute rounded-circle top-20 right-5 ani-left-right"></div>
-</section>
 
-<style>
-    /* Sliding animation */
-    .slide-up {
-        animation: slideUp 0.8s ease-in-out;
-    }
-
-    @keyframes slideUp {
-        from {
-            transform: translateY(50px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    /* Scrollable Sidebar */
-    .scrollable-div {
-        max-height: 450px;
-        /* Set the height you want */
-        overflow-y: auto;
-        padding-right: 10px;
-        /* Prevent scrollbar from overlapping content */
-    }
-
-    /* Scrollbar Styling (Optional) */
-    .scrollable-div::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .scrollable-div::-webkit-scrollbar-thumb {
-        background-color: #aaa;
-        border-radius: 10px;
-    }
-
-    .scrollable-div::-webkit-scrollbar-track {
-        background-color: #f1f1f1;
-    }
-
-    .featured {
-        /*max-height: 450px;*/
-    }
-</style>
-
-<div class="container my-5">
-    <div class="section-heading">
-        <span class="text-secondary title-font display-25 display-md-23 d-block mb-1">Updates</span>
-        <h2>{!! $header ?? 'Recent<span class="fw-bolder"> News & Events</span>' !!}</h2>
-        <!-- <p class="mb-0 w-md-80 w-lg-70 w-xl-50 mx-auto">We connect buyers and sellers of natural, organic, environmentally sound products. We find the best suppliers and makers of natural and organic products.</p> -->
-    </div>
-    <div class="row">
-        <!-- Left Column - Main Feature Post -->
-        <div class="col-md-8">
-            @if($featured)
-            <div class="card featured shadow-lg border-0">
-                <img src="{{ asset('new/img')}}/{{$featured->image }}" class="card-img-top"
-                    alt="{{ Str::limit($featured->title, 50) }}">
-                <div class="card-body">
-                    <h2 class="card-title">{{ Str::limit($featured->title, 50) }}</h2>
-                    <p class="card-text">This is a detailed description of the featured post. It highlights key
-                        information, insights, or main content.</p>
-                    <a href="{{ url('ncd_news', $featured->slug) }}" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-            @endif
-        </div>
-
-        <!-- Right Column - Other Posts (Suggested Videos Style) -->
-        <div class="col-md-4">
-            <h5 class="mb-3">More Posts</h5>
-            <div class="scrollable-div">
-                @foreach($posts as $post)
-                <div class="card mb-3 shadow-sm border-0 slide-up">
-                    <div class="row g-0">
-                        <div class="col-4">
-                            <img src="{{ asset('new/img')}}/{{$post->image }}" class="img-fluid rounded-start"
-                                alt="{{ Str::limit($post->title, 50) }}">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <h6 class="card-title">{{ Str::limit($post->title, 50) }}</h6>
-                                <p class="card-text text-muted small">Short description of the post.</p>
-                                <a href="{{ url('ncd_news', $post->slug) }}" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
     </div>
 </div>
 
+@include('includes.event-posts')
 
 <!-- SERVICE
         ================================================== -->
@@ -476,49 +293,53 @@
 @include('includes.cta')
 
 
-@include('includes.highlights')
-
 <!-- Newsletter
         ================================================== -->
-<section class="overflow-visible" style="background-color: cadetblue;">
-    <div class="container">
-        <div class="section-heading-02 text-center mb-1-9 mb-md-2-9">
-            <div class="sub-title mb-3">
-                <span class="text-secondary">Our Newsletter</span>
-                <div class="title-img">
-                    <img src="{{ asset('new/img/icons/habitro-icon.png')}}" alt="...">
-                </div>
+<section id="content" class="overflow-visible" style="background-color: cadetblue;">
+    <div class="content-wrap">
+        <div class="container">
+            <div class="section-heading-02 text-center mb-1-9 mb-md-2-9">
+                <h2 class="h1 text-white fw-bolder mb-0">Latest Newsletter</h2>
             </div>
-            <h2 class="h1 fw-bolder mb-0">Latest Newsletter</h2>
-        </div>
-        <div class="row g-xxl-5 mt-n1-9">
-            @foreach($newsletters as $newsletters)
-            <div class="col-md-6 col-lg-4 mt-1-9">
-                <article class="card-style11">
-                    <div>
-                        <img src="{{ URL::asset('new/img/bg/newsletter.png') }}" class="border-radius-10" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="text-white h4 mb-3">
-                            <a href="{{ $newsletters->link }}" target="_blank">{{ $newsletters->title }}</a>
-                        </h3>
-                        <div>
-                            <span class="d-inline-block text-white me-4"><i
-                                    class="fas fa-comments me-2 text-primary align-middle"></i>10 Comment</span>
-                            <span class="d-inline-block text-white text-capitalize"><i
-                                    class="fas fa-user me-2 text-primary"></i><a href="#!">admin</a></span>
+            <div class="row g-xxl-5 mt-n1-9">
+                @foreach($newsletters as $newsletters)
+                <div class="col-md-6 col-lg-4 mt-1-9">
+                    <article class="entry event p-3">
+                        <div class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+
+                            <div class="col-12 p-4 pt-0">
+
+                                <div class="entry-title nott">
+                                    <h3><a href="#" target="_blank">{{
+                                                        Str::limit($newsletters->title, 30)}}</a></h3>
+                                </div>
+
+                                <div class="entry-meta no-separator">
+                                    <ul>
+                                        <li><a href="#" target="_blank" class="fw-normal"><i class="uil uil-calendar"></i> {{ $newsletters->created_at }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-    <img src="{{ asset('new/img/content/animation9.png')}}"
-        class="position-absolute bottom-5 left ani-top-bottom d-none d-md-block" alt="...">
 </section>
 
 
 @include('includes.clients')
-@include('includes.bmi')
+
+<section id="content">
+    <div class="content-wrap">
+        <a href="{{ URL::route('message') }}" class="button button-full text-center footer-stick">
+            <div class="container">
+                Need more with Rwanda NDCA? <strong>Start here</strong> <i class="fa-solid fa-caret-right" style="top:4px;"></i>
+            </div>
+        </a>
+
+    </div>
+</section>
 @endsection

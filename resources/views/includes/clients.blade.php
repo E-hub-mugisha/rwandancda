@@ -7,7 +7,7 @@
             <ul class="clients-grid row row-cols-2 row-cols-sm-3 row-cols-md-6">
                 @foreach($partners as $partner)
                 @if($partner->type == 1)
-                <li class="col"><a href="#"><img src="{{ asset('new/img')}}/{{$partner->logo }}" alt="Clients"></a></li>
+                <li class="col"><a href="#"><img src="{{ asset('new/img')}}/{{$partner->logo }}" alt="Clients" height="80" width="100"></a></li>
                 @endif
                 @endforeach
             </ul>

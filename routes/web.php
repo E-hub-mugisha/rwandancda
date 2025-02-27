@@ -62,7 +62,7 @@ Route::get('/', function () {
     $resourcedata = Resource::all()->take(3);
     $newsletters = Newsletters::latest()->take(3)->get();
     $banners = CarouselItem::latest()->get();
-    $images = Gallery::latest()->take(10)->get();
+    $images = Gallery::latest()->take(4)->get();
     $featured = VoyagerPost::where('category_id', 1)
     ->inRandomOrder()
     ->first();
@@ -75,6 +75,13 @@ Route::get('/about_us', function () {
     $workers = Worker::orderBy('created_at', 'desc')->get();
     return view('about', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
 })->name('about_us');
+
+Route::get('/team_members', function () {
+    $engagements = Engagement::all();
+    $members = Member::all();
+    $workers = Worker::orderBy('created_at', 'desc')->get();
+    return view('team_member', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
+})->name('team');
 
 Route::get('/know_your_numbers', function () {
     $engagements = Engagement::all();
@@ -131,7 +138,7 @@ Route::get('/ncd_news/{slug}', function ($slug) {
 Route::get('/ncd_resources', function () {
     // return redirect()->action([PdfResourcesController::class, 'index']);
     $engagements = Engagement::all();
-    $data = Resource::all();
+    $data = Resource::simplePaginate(6);
     return view('resources', ['resources_data' => $data, 'engagements' => $engagements]);
 })->name('ncd_resources');
 
