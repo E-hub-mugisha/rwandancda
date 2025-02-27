@@ -3,22 +3,6 @@
 @section('title','Contact us')
 
 
-
-<!-- Page Title
-		============================================= -->
-<section class="page-title bg-transparent">
-  <div class="container">
-    <div class="page-title-row">
-
-      <div class="page-title-content">
-        <h1>Contact</h1>
-        <span>Get in Touch with Us</span>
-      </div>
-
-    </div>
-  </div>
-</section><!-- .page-title end -->
-
 <!-- Page Sub Menu
 		============================================= -->
 <div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
