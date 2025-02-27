@@ -9,8 +9,8 @@
 						============================================= -->
                 <div id="logo">
                     <a href="{{ route('home')}}">
-                        <img class="logo-default" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo">
-                        <img class="logo-dark" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo">
+                        <img class="logo-default" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo" style="height: 50px;">
+                        <img class="logo-dark" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo" style="height: 50px;">
                     </a>
                 </div><!-- #logo end -->
 
@@ -161,7 +161,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a class="menu-link" href="#">
+                                    <a class="menu-link" href="{{ url('video-gallery') }}">
                                         <div>Videos</div>
                                     </a>
                                 </li>
