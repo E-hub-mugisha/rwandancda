@@ -96,6 +96,11 @@ Route::get('/gallery', function () {
     return view('gallery', ['images' => $images, 'engagements' => $engagements]);
 });
 
+Route::get('/video-gallery', function () {
+    $engagements = Engagement::all();
+    return view('video-gallery', ['engagements' => $engagements]);
+});
+
 Route::get('/story/{name}', function ($name) {
     $engagements = Engagement::all();
     $data = Story::where('name', $name)->first();
