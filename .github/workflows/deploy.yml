@@ -1,0 +1,54 @@
+name: Deploy Laravel App to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on push to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Set up PHP environment for composer
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, bcmath, xml, ctype, fileinfo
+        coverage: none
+
+    # Install Composer
+    - name: Install Composer
+      run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+    # Install dependencies
+    - name: Install dependencies
+      run: composer install --no-interaction --prefer-dist
+
+    # Install Node.js and compile assets (optional)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build assets
+      run: npm run prod  # or npm run dev for non-production assets
+
+    # Upload files to cPanel via FTP
+    - name: Deploy to cPanel via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v5
+      with:
+        ftp-server: ${{ secrets.FTP_HOST }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./  # Local directory (root of your repo)
+        remote-dir: /home/username/public_html/revamp.rwandancda.org  # Remote directory (adjust this)
+        git-ftp-args: --insecure  # Optional, if needed for FTP security
