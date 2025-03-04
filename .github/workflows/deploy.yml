@@ -44,7 +44,7 @@ jobs:
 
     # Upload files to cPanel via FTP
     - name: Deploy to cPanel via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v5
+      uses: SamKirkland/FTP-Deploy-Action@v4
       with:
         ftp-server: ${{ secrets.FTP_HOST }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
