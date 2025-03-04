@@ -15379,7 +15379,7 @@ fieldset:disabled .btn {
 }
 
 :root {
-    --cnvs-themecolor: #1abc9c;
+    --cnvs-themecolor: #5D89C8;
     --cnvs-themecolor-rgb: 26, 188, 156;
     --bs-link-color: var(--cnvs-themecolor);
     --bs-link-color-rgb: var(--cnvs-themecolor-rgb);

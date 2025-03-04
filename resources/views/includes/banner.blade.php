@@ -3,6 +3,21 @@
 
         <div class="swiper swiper-parent">
             <div class="swiper-wrapper">
+            <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInUp">Global NCD Forum (#NCDAF2025)</h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">Global NCD Forum (#NCDAF2025) happening in Kigali February 2025</p>
+                        </div>
+                    </div>
+                    <div class="video-wrap no-placeholder">
+                        <video id="slide-video" poster="images/videos/forum.jpg" preload="auto" loop autoplay muted playsinline>
+                            <source src='images/videos/forum.webm' type='video/webm'>
+                            <source src='images/videos/forum.mp4' type='video/mp4'>
+                        </video>
+                        <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+                    </div>
+                </div>
                 @foreach ($banners as $item)
                 <div class="swiper-slide dark">
                     <div class="container">
@@ -20,21 +35,7 @@
                     <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
                 </div>
                 @endforeach
-                <div class="swiper-slide dark">
-                    <div class="container">
-                        <div class="slider-caption slider-caption-center">
-                            <h2 data-animate="fadeInUp">Beautifully Flexible</h2>
-                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
-                        </div>
-                    </div>
-                    <div class="video-wrap no-placeholder">
-                        <video id="slide-video" poster="images/videos/deskwork.jpg" preload="auto" loop autoplay muted playsinline>
-                            <source src='images/videos/forum.webm' type='video/webm'>
-                            <source src='images/videos/forum.mp4' type='video/mp4'>
-                        </video>
-                        <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
-                    </div>
-                </div>
+                
             </div>
             <div class="slider-arrow-left"><i class="uil uil-angle-left-b"></i></div>
             <div class="slider-arrow-right"><i class="uil uil-angle-right-b"></i></div>

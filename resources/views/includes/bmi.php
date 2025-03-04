@@ -19,80 +19,83 @@
     /* Red */
   }
 </style>
-<!-- CONTACT
-        ================================================== -->
-<section class="bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-5 col-xl-4 mb-1-9 mb-lg-0">
-        <div>
-          <div class="section-heading-02 mb-1-9 mb-lg-2-9">
-            <div class="sub-title mb-3">
-              <span class="text-secondary">Know Your Number</span>
-              <div class="title-img">
-                <img src="{{ asset('new/img/icons/habitro-icon.png')}}" alt="...">
-              </div>
-            </div>
-            <h2 class="h1 fw-bolder mb-0">BMI Calculator</h2>
-          </div>
-          <div class="p-1-9 p-sm-2-9 bg-secondary contact-form border-radius-10">
-            <div class="d-flex align-items-center mb-4">
-              <div class="flex-shrink-0">
-                <i class="fas fa-map-marker-alt contact-icon"></i>
-              </div>
-              <div class="flex-grow-1 ms-3 ms-sm-4">
-                <address class="text-white d-block mb-0">Calculate your Body Mass Index (BMI) to find out if you have a healthy weight for your height.</address>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-7">
-        <div class="bg-white shadow p-1-9 p-sm-2-9 ps-lg-7 border-radius-10">
-          <form class="quform" id="bmiForm">
-            <div class="quform-elements">
-              <div class="row">
 
-                <!-- Begin Text input element -->
-                <div class="col-md-12">
-                  <div class="quform-element form-group">
-                    <label for="weight">Your Weight (kg)<span class="quform-required">*</span></label>
-                    <div class="quform-input">
-                      <input class="form-control" id="weight" type="text"  placeholder="Please enter your weight in kilograms.">
+<section id="content">
+  <div class="content-wrap">
+    <div class="container">
+
+      <div class="form-widget">
+
+        <div class="form-result"></div>
+
+        <div class="row shadow bg-light border">
+
+          <div class="col-lg-4 dark" style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('new/img/content/about-02.jpg') center center / cover; min-height: 400px;" data-bs-theme="dark">
+            <h3 class="text-center mt-5">BMI Calculator</h3>
+            <div class="calories-wrap text-center w-100 px-2">
+              <span class="text-uppercase mb-0 ls-2">Know Your Number</span>
+              <h2 id="calories-count" class="calories display-3 mb-2 heading-block border-bottom-0 fw-semibold font-body py-2">0.0</h2>
+              <span class="text-uppercase h6 ls-3">Estimated Calories</span>
+            </div>
+            <small class="text-center m-0 position-absolute" style="bottom: 12px;">Metric Units</small>
+          </div>
+
+          <div class="col-lg-8 p-5">
+            <h3 class="text-center">Calculate Your BMI</h3>
+            <p class="text-center">Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight and obesity in adults. BMI values are age-independent and the same for both sexes.</p>
+            <form class="row mb-0" id="bmiForm">
+
+              <div class="col-12 form-group">
+                <div class="row">
+                  <div class="col-sm-2 col-form-label">
+                    <label for="fitness-form-age">Age:</label>
+                  </div>
+                  <div class="col-sm-5">
+                    <input type="number" name="fitness-form-age" id="fitness-form-age" class="form-control required" value="" placeholder="Enter your Age">
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 form-group">
+                <div class="row">
+                  <div class="col-sm-2 col-form-label">
+                    <label for="fitness-form-weight">Weight:</label>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="input-group">
+                      <input type="number" name="weight" id="weight" class="form-control required" value="" placeholder="Enter your Weight">
+                      <span class="input-group-text bg-white">kgs</span>
                     </div>
                   </div>
                 </div>
-                <!-- End Text input element -->
-
-                <!-- Begin Text input element -->
-                <div class="col-md-12">
-                  <div class="quform-element form-group">
-                    <label for="height">Your height <span class="quform-required">*</span></label>
-                    <div class="quform-input">
-                      <input class="form-control" id="height" type="text" placeholder="Please enter your height in centimeters.">
+              </div>
+              <div class="col-12 form-group">
+                <div class="row">
+                  <div class="col-sm-2 col-form-label">
+                    <label for="height">Height:</label>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="input-group">
+                      <input type="number" maxlength="3" name="height" id="height" class="form-control required" value="" placeholder="Enter your height">
+                      <span class="input-group-text bg-white">cm</span>
                     </div>
                   </div>
                 </div>
-                <!-- End Text input element -->
-
-                <!-- Begin Submit button -->
-                <div class="col-md-12">
-                  <div class="quform-submit-inner">
-                    <button class="butn-style01 border-0" type="submit"><span>Calculate BMI</span></button>
-                  </div>
-                </div>
-                <!-- End Submit button -->
-
               </div>
-            </div>
-          </form>
+              <div class="col-12 d-flex justify-content-end align-items-center">
+                <button type="submit" id="calories-trigger" class="btn btn-secondary">Calculate</button>
+              </div>
+
+            </form>
+          </div>
+
         </div>
+
       </div>
+
     </div>
   </div>
-  <img src="{{ asset('new/img/content/animation8.png')}}" class="position-absolute bottom-0 right-5 ani-left-right d-none d-md-block" alt="...">
-  <img src="{{ asset('new/img/content/animation10.png')}}" class="position-absolute top-30 left d-none d-md-block" alt="...">
 </section>
+
 
 <!-- Modal -->
 <div class="modal fade" id="bmiModal" tabindex="-1" aria-labelledby="bmiModalLabel" aria-hidden="true">

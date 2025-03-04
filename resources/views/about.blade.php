@@ -75,16 +75,16 @@
       <div class="vertical-middle text-center" style="z-index: 2;">
         <div class="container fadeInUp animated" data-animate="fadeInUp">
           <div class="heading-block border-bottom-0 mb-0">
-            <h2 style="font-size: 42px;">Beautiful HTML5 Videos</h2>
-            <span class="d-none d-lg-block">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</span>
+            <h2 style="font-size: 42px;">Global NCD Forum (#NCDAF2025) happening in Kigali February 2025</h2>
+            <span class="d-none d-lg-block">Global NCD Forum (#NCDAF2025) happening in Kigali February 2025</span>
           </div>
           <a href="#" class="button button-border button-rounded button-white button-light button-large ms-0 mb-0" style="margin-top: 40px;">Show More</a>
         </div>
       </div>
 
       <div class="video-wrap no-placeholder" style="z-index: 1;">
-        <video poster="images/videos/messiermarathon.jpg" preload="none" loop="" autoplay="" muted="" playsinline="" style="width: 800px; height: 450px; left: -69.5px;">
-          <source src="images/videos/messiermarathon.mp4" type="video/mp4">
+        <video poster="images/videos/forum.jpg" preload="none" loop="" autoplay="" muted="" playsinline="" style="width: 800px; height: 450px; left: -69.5px;">
+          <source src="images/videos/forum.mp4" type="video/mp4">
           <source src="images/videos/messiermarathon.webm" type="video/webm">
         </video>
         <div class="video-overlay" style="background-color: rgba(0,0,0,0.1);"></div>

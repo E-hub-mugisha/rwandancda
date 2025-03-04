@@ -53,7 +53,6 @@
     <div class="content-wrap bg-light">
         <div class="container">
             <div class="section-heading">
-                <span class="text-secondary title-font display-25 display-md-23 d-block mb-1">Updates</span>
                 <h2>{!! $header ?? 'Recent<span class="fw-bolder"> News & Events</span>' !!}</h2>
                 <!-- <p class="mb-0 w-md-80 w-lg-70 w-xl-50 mx-auto">We connect buyers and sellers of natural, organic, environmentally sound products. We find the best suppliers and makers of natural and organic products.</p> -->
             </div>
@@ -87,49 +86,11 @@
                                     <div class="entry-content my-3">
                                         <p class="mb-0">{{ Str::limit($featured->title, 50) }}</p>
                                     </div>
-
-                                    <div class="entry-meta no-separator">
-                                        <ul>
-                                            <li><a href="{{ url('ncd_news', $featured->slug) }}" class="fw-normal"><i class="uil uil-map-marker"></i> New York, USA</a></li>
-                                        </ul>
-                                    </div>
+                                    <a href="{{ url('ncd_news', $featured->slug) }}" class="more-link">Read More</a>
                                 </div>
                             </div>
                         </article>
                         @endif
-                        <div class="row g-4 ">
-                            <div class="col-md-6 py-0 px-1">
-                                <div class="card bg-dark text-white mb-2">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2K4yolH6XYQ?autoplay=1&loop=1&playlist=2K4yolH6XYQ&mute=1" allowfullscreen></iframe>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 py-0 px-1">
-                                <div class="card bg-dark text-white mb-2">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XiBuCe_4cxg?autoplay=1&loop=1&playlist=XiBuCe_4cxg&mute=1" allowfullscreen></iframe>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 py-0 px-1">
-                                <div class="card bg-dark text-white mb-2">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/kWiL9TAI41Y?autoplay=1&loop=1&playlist=kWiL9TAI41Y&mute=1" allowfullscreen></iframe>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 py-0 px-1">
-                                <div class="card bg-dark text-white mb-2">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2K4yolH6XYQ?autoplay=1&loop=1&playlist=2K4yolH6XYQ&mute=1" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </main>
 
@@ -138,7 +99,7 @@
 
                         <div class="widget">
 
-                            <h4>Recent Posts</h4>
+                            <h4><span class="fw-bolder">Recent Posts</span></h4>
                             <div class="posts-sm row col-mb-30 scrollable-div" id="post-list-sidebar">
                                 @foreach($posts as $post)
                                 <div class="entry col-12 slide-up">
@@ -164,52 +125,51 @@
                             </div>
 
                         </div>
+                    </div>
+                </aside>
 
-                        <div class="widget">
+                <div class="widget col-lg-6 order-lg-last">
+                    <div class="sidebar-widgets-wrap bg-white rounded-5 p-4 shadow-sm">
+                        <h4><span class="fw-bolder">Recent Events in Photo</span></h4>
+                        <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
 
-                            <h4>Events</h4>
-                            <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
-
-                                <div class="owl-stage-outer">
-                                    <div class="owl-stage" style="transform: translate3d(-956px, 0px, 0px); transition: 0.25s; width: 2868px;">
-                                        @foreach( $images as $image )
-                                        <div class="owl-item cloned" style="width: 468px; margin-right: 10px;">
-                                            <div class="portfolio-item">
-                                                <div class="portfolio-image">
-                                                    <a href="#">
-                                                        <img src="{{ asset('new/img/galleries')}}/{{$image->image }}" alt="Image">
-                                                    </a>
-                                                    <div class="bg-overlay">
-                                                        <div class="bg-overlay-content dark not-animated" data-hover-animate="fadeIn" data-hover-speed="350" data-bs-theme="dark" style="animation-duration: 350ms;">
-                                                            <a href="https://vimeo.com/89396394" class="overlay-trigger-icon bg-light text-dark not-animated" data-hover-animate="zoomIn" data-hover-speed="350" data-lightbox="iframe" style="animation-duration: 350ms;"><i class="uil uil-play"></i></a>
-                                                        </div>
-                                                        <div class="bg-overlay-bg dark not-animated" data-hover-animate="fadeIn" data-hover-speed="350" data-bs-theme="dark" style="animation-duration: 350ms;"></div>
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage" style="transform: translate3d(-956px, 0px, 0px); transition: 0.25s; width: 2868px;">
+                                    @foreach( $images as $image )
+                                    <div class="owl-item cloned" style="width: 468px; margin-right: 10px;">
+                                        <div class="portfolio-item">
+                                            <div class="portfolio-image">
+                                                <a href="#">
+                                                    <img src="{{ asset('new/img/galleries')}}/{{$image->image }}" alt="Image">
+                                                </a>
+                                                <div class="bg-overlay">
+                                                    <div class="bg-overlay-content dark not-animated" data-hover-animate="fadeIn" data-hover-speed="350" data-bs-theme="dark" style="animation-duration: 350ms;">
+                                                        <a href="https://vimeo.com/89396394" class="overlay-trigger-icon bg-light text-dark not-animated" data-hover-animate="zoomIn" data-hover-speed="350" data-lightbox="iframe" style="animation-duration: 350ms;"><i class="uil uil-play"></i></a>
                                                     </div>
+                                                    <div class="bg-overlay-bg dark not-animated" data-hover-animate="fadeIn" data-hover-speed="350" data-bs-theme="dark" style="animation-duration: 350ms;"></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        @endforeach
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
-
-
                         </div>
-
-                        <div class="widget">
-
-                            <h4>Recent Event in Video</h4>
-                            <div class="fluid-width-video-wrapper">
-                                <video preload="none" loop="" autoplay="" muted="" playsinline="">
-                                    <source src="images/videos/forum.mp4" allow="autoplay; fullscreen" allowfullscreen="" id="fitvid0">
-                                    </source>
-                                </video>
-                            </div>
-
-                        </div>
-
                     </div>
-                </aside>
+
+                </div>
+
+                <div class="widget col-lg-6 order-lg-last">
+                    <div class="sidebar-widgets-wrap bg-white rounded-5 p-4 shadow-sm">
+                        <h4><span class="fw-bolder">Recent Event in Video</span></h4>
+                        <div class="fluid-width-video-wrapper">
+                            <video preload="none" loop="" autoplay="" muted="" playsinline="" style="width: 100%;">
+                                <source src="images/videos/forum.mp4" allow="autoplay; fullscreen" allowfullscreen="" id="fitvid0">
+                                </source>
+                            </video>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

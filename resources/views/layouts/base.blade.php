@@ -13,7 +13,7 @@
     <meta name="description" content="RWANDANCDA - Rwanda non-communicable disease alliance" />
 
     <!-- title  -->
-    <title>{{ config('app.name', 'RWANDANCDA') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'RWANDANCDA') }}</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('new/img/logos/logo2.png')}}" />

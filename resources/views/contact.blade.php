@@ -15,7 +15,7 @@
         <nav class="page-menu-nav">
           <ul class="page-menu-container">
             <li class="page-menu-item current"><a href="#">
-                <div>Start here</div>
+                <div>@yield('title')</div>
               </a></li>
           </ul>
         </nav>

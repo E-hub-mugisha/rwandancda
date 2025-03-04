@@ -2,42 +2,67 @@
 @section('title','Newsletter')
 @section('content')
 
+<!-- Page Sub Menu
+		============================================= -->
+<div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
+  <div id="page-menu-wrap">
+    <div class="container">
+      <div class="page-menu-row">
+
+        <div class="page-menu-title">Rwanda<span>NCDA</span></div>
+
+        <nav class="page-menu-nav">
+          <ul class="page-menu-container">
+            <li class="page-menu-item current"><a href="#">
+                <div>@yield('title')</div>
+              </a></li>
+          </ul>
+        </nav>
+
+        <div id="page-menu-trigger"><i class="bi-list"></i></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="page-menu-wrap-clone" style="height: 48px;"></div>
+</div><!-- #page-menu end -->
+
 <section id="content" data-onepage-settings="{&quot;offset&quot;:50,&quot;speed&quot;:800,&quot;easing&quot;:false}">
   <div class="content-wrap pb-0">
 
-      <div class="container">
+    <div class="container">
 
-        <div class="row align-items-center">
-          <div class="col-md-5">
-            <img src="{{ asset('new/img/content/why-us.jpg')}}" class="rounded" alt="...">
-          </div>
-
-          <div class="col-md-7 text-center text-md-start">
-            <div class="heading-block border-bottom-0">
-              <h2>Why filling this form ?</h2>
-              <span>Rwanda NCD Alliance newsletter is a quarterly output that intends to keep members and stakeholders up to date with our work.
-              </span>
-              <p>
-
-                This tool was designed to collect inputs from our members and engage them in the content development process.
-                Members submission should include but not limited to: </p>
-              <p>Recent news items or activities such as campaigns, meetings, advocacy successes, event reports, or any other developments your organization has organized; </p>
-
-              <p>Upcoming events that you are planning that are relevant for the NCD community;</p>
-
-              <p>Useful resources on NCDs that you have developed;</p>
-
-              <p>Any other opportunities in your organization that could benefit other members, such as internship, volunteerism, scholarships... </p>
-              <p>Note: You can submit your content for the next publications at any time.</p>
-              <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-outline-secondary">Learn more →</button>
-            </div>
-          </div>
-
-          <div class="line"></div>
-
+      <div class="row align-items-center">
+        <div class="col-md-5">
+          <img src="{{ asset('new/img/content/why-us.jpg')}}" class="rounded" alt="...">
         </div>
 
+        <div class="col-md-7 text-center text-md-start">
+          <div class="heading-block border-bottom-0">
+            <h2>Why filling this form ?</h2>
+            <span>Rwanda NCD Alliance newsletter is a quarterly output that intends to keep members and stakeholders up to date with our work.
+            </span>
+            <p>
+
+              This tool was designed to collect inputs from our members and engage them in the content development process.
+              Members submission should include but not limited to: </p>
+            <p>Recent news items or activities such as campaigns, meetings, advocacy successes, event reports, or any other developments your organization has organized; </p>
+
+            <p>Upcoming events that you are planning that are relevant for the NCD community;</p>
+
+            <p>Useful resources on NCDs that you have developed;</p>
+
+            <p>Any other opportunities in your organization that could benefit other members, such as internship, volunteerism, scholarships... </p>
+            <p>Note: You can submit your content for the next publications at any time.</p>
+            <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-outline-secondary">Learn more →</button>
+          </div>
+        </div>
+
+        <div class="line"></div>
+
       </div>
+
+    </div>
   </div>
 </section>
 <!-- static Modal -->
@@ -135,42 +160,38 @@
         ================================================== -->
 <section id="content" data-onepage-settings="{&quot;offset&quot;:50,&quot;speed&quot;:800,&quot;easing&quot;:false}">
   <div class="content-wrap pb-0">
-      <div class="container">
-        <div class="row g-xl-5">
-          @foreach($newsletters as $newsletters)
-          <div class="col-md-6 col-lg-4 mt-1-9">
-            <article class="entry event p-3">
-              <div class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+    <div class="container">
+      <div class="row g-xl-5">
+        @foreach($newsletters as $newsletters)
+        <div class="col-md-6 col-lg-4 mt-1-9">
+          <article class="entry event p-3">
+            <div class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
 
-                <div class="col-12 p-4 pt-0">
-                  <div class="entry-meta no-separator mb-1 mt-0">
-                    <ul>
-                      <li><a href="#" target="_blank" class="text-uppercase fw-medium">{{ $newsletters->created_at }}</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="entry-title nott">
-                    <h3><a href="#" target="_blank">{{
-                                                        Str::limit($newsletters->title, 50)}}</a></h3>
-                  </div>
-                  <div class="entry-content my-3">
-                    <p class="mb-0">{{
-                                                        Str::limit($newsletters->title, 50)}}</p>
-                  </div>
-
-                  <div class="entry-meta no-separator">
-                    <ul>
-                      <li><a href="#" target="_blank" class="fw-normal"><i class="uil uil-map-marker"></i> New York, USA</a></li>
-                    </ul>
-                  </div>
+              <div class="col-12 p-4 pt-0">
+                <div class="entry-meta no-separator mb-1 mt-0">
+                  <ul>
+                    <li><a href="#" target="_blank" class="text-uppercase fw-medium">{{ $newsletters->created_at }}</a></li>
+                  </ul>
                 </div>
+
+                <div class="entry-title nott">
+                  <h3><a href="#" target="_blank">{{
+                                                        Str::limit($newsletters->title, 50)}}</a></h3>
+                </div>
+                <div class="entry-content my-3">
+                  <p class="mb-0">{{
+                                                        Str::limit($newsletters->title, 50)}}</p>
+                </div>
+
+                
               </div>
-            </article>
-          </div>
-          @endforeach
+            </div>
+          </article>
         </div>
+        @endforeach
       </div>
-    
+    </div>
+
   </div>
 </section>
 @endsection

@@ -61,15 +61,15 @@
             <div class="vertical-middle text-center" style="z-index: 2;">
                 <div class="container fadeInUp animated" data-animate="fadeInUp">
                     <div class="heading-block border-bottom-0 mb-0">
-                        <h2 style="font-size: 42px;">Beautiful HTML5 Videos</h2>
-                        <span class="d-none d-lg-block">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</span>
+                        <h2 style="font-size: 42px;">Global NCD Forum (#NCDAF2025) happening in Kigali February 2025</h2>
+                        <span class="d-none d-lg-block">Global NCD Forum (#NCDAF2025) happening in Kigali February 2025</span>
                     </div>
                     <a href="#" class="button button-border button-rounded button-white button-light button-large ms-0 mb-0" style="margin-top: 40px;">Show More</a>
                 </div>
             </div>
 
             <div class="video-wrap no-placeholder" style="z-index: 1;">
-                <video poster="images/videos/messiermarathon.jpg" preload="none" loop="" autoplay="" muted="" playsinline="" style="width: 800px; height: 450px; left: -69.5px;">
+                <video poster="images/videos/forum.jpg" preload="none" loop="" autoplay="" muted="" playsinline="" style="width: 800px; height: 450px; left: -69.5px;">
                     <source src="images/videos/forum.mp4" type="video/mp4">
                     <source src="images/videos/forum.webm" type="video/webm">
                 </video>
@@ -240,18 +240,8 @@
                                 <div class="oc-item">
                                     <article class="entry event p-3">
                                         <div class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                            <div class="col-12 mb-md-0">
-                                                <?php $file = (json_decode($resource->file))[0]->download_link; ?>
-                                                <a href="{{ URL::asset( $file ) }}" target="_blank" class="entry-image">
-                                                    <img src="https://source.unsplash.com/fIHozNWfcvs/800x450" alt="Inventore voluptates velit totam ipsa tenetur" class="rounded-2">
-                                                    <div class="bg-overlay">
-                                                        <div class="bg-overlay-content justify-content-start align-items-start">
-                                                            <div class="badge bg-light text-dark rounded-pill">Resources</div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
                                             <div class="col-12 p-4 pt-0">
+                                                <?php $file = (json_decode($resource->file))[0]->download_link; ?>
                                                 <div class="entry-meta no-separator mb-1 mt-0">
                                                     <ul>
                                                         <li><a href="{{ URL::asset( $file ) }}" target="_blank" class="text-uppercase fw-medium">{{ $resource->created_at }}</a></li>
@@ -267,11 +257,6 @@
                                                         Str::limit($resource->title, 50)}}</p>
                                                 </div>
 
-                                                <div class="entry-meta no-separator">
-                                                    <ul>
-                                                        <li><a href="{{ URL::asset( $file ) }}" target="_blank" class="fw-normal"><i class="uil uil-map-marker"></i> New York, USA</a></li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </article>
@@ -295,7 +280,7 @@
 
 <!-- Newsletter
         ================================================== -->
-<section id="content" class="overflow-visible" style="background-color: cadetblue;">
+<section id="content" class="overflow-visible" style="background-color: #5D89C8;">
     <div class="content-wrap">
         <div class="container">
             <div class="section-heading-02 text-center mb-1-9 mb-md-2-9">
@@ -333,13 +318,10 @@
 @include('includes.clients')
 
 <section id="content">
-    <div class="content-wrap">
-        <a href="{{ URL::route('message') }}" class="button button-full text-center footer-stick">
+    <a href="{{ URL::route('message') }}" class="button button-full text-center footer-stick">
             <div class="container">
                 Need more with Rwanda NDCA? <strong>Start here</strong> <i class="fa-solid fa-caret-right" style="top:4px;"></i>
             </div>
         </a>
-
-    </div>
 </section>
 @endsection

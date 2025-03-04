@@ -1,3 +1,39 @@
+<style>
+    #top-cart {
+        display: flex;
+        justify-content: flex-start;
+        /* Align icons to the left */
+        align-items: center;
+        /* Vertically center the icons */
+    }
+
+    #top-social {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    #top-social li {
+        margin-right: 15px;
+        /* Adjust space between icons */
+    }
+
+    #top-social a {
+        color: #000;
+        /* Default color for icons */
+        font-size: 20px;
+        /* Size of the icons */
+        transition: color 0.3s;
+        /* Smooth transition on hover */
+    }
+
+    #top-social a:hover {
+        color: #0073e6;
+        /* Change color on hover (adjust as needed) */
+    }
+</style>
+
 <!-- Header
 		============================================= -->
 <header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
@@ -10,7 +46,7 @@
                 <div id="logo">
                     <a href="{{ route('home')}}">
                         <img class="logo-default" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo" style="height: 50px;">
-                        <img class="logo-dark" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo" style="height: 50px;">
+                        <img class="logo-dark" srcset="{{ asset('new/img/logos/logo-footer.png')}}" src="{{ asset('new/img/logos/logo-footer.png')}}" alt="Canvas Logo" style="height: 50px;">
                     </a>
                 </div><!-- #logo end -->
 
@@ -22,7 +58,7 @@
                     <div id="top-cart" class="header-misc-icon d-none d-sm-block">
                         <ul id="top-social">
                             <li><a href="https://www.facebook.com/RwandaNCDA"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://twitter.com/RwandaNCDA"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://twitter.com/RwandaNCDA"><i class="fab fa-x-twitter"></i></a></li>
                             <li><a href="http://www.youtube.com/@rwandancda"><i class="fab fa-youtube"></i></a></li>
                             <li><a href="https://www.linkedin.com/company/65703122/admin/dashboard/"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
@@ -56,6 +92,11 @@
                                         <div>Team members</div>
                                     </a>
                                 </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ URL::route('partnerships') }}">
+                                        <div>Partnerships & Members</div>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="menu-item">
@@ -74,64 +115,51 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item mega-menu">
+                        <li class="menu-item">
                             <a class="menu-link" href="#">
                                 <div>Resources</div>
                             </a>
-                            <div class="mega-menu-content mega-menu-style-2">
-                                <div class="container">
-                                    <div class="row">
-                                        <ul class="sub-menu-container mega-menu-column col-lg-6">
-                                            <li class="menu-item mega-menu-title">
-                                                <a class="menu-link" href="#">
-                                                    <div>Assessment Tools</div>
-                                                </a>
-                                                <ul class="sub-menu-container">
-                                                    <li class="menu-item">
-                                                        <a class="menu-link" href="{{ URL::route('know_your_numbers') }}">
-                                                            <div>Know your numbers (BMI)</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a class="menu-link" href="gdpr.html">
-                                                            <div>Diabetes</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a class="menu-link" href="gdpr.html">
-                                                            <div>hypertension</div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="sub-menu-container mega-menu-column col-lg-6">
-                                            <li class="menu-item mega-menu-title">
-                                                <a class="menu-link" href="#">
-                                                    <div>Resources</div>
-                                                </a>
-                                                <ul class="sub-menu-container">
-                                                    <li class="menu-item">
-                                                        <a class="menu-link" href="{{ URL::route('ncd_resources') }}">
-                                                            <div><i class="bi-asterisk"></i>Publications</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a class="menu-link" href="{{ URL::route('add_newsletter') }}">
-                                                            <div><i class="bi-calendar"></i>Newsletter</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a class="menu-link" href="{{ url('/') }}#testimonials">
-                                                            <div><i class="bi-question-circle"></i>NCD Stories</div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class="sub-menu-container">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="shop.html">
+                                        <div>Resources</div>
+                                    </a>
+                                    <ul class="sub-menu-container">
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="{{ URL::route('ncd_resources') }}">
+                                                <div><i class="bi-asterisk"></i>Publications</div>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="{{ URL::route('add_newsletter') }}">
+                                                <div><i class="bi-calendar"></i>Newsletter</div>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="{{ url('/') }}#testimonials">
+                                                <div><i class="bi-question-circle"></i>NCD Stories</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#">
+                                        <div>Assessment Tools</div>
+                                    </a>
+                                    <ul class="sub-menu-container">
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="{{ URL::route('know_your_numbers') }}">
+                                                <div>Know your numbers (BMI)</div>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="{{ URL::route('assessments.create') }}">
+                                                <div>Diabetes assessment</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
                         <li class="menu-item">
                             <a class="menu-link" href="#!">
@@ -180,4 +208,3 @@
     </div>
     <div class="header-wrap-clone"></div>
 </header><!-- #header end -->
-

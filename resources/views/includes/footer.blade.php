@@ -118,7 +118,7 @@
                                     </div>
                                     <div class="col-6 col-md-12 col-lg-6 d-flex align-items-center">
                                         <a href="https://twitter.com/RwandaNCDA" class="social-icon text-white border-transparent bg-twitter me-2 mb-0 float-none">
-                                            <i class="fa-solid fa-twitter"></i>
+                                            <i class="fab fa-x-twitter"></i>
                                         </a>
                                         <a href="https://twitter.com/RwandaNCDA" class="ms-1"><small class="d-block"><strong>Follow Us</strong><br>on Twiiter</small></a>
                                     </div>
