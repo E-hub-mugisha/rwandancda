@@ -44,11 +44,10 @@ jobs:
 
     # Upload files to cPanel via FTP
     - name: Deploy to cPanel via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        ftp-server: ${{ secrets.FTP_HOST }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./  # Local directory (root of your repo)
-        remote-dir: /home/username/public_html/revamp.rwandancda.org  # Remote directory (adjust this)
-        git-ftp-args: --insecure  # Optional, if needed for FTP security
+        server-dir: /home/username/public_html/revamp.rwandancda.org  # Remote directory (adjust this)
