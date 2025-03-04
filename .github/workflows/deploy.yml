@@ -50,4 +50,6 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./  # Local directory (root of your repo)
-        server-dir: /home/username/public_html/revamp.rwandancda.org/  # ✅ Add trailing slash
+        server-dir: /home/username/public_html/revamp.rwandancda.org/  # ✅ Ensure correct path
+        passive: true   # ✅ Enable passive mode
+        timeout: 60000  # ✅ Increase timeout to 60 seconds
