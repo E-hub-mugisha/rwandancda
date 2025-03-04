@@ -28,7 +28,7 @@ jobs:
 
     # Install dependencies
     - name: Install dependencies
-      run: composer install --no-interaction --prefer-dist
+      run: composer install --no-interaction --prefer-dist --no-dev
 
     # Install Node.js and compile assets (optional)
     - name: Set up Node.js
@@ -50,4 +50,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./  # Local directory (root of your repo)
-        server-dir: /home/username/public_html/revamp.rwandancda.org  # Remote directory (adjust this)
+        server-dir: /home/username/public_html/revamp.rwandancda.org/  # ✅ Add trailing slash
