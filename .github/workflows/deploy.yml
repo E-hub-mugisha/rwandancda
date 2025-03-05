@@ -14,7 +14,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Set up PHP environment for composer
+    # Set up PHP environment for Composer
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -44,12 +44,11 @@ jobs:
 
     # Upload files to cPanel via FTP
     - name: Deploy to cPanel via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./  # Local directory (root of your repo)
-        server-dir: /home/username/public_html/revamp.rwandancda.org/  # ✅ Ensure correct path
-        passive: true   # ✅ Enable passive mode
-        timeout: 60000  # ✅ Increase timeout to 60 seconds
+        server-dir: /home/rwandancda/public_html/revamp.rwandancda.org/  # ✅ Correct path
+        log-level: verbose  # ✅ Enables detailed logs
