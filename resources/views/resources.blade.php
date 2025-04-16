@@ -2,70 +2,48 @@
 @section('content')
 @section('title','Resources')
 
-<!-- Page Sub Menu
-		============================================= -->
-    <div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
-  <div id="page-menu-wrap">
-    <div class="container">
-      <div class="page-menu-row">
-
-        <div class="page-menu-title">Rwanda<span>NCDA</span></div>
-
-        <nav class="page-menu-nav">
-          <ul class="page-menu-container">
-            <li class="page-menu-item current"><a href="#">
-                <div>@yield('title')</div>
-              </a></li>
-          </ul>
-        </nav>
-
-        <div id="page-menu-trigger"><i class="bi-list"></i></div>
-
+<section class="cs_service_area cs_type_3">
+  <div class="cs_height_120 cs_height_lg_80"></div>
+  <div class="container">
+    <div class="cs_section_heading cs_style_1 cs_type_1">
+      <div class="cs_section_heading_left">
+        <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Resources</p>
+        <h2 class="cs_section_title cs_accent_color mb-0">We offer more than Services &amp; all Solutions Medical.</h2>
       </div>
+      <div class="cs_section_heading_right cs_accent_color text-end">the other hand, we denounce with righteous
+        indignation and dislike men who are so beguiled and demoralized</div>
+    </div>
+    <div class="cs_height_100 cs_height_lg_40"></div>
+    <div class="row cs_gap_y_30">
+      @foreach($resources_data as $resource)
+      @if( empty( (json_decode($resource->file))[0]->download_link ) )
+      @continue
+      @else
+      <div class="col-lg-4">
+        <?php $file = (json_decode($resource->file))[0]->download_link; ?>
+        <div class="cs_iconbox cs_style_8 cs_white_bg">
+          <h3 class="cs_iconbox_title cs_fs_32 cs_semibold">
+            <a href="{{ URL::asset( $file ) }}" target="_blank">{{ Str::limit($resource->title, 50)}}</a>
+          </h3>
+          <!-- <p class="cs_iconbox_subtitle">
+                        {{ Str::limit($resource->title, 50)}}
+                    </p> -->
+          <a href="{{ URL::asset( $file ) }}" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+            <span>Read More</span>
+            <div class="cs_text_btn_icon cs_center">
+              <span><i class="fa-solid fa-arrow-right-long"></i></span>
+              <span><i class="fa-solid fa-arrow-right-long"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+      @endif
+      @endforeach
+
+      {{ $resources_data->links('vendor.pagination.custom-pagination') }}
     </div>
   </div>
-  <div class="page-menu-wrap-clone" style="height: 48px;"></div>
-</div><!-- #page-menu end -->
-
-<section id="content" data-onepage-settings="{&quot;offset&quot;:50,&quot;speed&quot;:800,&quot;easing&quot;:false}">
-  <div class="content-wrap pb-0">
-      <div class="container">
-        <div class="row g-xl-5 ">
-          @foreach($resources_data as $resource)
-          @if( empty( (json_decode($resource->file))[0]->download_link ) )
-          @continue
-          @else
-          <div class="col-md-6 col-lg-6 mt-2-9">
-            <article class="entry event p-3">
-              <div class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                <?php $file = (json_decode($resource->file))[0]->download_link; ?>
-                  
-                <div class="col-12 p-4 pt-0">
-                  <div class="entry-meta no-separator mb-1 mt-0">
-                    <ul>
-                      <li><a href="{{ URL::asset( $file ) }}" target="_blank" class="text-uppercase fw-medium">{{ $resource->created_at }}</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="entry-title nott">
-                    <h3><a href="{{ URL::asset( $file ) }}" target="_blank">{{
-                                                        Str::limit($resource->title, 50)}}</a></h3>
-                  </div>
-                  <div class="entry-content my-3">
-                    <p class="mb-0">{{
-                                                        Str::limit($resource->title, 50)}}</p>
-                  </div>
-
-                </div>
-              </div>
-            </article>
-          </div>
-          @endif
-          @endforeach
-        </div>
-        {{ $resources_data->links('vendor.pagination.custom-pagination') }}
-      </div>
-    </div>
+  <div class="cs_height_120 cs_height_lg_80"></div>
 </section>
 
 @endsection

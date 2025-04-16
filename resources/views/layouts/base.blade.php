@@ -21,17 +21,16 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('new/img/logos/logo2.png')}}" />
     <link rel="apple-touch-icon" sizes="114x114" href="i{{ asset('new/mg/logos/logo2.png')}}" />
 
-    <!-- plugins -->
-    <link rel="stylesheet" href="{{ asset('css/custom.css')}}">
-
-    <!-- search css -->
-    <link rel="stylesheet" href="{{ asset('css/font-icons.css')}}">
-
-    <!-- quform css -->
-    <link rel="stylesheet" href="{{ asset('css/swiper.css')}}">
-
-    <!-- theme core css -->
-    <link href="{{ asset('new/css/styles.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/odometer.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/light-gallerr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery-timepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body class="stretched">
@@ -51,17 +50,18 @@
         @include('includes.footer')
     </div>
 
-    <!-- SCROLL TO TOP
-    ================================================== -->
-    <div id="gotoTop" class="uil uil-angle-up"></div>
-
-    <!-- all js include start -->
-
-    <!-- jQuery -->
-    <script src="{{ asset('js/plugins.min.js') }}"></script>
-
-    <!-- popper js -->
-    <script src="{{ asset('js/functions.bundle.js') }}"></script>
+    <!-- Script -->
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slick.min.js') }}"></script>
+    <script src="{{ asset('assets/js/odometer.js') }}"></script>
+    <script src="{{ asset('assets/js/light-gallery.min.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-timepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/ripples.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
 

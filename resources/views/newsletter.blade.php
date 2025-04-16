@@ -2,123 +2,145 @@
 @section('title','Newsletter')
 @section('content')
 
-<!-- Page Sub Menu
-		============================================= -->
-<div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
-  <div id="page-menu-wrap">
-    <div class="container">
-      <div class="page-menu-row">
 
-        <div class="page-menu-title">Rwanda<span>NCDA</span></div>
-
-        <nav class="page-menu-nav">
-          <ul class="page-menu-container">
-            <li class="page-menu-item current"><a href="#">
-                <div>@yield('title')</div>
-              </a></li>
-          </ul>
-        </nav>
-
-        <div id="page-menu-trigger"><i class="bi-list"></i></div>
-
+<section class="cs_video_section cs_style_1 cs_accent_bg position-relative">
+  <div class="cs_height_120 cs_height_lg_80"></div>
+  <div class="container">
+    <div class="cs_vider_wrapper cs_style_1">
+      <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
+        <span></span>
+      </a>
+      <h2 class="cs_video_title">Rwanda NCD Alliance &nbsp;<span class="cs_accent_color">Quarterly newsletter</span></h2>
+      <p class="cs_video_subtitle">Rwanda NCD Alliance newsletter is a quarterly output that intends to keep members and stakeholders up to date with our work.</p>
+      <div class="cs_btns_group wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
+        <a href="about.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+          <span class="cs_btn_text">Learn More</span>
+        </a>
+        <a href="contact.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+          <span class="cs_btn_text">Contact Now</span>
+        </a>
+      </div>
+      <div class="cs_video_shape_3">
+        <img src="{{ asset('assets/img/heartbeat.svg') }}" alt="Icon">
+      </div>
+      <div class="cs_video_shape_4">
+        <img src="{{ asset('assets/img/stethoscope.svg') }}" alt="Icon">
       </div>
     </div>
-  </div>
-  <div class="page-menu-wrap-clone" style="height: 48px;"></div>
-</div><!-- #page-menu end -->
-
-<section id="content" data-onepage-settings="{&quot;offset&quot;:50,&quot;speed&quot;:800,&quot;easing&quot;:false}">
-  <div class="content-wrap pb-0">
-
-    <div class="container">
-
-      <div class="row align-items-center">
-        <div class="col-md-5">
-          <img src="{{ asset('new/img/content/why-us.jpg')}}" class="rounded" alt="...">
-        </div>
-
-        <div class="col-md-7 text-center text-md-start">
-          <div class="heading-block border-bottom-0">
-            <h2>Why filling this form ?</h2>
-            <span>Rwanda NCD Alliance newsletter is a quarterly output that intends to keep members and stakeholders up to date with our work.
-            </span>
-            <p>
-
-              This tool was designed to collect inputs from our members and engage them in the content development process.
-              Members submission should include but not limited to: </p>
-            <p>Recent news items or activities such as campaigns, meetings, advocacy successes, event reports, or any other developments your organization has organized; </p>
-
-            <p>Upcoming events that you are planning that are relevant for the NCD community;</p>
-
-            <p>Useful resources on NCDs that you have developed;</p>
-
-            <p>Any other opportunities in your organization that could benefit other members, such as internship, volunteerism, scholarships... </p>
-            <p>Note: You can submit your content for the next publications at any time.</p>
-            <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-outline-secondary">Learn more →</button>
-          </div>
-        </div>
-
-        <div class="line"></div>
-
-      </div>
-
+    <div class="cs_video_shape_1">
+      <img src="{{ asset('assets/img/icons/coronavirus.svg') }}" alt="Icon">
+    </div>
+    <div class="cs_video_shape_2">
+      <img src="{{ asset('assets/img/icons/health-insurance.svg') }}" alt="Icon" class="cs_spinner_img">
     </div>
   </div>
 </section>
+
+<section class="cs_service_area cs_accent_bg position-relative">
+  <div class="cs_height_120 cs_height_lg_80"></div>
+  <div class="container">
+    <div class="cs_section_heading cs_style_1 cs_type_1">
+      <div class="cs_section_heading_right cs_white_color_8">This tool was designed to collect inputs from our members and engage them in the content development process.</div>
+      <div class="cs_section_heading_left">
+        <p class="cs_section_subtitle cs_white_color">Newsletter</p>
+        <h2 class="cs_section_title cs_white_color">We offer Members submission should include but not limited.</h2>
+      </div>
+    </div>
+    <div class="cs_height_50 cs_height_lg_40"></div>
+    <div class="row cs_gap_y_40 justify-content-center">
+      <div class="col-lg-6">
+        <div class="cs_pricing_table cs_style_1 cs_type_2">
+          <div class="cs_pricing_headedr">
+            <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Get to know</h3>
+            <a href="contact.html" class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
+              <span><i class="fa-solid fa-arrow-right"></i></span>
+              <span><i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+          <div class="cs_pricing_feature">
+            <h3 class="cs_pricing_feature_title cs_fs_32">Our Objectives</h3>
+            <ul class="cs_pricing_feature_list cs_mp0">
+              <li><i class="fa-solid fa-check"></i>Recent news items or activities such as campaigns, meetings, advocacy successes, event reports, or any other developments your organization has organized;</li>
+              <li><i class="fa-solid fa-check"></i>Upcoming events that you are planning that are relevant for the NCD community;</li>
+              <li><i class="fa-solid fa-check"></i>Useful resources on NCDs that you have developed;</li>
+              <li><i class="fa-solid fa-check"></i>Any other opportunities in your organization that could benefit other members, such as internship, volunteerism, scholarships... </li>
+              <li><i class="fa-solid fa-question"></i>Note: You can submit your content for the next publications at any time.</li>
+            </ul>
+            <button class="cs_pricing_btn cs_fs_18 cs_semibold cs_accent_color cs_white_bg cs_hover_up" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Let's collaborate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cs_service_shape_1 position-absolute">
+    <img src="{{ asset('assets/img/heartbeat_2.svg') }}" alt="Shape">
+  </div>
+  <div class="cs_service_shape_2 position-absolute">
+    <img src="{{ asset('assets/img/stethoscope_2.svg') }}" alt="Shape" class="cs_spinner_img">
+  </div>
+  <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+
+<section class="cs_service_area cs_type_3">
+  <div class="cs_height_120 cs_height_lg_80"></div>
+  <div class="container">
+    <div class="cs_section_heading cs_style_1 cs_type_1">
+      <div class="cs_section_heading_left">
+        <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Resources</p>
+        <h2 class="cs_section_title cs_accent_color mb-0">We offer more than Services &amp; all Solutions Medical.</h2>
+      </div>
+      <div class="cs_section_heading_right cs_accent_color text-end">the other hand, we denounce with righteous
+        indignation and dislike men who are so beguiled and demoralized</div>
+    </div>
+    <div class="cs_height_100 cs_height_lg_40"></div>
+    <div class="row cs_gap_y_30">
+      @foreach($newsletters as $newsletters)
+      <div class="col-lg-4">
+        <div class="cs_iconbox cs_style_8 cs_white_bg">
+          <h3 class="cs_iconbox_title cs_fs_32 cs_semibold">
+            <a href="#" target="_blank">{{ Str::limit($newsletters->title, 50)}}</a>
+          </h3>
+          <a href="#" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+            <span>Read More</span>
+            <div class="cs_text_btn_icon cs_center">
+              <span><i class="fa-solid fa-arrow-right-long"></i></span>
+              <span><i class="fa-solid fa-arrow-right-long"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+      @endforeach
+
+    </div>
+  </div>
+  <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
 <!-- static Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Add Newsletter</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="{{ URL::route('send_newsletter') }}" method="post" role="form" enctype="multipart/form-data">
-          @csrf
+      <form action="{{ URL::route('send_newsletter') }}" method="post" role="form" enctype="multipart/form-data">
+        @csrf
 
-          @if ($errors->any())
-          <div class="alert alert-danger">
-            <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-          </div>
-          @endif
-          @if (session('status'))
-          <div class="alert alert-success">
-            {{ session('status') }}
-          </div>
-          @endif
-
-          <div class="row">
-            <div class="form-group mt-2">
-              <textarea class="form-control" name="description" rows="5" data-msg=" Content Description  ( Optional ) " placeholder=" Content Description  ( Optional ) "></textarea>
-              <div class="validate"></div>
-            </div>
-            <div class="form-group mt-2">
-              <input type="text" name="organization" class="form-control" id="name" placeholder="Member organisation name (e.g: Rwanda Diabetes Association (RDA)" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validate"></div>
-            </div>
-            <div class="form-group mt-2">
-              <input type="text" class="form-control" name="title" id="title" placeholder=" Title of your input " data-rule="minlen:4" data-msg="Please enter a title for your content" />
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="form-group mt-2">
-            <textarea class="form-control" name="content" rows="5" id="subject" placeholder=" The main text of your input " data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="form-group mt-2">
-            <textarea class="form-control" name="resources" rows="5" id="subject" placeholder="Related links and resources to your input" data-rule="minlen:10" data-msg="Please enter at least one resource"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="form-group mt-2">
-            <label for="CoverImage" style="color: #000;">Choose a High Resolution Cover Photo</label>
-            <input type="file" class="form-control" name="image" data-rule="required" data-msg="Please attach a high-resolution image you would like to have on the top of your input in the newsletter.">
-            <div class="validate"></div>
-          </div>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+        @if (session('status'))
+        <div class="alert alert-success">
+          {{ session('status') }}
+        </div>
+        @endif
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Newsletter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
           <div class="row">
             <div class="form-group col-md-4 mt-2">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your full name(s)" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -132,66 +154,52 @@
               <input type="text" class="form-control" name="phone" id="email" placeholder="Telephone number" data-rule="minlen:7" data-msg="Please enter a valid phone number" />
               <div class="validate"></div>
             </div>
+            <div class="form-group mt-2">
+              <textarea class="form-control" name="description" rows="5" data-msg=" Content Description  ( Optional ) " placeholder=" Content Description  ( Optional ) "></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="form-group mt-2">
+              <input type="text" name="organization" class="form-control" id="name" placeholder="Member organisation name (e.g: Rwanda Diabetes Association (RDA)" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validate"></div>
+            </div>
+            <div class="form-group mt-2">
+              <input type="text" class="form-control" name="title" id="title" placeholder=" Title of your input " data-rule="minlen:4" data-msg="Please enter a title for your content" />
+              <div class="validate"></div>
+            </div>
+            <div class="form-group mt-2">
+              <textarea class="form-control" name="content" rows="5" id="subject" placeholder=" The main text of your input " data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="form-group mt-2">
+              <textarea class="form-control" name="resources" rows="5" id="subject" placeholder="Related links and resources to your input" data-rule="minlen:10" data-msg="Please enter at least one resource"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="form-group mt-2">
+              <label for="CoverImage" style="color: #000;">Choose a High Resolution Cover Photo</label>
+              <input type="file" class="form-control" name="image" data-rule="required" data-msg="Please attach a high-resolution image you would like to have on the top of your input in the newsletter.">
+              <div class="validate"></div>
+            </div>
+
+            <div class="form-group mt-2">
+              <textarea class="form-control" name="comments" rows="5" id="subject" placeholder="Any other comments? " data-rule="minlen:10" data-msg="Please provide some comments"></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="form-check mt-2">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <span class="mr-1" style="text-align: justify;"> I provide consent to the Rwanda NCD Alliance to collect, store and publish personal data from this form.
+                The information will be used only for the purpose(s) for which you have submitted this form.
+                You can change your mind at any time by sending an email to info@rwandancda.org. </span>
+            </div>
           </div>
-          <div class="form-group mt-2">
-            <textarea class="form-control" name="comments" rows="5" id="subject" placeholder="Any other comments? " data-rule="minlen:10" data-msg="Please provide some comments"></textarea>
-            <div class="validate"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit Newsletter</button>
           </div>
-          <div class="form-check mt-2">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <span class="mr-1" style="text-align: justify;"> I provide consent to the Rwanda NCD Alliance to collect, store and publish personal data from this form.
-              The information will be used only for the purpose(s) for which you have submitted this form.
-              You can change your mind at any time by sending an email to info@rwandancda.org. </span>
-          </div>
-          <div class="text-center mt-4 mb-4">
-            <button style="background: #0ed94c; border-color: #0ed94c; color: #fff;" class="btn btn-success">Send</button>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
-<!-- Newsletter
-        ================================================== -->
-<section id="content" data-onepage-settings="{&quot;offset&quot;:50,&quot;speed&quot;:800,&quot;easing&quot;:false}">
-  <div class="content-wrap pb-0">
-    <div class="container">
-      <div class="row g-xl-5">
-        @foreach($newsletters as $newsletters)
-        <div class="col-md-6 col-lg-4 mt-1-9">
-          <article class="entry event p-3">
-            <div class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
 
-              <div class="col-12 p-4 pt-0">
-                <div class="entry-meta no-separator mb-1 mt-0">
-                  <ul>
-                    <li><a href="#" target="_blank" class="text-uppercase fw-medium">{{ $newsletters->created_at }}</a></li>
-                  </ul>
-                </div>
-
-                <div class="entry-title nott">
-                  <h3><a href="#" target="_blank">{{
-                                                        Str::limit($newsletters->title, 50)}}</a></h3>
-                </div>
-                <div class="entry-content my-3">
-                  <p class="mb-0">{{
-                                                        Str::limit($newsletters->title, 50)}}</p>
-                </div>
-
-                
-              </div>
-            </div>
-          </article>
-        </div>
-        @endforeach
-      </div>
-    </div>
-
-  </div>
-</section>
 @endsection

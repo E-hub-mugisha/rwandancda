@@ -40,7 +40,7 @@ use TCG\Voyager\Models\Category;
 */
 
 Route::get('/home', function () {
-    $stories = Story::all();
+    $stories = Story::latest()->take(3)->get();
     $partners = Partner::all();
     $groupFocus = Engagement::all();
     $engagements = Engagement::all();
@@ -55,7 +55,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/', function () {
-    $stories = Story::all();
+    $stories = Story::latest()->take(3)->get();
     $partners = Partner::all();
     $groupFocus = Engagement::all();
     $engagements = Engagement::all();
@@ -76,6 +76,11 @@ Route::get('/about_us', function () {
     $workers = Worker::orderBy('created_at', 'desc')->get();
     return view('about', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
 })->name('about_us');
+
+Route::get('/Mission_Vision_Objectives', function () {
+    $engagements = Engagement::all();
+    return view('Mission_Vision_Objectives', ['engagements' => $engagements]);
+})->name('Mission.Vision.Objectives');
 
 Route::get('/partnerships-members', function () {
     $engagements = Engagement::all();
@@ -219,20 +224,6 @@ Route::get('/diabetes/assessments', [AssessmentController::class, 'create'])->na
 Route::post('/assessments', [AssessmentController::class, 'store'])->name('assessments.store');
 Route::get('/assessments/{assessment}', [AssessmentController::class, 'show'])->name('assessments.show');
 
-// Route::get('/bar', function () {
-//     Artisan::call('route:clear');
-// });
-
-// Route::get('/foobar', function () {
-//     Artisan::call('cache:clear');
-// });
-
-
-
-// Route::get('/cache', function () {
-//     Artisan::call('config:cache');
-// });
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -254,7 +245,11 @@ Route::get('/conference-2021', function () {
     return view('conference-2021', ['workers' => $workers, 'members' => $members, 'partners' => $partners, 'engagements' => $engagements]);
 })->name('conference-2021');
 
-
+Route::get('/ncd_stories', function () {
+    $engagements = Engagement::all();
+    $stories = Story::latest()->get();
+    return view('ncd_stories', ['engagements' => $engagements, 'stories' => $stories]);
+})->name('ncd_stories');
 
 // ********************************Dashboard ROUTES********************************* //
 

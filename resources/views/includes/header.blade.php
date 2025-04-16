@@ -1,210 +1,134 @@
-<style>
-    #top-cart {
-        display: flex;
-        justify-content: flex-start;
-        /* Align icons to the left */
-        align-items: center;
-        /* Vertically center the icons */
-    }
-
-    #top-social {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-    }
-
-    #top-social li {
-        margin-right: 15px;
-        /* Adjust space between icons */
-    }
-
-    #top-social a {
-        color: #000;
-        /* Default color for icons */
-        font-size: 20px;
-        /* Size of the icons */
-        transition: color 0.3s;
-        /* Smooth transition on hover */
-    }
-
-    #top-social a:hover {
-        color: #0073e6;
-        /* Change color on hover (adjust as needed) */
-    }
-</style>
-
-<!-- Header
-		============================================= -->
-<header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
-    <div id="header-wrap">
-        <div class="container">
-            <div class="header-row">
-
-                <!-- Logo
-						============================================= -->
-                <div id="logo">
-                    <a href="{{ route('home')}}">
-                        <img class="logo-default" srcset="{{ asset('new/img/logos/logo.png')}}" src="{{ asset('new/img/logos/logo.png')}}" alt="Canvas Logo" style="height: 50px;">
-                        <img class="logo-dark" srcset="{{ asset('new/img/logos/logo-footer.png')}}" src="{{ asset('new/img/logos/logo-footer.png')}}" alt="Canvas Logo" style="height: 50px;">
+<!-- Start Header Section -->
+<header class="cs_site_header cs_style_1 cs_sticky_header cs_heading_font cs_heading_color">
+    <div class="cs_main_header">
+        <div class="container-fluid">
+            <div class="cs_main_header_in">
+                <div class="cs_main_header_left">
+                    <a class="cs_site_branding" href="{{ URL::route('home') }}">
+                        <img src="{{ asset('new/img/logos/logo.png')}}" alt="Logo" height="50" width="100">
                     </a>
-                </div><!-- #logo end -->
-
-                <div class="header-misc">
-
-
-                    <!-- Top Cart
-							============================================= -->
-                    <div id="top-cart" class="header-misc-icon d-none d-sm-block">
-                        <ul id="top-social">
-                            <li><a href="https://www.facebook.com/RwandaNCDA"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://twitter.com/RwandaNCDA"><i class="fab fa-x-twitter"></i></a></li>
-                            <li><a href="http://www.youtube.com/@rwandancda"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="https://www.linkedin.com/company/65703122/admin/dashboard/"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div><!-- #top-cart end -->
-
-                </div>
-
-                <div class="primary-menu-trigger">
-                    <button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
-                        <span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
-                    </button>
-                </div>
-
-                <!-- Primary Navigation
-						============================================= -->
-                <nav class="primary-menu">
-
-                    <ul class="menu-container">
-                        <li class="menu-item">
-                            <a class="menu-link">
-                                <div>Who We are</div>
-                            </a>
-                            <ul class="sub-menu-container">
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ URL::route('about_us') }}">
-                                        <div>About Us</div>
+                    <div class="cs_nav cs_fs_18 cs_semibold">
+                        <div class="cs_nav_list_wrap">
+                            <ul class="cs_nav_list">
+                                <li class="menu-item-has-children">
+                                    <a>
+                                        <div>Who We are</div>
                                     </a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ URL::route('about_us') }}">
+                                                <div>About Us</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ URL::route('Mission.Vision.Objectives') }}">
+                                                <div>Mission, Vision &amp; Objectives</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ URL::route('team')}}">
+                                                <div>Team members</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ URL::route('partnerships') }}">
+                                                <div>Partnerships & Members</div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ URL::route('team')}}">
-                                        <div>Team members</div>
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <div>Engagements</div>
                                     </a>
+                                    <ul>
+                                        <li>
+                                            @if($engagements->count() > 1 )
+                                            @foreach($engagements as $engagement)
+                                            <a href="{{ url('ncd_engagements', $engagement->title) }}">
+                                                <div>{{ $engagement->title }}</div>
+                                            </a>
+                                            @endforeach
+                                            @endif
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ URL::route('partnerships') }}">
-                                        <div>Partnerships & Members</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="#">
-                                <div>Engagements</div>
-                            </a>
-                            <ul class="sub-menu-container">
-                                <li class="menu-item">
-                                    @if($engagements->count() > 1 )
-                                    @foreach($engagements as $engagement)
-                                    <a class="menu-link" href="{{ url('ncd_engagements', $engagement->title) }}">
-                                        <div>{{ $engagement->title }}</div>
-                                    </a>
-                                    @endforeach
-                                    @endif
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="#">
-                                <div>Resources</div>
-                            </a>
-                            <ul class="sub-menu-container">
-                                <li class="menu-item">
-                                    <a class="menu-link" href="shop.html">
+                                <li class="menu-item-has-children">
+                                    <a href="#">
                                         <div>Resources</div>
                                     </a>
-                                    <ul class="sub-menu-container">
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="{{ URL::route('ncd_resources') }}">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ URL::route('ncd_resources') }}">
                                                 <div><i class="bi-asterisk"></i>Publications</div>
                                             </a>
                                         </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="{{ URL::route('add_newsletter') }}">
+                                        <li>
+                                            <a href="{{ URL::route('add_newsletter') }}">
                                                 <div><i class="bi-calendar"></i>Newsletter</div>
                                             </a>
                                         </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="{{ url('/') }}#testimonials">
+                                        <li>
+                                            <a href="{{ url('ncd_stories') }}">
                                                 <div><i class="bi-question-circle"></i>NCD Stories</div>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="#">
+                                <li class="menu-item-has-children">
+                                    <a href="#">
                                         <div>Assessment Tools</div>
                                     </a>
-                                    <ul class="sub-menu-container">
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="{{ URL::route('know_your_numbers') }}">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ URL::route('know_your_numbers') }}">
                                                 <div>Know your numbers (BMI)</div>
                                             </a>
                                         </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="{{ URL::route('assessments.create') }}">
+                                        <li>
+                                            <a href="{{ URL::route('assessments.create') }}">
                                                 <div>Diabetes assessment</div>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">News & Events</a>
+                                    <ul>
+                                        <li><a href="{{ URL::route('ncd_posts') }}">Regular news</a></li>
+                                        <li><a href="{{ URL::route('ncd_covid_posts') }}">NCDs & COVID-19</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Showcase</a>
+                                    <ul>
+                                        <li><a href="{{ url('gallery') }}">Gallery</a></li>
+                                        <li><a href="{{ url('video-gallery') }}">Videos</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ URL::route('message') }}">Contact</a></li>
                             </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="#!">
-                                <div>News & Events</div>
-                            </a>
-                            <ul class="sub-menu-container">
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ URL::route('ncd_posts') }}">
-                                        <div>Regular News</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ URL::route('ncd_covid_posts') }}">
-                                        <div>NCDs & COVID-19</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="#!">
-                                <div>Showcase</div>
-                            </a>
-                            <ul class="sub-menu-container">
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ url('gallery') }}">
-                                        <div>Gallery</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ url('video-gallery') }}">
-                                        <div>Videos</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="{{ URL::route('message') }}">
-                                <div>Contact Us</div>
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav><!-- #primary-menu end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="cs_main_header_right">
+                    <div class="cs_header_social_links">
+                        <a href="https://www.facebook.com/RwandaNCDA" class="cs_center">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/RwandaNCDA" class="cs_center">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="http://www.youtube.com/@rwandancda" class="cs_center">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/65703122/admin/dashboard/" class="cs_center">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="header-wrap-clone"></div>
-</header><!-- #header end -->
+</header>
+<!-- End Header Section -->

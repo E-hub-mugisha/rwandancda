@@ -2,39 +2,19 @@
 @section('title','Video Showcase')
 @section('content')
 
-<!-- Page Sub Menu
-		============================================= -->
-<div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
-    <div id="page-menu-wrap">
-        <div class="container">
-            <div class="page-menu-row">
-
-                <div class="page-menu-title">Rwanda<span>NCDA</span></div>
-
-                <nav class="page-menu-nav">
-                    <ul class="page-menu-container">
-                        <li class="page-menu-item current"><a href="#">
-                                <div>@yield('title')</div>
-                            </a></li>
-                    </ul>
-                </nav>
-
-                <div id="page-menu-trigger"><i class="bi-list"></i></div>
-
+<!-- Start Service Section -->
+<section class="cs_service_area cs_type_3">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="cs_section_heading cs_style_1 cs_type_1 wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.25s">
+            <div class="cs_section_heading_left">
+                <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Get To Know</p>
+                <h2 class="cs_section_title cs_accent_color mb-0">Our Mission, Vision &amp; <br> Objectives</h2>
             </div>
+            <div class="cs_section_heading_right cs_accent_color text-end">the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized</div>
         </div>
-    </div>
-    <div class="page-menu-wrap-clone" style="height: 48px;"></div>
-</div><!-- #page-menu end -->
-
-<section id="content">
-    <div class="content-wrap bg-light">
+        <div class="cs_height_100 cs_height_lg_40"></div>
         <div class="container">
-            <div class="section-heading">
-                <span class="text-secondary title-font display-25 display-md-23 d-block mb-1">ShowCase</span>
-                <h2>Event<span class="fw-bolder"> Videos</span></h2>
-                <!-- <p class="mb-0 w-md-80 w-lg-70 w-xl-50 mx-auto">We connect buyers and sellers of natural, organic, environmentally sound products. We find the best suppliers and makers of natural and organic products.</p> -->
-            </div>
             <div class="row col-mb-80">
                 <div class="widget col-lg-12">
                     <div class="sidebar-widgets-wrap bg-white rounded-5 p-4 shadow-sm">

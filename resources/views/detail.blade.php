@@ -2,210 +2,88 @@
 @section('title', $data->title)
 @section('content')
 
-<!-- Page Sub Menu
-		============================================= -->
-<div id="page-menu" style="--cnvs-page-submenu-sticky-offset: 60px;" class="">
-    <div id="page-menu-wrap">
-        <div class="container">
-            <div class="page-menu-row">
-
-                <div class="page-menu-title">Rwanda<span>NCDA</span></div>
-
-                <nav class="page-menu-nav">
-                    <ul class="page-menu-container">
-                        <li class="page-menu-item current"><a href="#">
-                                <div>@yield('title')</div>
-                            </a></li>
-                    </ul>
-                </nav>
-
-                <div id="page-menu-trigger"><i class="bi-list"></i></div>
-
+<section>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="cs_section_heading cs_style_1 cs_type_1 wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
+            <div>
+                <p class="cs_section_subtitle cs_accent_color cs_fs_18 cs_semibold cs_heading_font">Blog &amp; news</p>
+                <h2 class="cs_section_title cs_fs_48 mb-0">{{ $data->title }}</h2>
             </div>
         </div>
-    </div>
-    <div class="page-menu-wrap-clone" style="height: 48px;"></div>
-</div><!-- #page-menu end -->
-
-<section id="content">
-    <div class="content-wrap">
-        <div class="container">
-
-            <div class="row gx-5 col-mb-80">
-                <!-- Post Content
-						============================================= -->
-                <main class="postcontent col-lg-9">
-
-                    <div class="single-post mb-0">
-
-                        <!-- Single Post
-								============================================= -->
-                        <div class="entry">
-
-                            <!-- Entry Title
-									============================================= -->
-                            <div class="entry-title">
-                                <h2>{!! $data->title !!}</h2>
-                            </div><!-- .entry-title end -->
-
-                            <!-- Entry Meta
-									============================================= -->
-                            <div class="entry-meta">
-                                <ul>
-                                    <li><i class="uil uil-schedule"></i> {{ $data->created_at }}</li>
-                                    <li><a href="#"><i class="uil uil-user"></i> admin</a></li>
-                                    <li><i class="uil uil-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li>
-                                    <li><a href="#"><i class="uil uil-comments-alt"></i> 43 Comments</a></li>
-                                    <li><a href="#"><i class="uil uil-camera"></i></a></li>
-                                </ul>
-                            </div><!-- .entry-meta end -->
-
-                            <!-- Entry Image
-									============================================= -->
-                            <div class="entry-image">
-                                <a href="#"><img src="{{ asset('new/img')}}/{{$data->poster}}" alt="{!! $data->title !!}"></a>
-                            </div><!-- .entry-image end -->
-
-                            <!-- Entry Content
-									============================================= -->
-                            <div class="entry-content mt-0">
-
-                                <div class="card border-default mb-4">
-                                    <div class="card-body py-2">
-                                        <div class="row align-items-center justify-content-between fs-6">
-                                            <div class="col-md-auto fst-italic text-muted">5 min read</div>
-
-                                            <div class="col-md-auto">
-                                                <div class="d-flex">
-                                                    <div class="font-sizer" data-step="20" data-target=".entry-content">
-                                                        <button type="button" class="font-size-minus btn btn-outline-secondary border-contrast-200 h-bg-contrast-200 h-text-contrast-900 border-0 ms-1"><i class="bi-type" style="font-size: 12px;"></i></button>
-                                                        <button type="button" class="font-size-plus btn btn-outline-secondary border-contrast-200 h-bg-contrast-200 h-text-contrast-900 border-0 ms-1"><i class="bi-type" style="font-size: 20px;"></i></button>
-                                                    </div>
-
-                                                    <button type="button" class="font-size-plus btn btn-outline-secondary border-contrast-200 h-bg-contrast-200 h-text-contrast-900 border-0 ms-1" onclick="window.print();"><i class="bi-printer"></i></button>
-
-                                                    <button type="button" class="font-size-plus btn btn-outline-secondary border-contrast-200 h-bg-contrast-200 h-text-contrast-900 border-0 ms-1" data-scrollto="#cnvs-article-share"><i class="bi-share"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p>{!! $data->content !!}</p>
-                                <!-- Post Single - Content End -->
-
-                                <!-- Tag Cloud
-										============================================= -->
-                                <div class="tagcloud mb-5">
-                                    <a href="#">general</a>
-                                </div><!-- .tagcloud end -->
-
-                                <div class="tags flex-grow-1 mb-4 mb-md-0 pe-md-3 wow fadeIn" data-wow-delay="200ms">
-                                    <div id="copy" class="d-none">
-                                        {{ URL::current() }}
-                                    </div>
-                                    <a type="button" class="copyButton btn btn-success" id="copyButtonId" data-id="{{ URL::current() }}" data-clipboard-action="copy" data-clipboard-target="div#copy" onclick="toastr.success('Ready! Link Copied to Clipboard!');">Copy to share Link !</a>
-                                </div>
-
-                                <!-- Post Single - Share
-										============================================= -->
-                                <div id="cnvs-article-share" class="card border-default my-4" data-onepage-settings="{&quot;offset&quot;:60,&quot;speed&quot;:1250,&quot;easing&quot;:false}">
-                                    <div class="card-body p-3">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <h6 class="fs-6 fw-semibold mb-0">Share:</h6>
-                                            <div class="d-flex">
-                                                <a href="#" class="social-icon si-small text-white border-transparent rounded-circle bg-facebook" title="Facebook">
-                                                    <i class="fa-brands fa-facebook-f"></i>
-                                                    <i class="fa-brands fa-facebook-f"></i>
-                                                </a>
-
-                                                <a href="#" class="social-icon si-small text-white border-transparent rounded-circle bg-x-twitter" title="Twitter">
-                                                    <i class="fa-brands fa-x-twitter"></i>
-                                                    <i class="fa-brands fa-x-twitter"></i>
-                                                </a>
-
-                                                <a href="#" class="social-icon si-small text-white border-transparent rounded-circle bg-pinterest" title="Pinterest">
-                                                    <i class="fa-brands fa-pinterest-p"></i>
-                                                    <i class="fa-brands fa-pinterest-p"></i>
-                                                </a>
-
-                                                <a href="#" class="social-icon si-small text-white border-transparent rounded-circle bg-whatsapp" title="Whatsapp">
-                                                    <i class="fa-brands fa-whatsapp"></i>
-                                                    <i class="fa-brands fa-whatsapp"></i>
-                                                </a>
-
-                                                <a href="#" class="social-icon si-small text-white border-transparent rounded-circle bg-rss" title="RSS">
-                                                    <i class="fa-solid fa-rss"></i>
-                                                    <i class="fa-solid fa-rss"></i>
-                                                </a>
-
-                                                <a href="#" class="social-icon si-small text-white border-transparent rounded-circle bg-email3 me-0" title="Mail">
-                                                    <i class="fa-solid fa-envelope"></i>
-                                                    <i class="fa-solid fa-envelope"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- Post Single - Share End -->
-
-                            </div>
-                        </div><!-- .entry end -->
-
+        <div class="cs_height_50 cs_height_lg_40"></div>
+        <div class="row cs_gap_y_40">
+            <div class="col-lg-8">
+                <div class="cs_post_details cs_style_1 cs_heading_font">
+                    <div class="cs_post_thumbnail cs_radius_10">
+                        <img src="{{ asset('new/img')}}/{{$data->poster}}" alt="{!! $data->title !!}">
                     </div>
+                    <ul class="cs_post_meta cs_fs_14 cs_accent_color cs_mp0">
+                        <li><i class="fa-solid fa-calendar"></i>{{ $data->created_at }}</li>
+                        <li><i class="fa-solid fa-bookmark"></i>Technology</li>
+                        <li><i class="fa-solid fa-message"></i>2 Comments</li>
+                    </ul>
+                    <hr>
+                    <div class="cs_height_24 cs_height_lg_20"></div>
+                    <p>{!! $data->content !!}</p>
+                </div>
+                <div class="cs_tag_list cs_type_1 cs_fs_14 cs_heading_font cs_accent_color">
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Medical</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Rehab</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Psychology</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Eyecare</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Dental</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Phytotherapy</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Hospitality</a>
+                    <a href="#" class="cs_tag_link cs_gray_bg cs_radius_6">Senior Care</a>
+                </div>
+                <div class="cs_height_30 cs_height_lg_30"></div>
 
-                </main><!-- .postcontent end -->
-
-                <!-- Sidebar
-						============================================= -->
-                <aside class="sidebar col-lg-3">
-                    <div class="sidebar-widgets-wrap">
-
-                        <div class="widget">
-
-                            <ul class="nav canvas-tabs tabs nav-tabs size-sm mb-3" id="canvas-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="canvas-tab-1" data-bs-toggle="pill" data-bs-target="#tab-1" type="button" role="tab" aria-controls="canvas-tab-1" aria-selected="true">Popular</button>
-                                </li>
-                            </ul>
-
-                            <div id="canvas-TabContent" class="tab-content">
-
-                                <div class="tab-pane show active" id="tab-1" role="tabpanel" aria-labelledby="canvas-tab-1" tabindex="0">
-                                    <div class="posts-sm row col-mb-30" id="popular-post-list-sidebar">
-                                        @foreach( $relatedProgram as $relatedProgram)
-                                        <div class="entry col-12 slide-up">
-                                            <div class="grid-inner row g-0">
-                                                <div class="col-auto">
-                                                    <div class="entry-image">
-                                                        <a href="{{ route('detail', $relatedProgram->id ) }}"><img src="{{ asset('new/img')}}/{{$relatedProgram->poster}}" alt="{{ Str::limit($relatedProgram->title, 50) }}"></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col ps-3">
-                                                    <div class="entry-title">
-                                                        <h4><a href="{{ route('detail', $relatedProgram->id ) }}">{{ Str::limit($relatedProgram->title, 30) }}</a></h4>
-                                                    </div>
-                                                    <div class="entry-meta">
-                                                        <ul>
-                                                            <li>{{ $relatedProgram->created_at }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </aside><!-- .sidebar end -->
             </div>
-
+            <aside class="col-lg-4">
+                <div class="cs_sidebar cs_style_1">
+                    <div class="cs_sidebar_widget cs_gray_bg cs_radius_10">
+                        <h3 class="cs_sidebar_title cs_fs_20 cs_semibold cs_accent_color">Search</h3>
+                        <form action="#" class="cs_search cs_radius_6">
+                            <span class="cs_search_icon cs_accent_color"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input type="text" placeholder="Search....">
+                        </form>
+                    </div>
+                    <div class="cs_sidebar_widget cs_gray_bg cs_radius_10">
+                        <h3 class="cs_sidebar_title cs_fs_20 cs_semibold cs_accent_color">Recent Posts</h3>
+                        @foreach( $relatedProgram as $relatedProgram)
+                        <div class="cs_post cs_style_3">
+                            <a href="{{ route('detail', $relatedProgram->id ) }}" class="cs_post_thumbnail cs_radius_10">
+                                <img src="{{ asset('new/img')}}/{{$relatedProgram->poster}}" alt="{{ Str::limit($relatedProgram->title, 50) }}" class="cs_zoom_in">
+                            </a>
+                            <div class="cs_post_info">
+                                <h3 class="cs_post_title cs_fs_18 cs_semibold cs_heading_color">
+                                    <a href="{{ route('detail', $relatedProgram->id ) }}">{{ Str::limit($relatedProgram->title, 50) }}</a>
+                                </h3>
+                                <div class="cs_post_meta cs_fs_14 cs_accent_color">{{ $relatedProgram->created_at }}</div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="cs_sidebar_widget cs_gray_bg cs_radius_10">
+                        <div class="cs_sidebar_tags">
+                            <h3 class="cs_sidebar_title cs_fs_20 cs_semibold cs_accent_color">Tags</h3>
+                            <div class="cs_tag_list cs_fs_14 cs_heading_font cs_accent_color">
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Medical</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Rehab</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Psychology</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Eyecare</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Dental</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Phytotherapy</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Hospitality</a>
+                                <a href="#" class="cs_tag_link cs_white_bg cs_radius_6">Senior Care</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
     </div>
 </section>
-
 
 @endsection
