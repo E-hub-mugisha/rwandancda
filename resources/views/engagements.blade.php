@@ -1,4 +1,5 @@
 @extends('layouts.base')
+@section('title', $eng_title )
 @section('content')
 
 
@@ -10,7 +11,7 @@
       <div class="col-lg-6">
         <div class="cs_about_thumbnail">
           <div class="cs_about_thumbnail_1 cs_hide_before_after">
-            <img src="{{ asset('assets/img/about_6.jpeg') }}" alt="Image">
+            <img src="{{ asset('new/img/content/about-02.jpg') }}" alt="Image">
             <div class="cs_commentbox cs_accent_bg">
               <blockquote class="cs_white_color cs_opacity_9">“Engaging individuals, communities and government to bring the NCDs into the public spotlight and on national agenda.”</blockquote>
             </div>
@@ -48,8 +49,8 @@
         <h2 class="cs_section_title cs_fs_48 mb-0">Take a Look at The Latest <br> Articles &amp; News</h2>
       </div>
       <div class="cs_section_heading_right">
-        <a href="blog.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-          <span class="cs_btn_text">See All Blogs</span>
+        <a href="{{ URL::route('ncd_posts') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+          <span class="cs_btn_text">See All News</span>
         </a>
       </div>
     </div>

@@ -11,7 +11,7 @@
                 <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Get To Know</p>
                 <h2 class="cs_section_title cs_accent_color mb-0">Our Mission, Vision &amp; <br> Objectives</h2>
             </div>
-            <div class="cs_section_heading_right cs_accent_color text-end">the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized</div>
+            <div class="cs_section_heading_right cs_accent_color text-end">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward</div>
         </div>
         <div class="cs_height_100 cs_height_lg_40"></div>
         <div class="cs_service_grid float-center cs_style_2">
@@ -19,13 +19,13 @@
                 <div class="cs_iconbox_icon cs_center cs_radius_50">
                     <img src="assets/img/icons/service_icon_4.svg" alt="Icon">
                 </div>
-                <h3 class="cs_iconbox_title cs_fs_32 cs_semibold"><a href="service-details.html">Rwanda NCDA vision</a></h3>
+                <h3 class="cs_iconbox_title cs_fs_32 cs_semibold"><a href="#">Rwanda NCDA vision</a></h3>
                 <p class="cs_iconbox_subtitle">
                     A healthy people in a nation free from preventable suffering,
                     disability, and deaths caused by Non
                     Communicable Diseases.
                 </p>
-                <a href="service-details.html" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+                <a href="#" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
                     <span>Learn more</span>
                     <div class="cs_text_btn_icon cs_center">
                         <span><i class="fa-solid fa-arrow-right-long"></i></span>
@@ -37,7 +37,7 @@
                 <div class="cs_iconbox_icon cs_center cs_radius_50">
                     <img src="assets/img/icons/service_icon_5.svg" alt="Icon">
                 </div>
-                <h3 class="cs_iconbox_title cs_fs_32 cs_semibold"><a href="service-details.html">Rwanda NCDA Mission</a></h3>
+                <h3 class="cs_iconbox_title cs_fs_32 cs_semibold"><a href="#">Rwanda NCDA Mission</a></h3>
                 <p class="cs_iconbox_subtitle">
                     To unite the efforts and create a powerful voice for the NCDs awareness rising, advocate for the
                     prevention and control of NCDs and their risk factors in Rwanda, by promoting multisectoral
@@ -45,7 +45,7 @@
                     to
                     improve health and well-being.
                 </p>
-                <a href="service-details.html" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+                <a href="#" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
                     <span>More Info</span>
                     <div class="cs_text_btn_icon cs_center">
                         <span><i class="fa-solid fa-arrow-right-long"></i></span>
@@ -56,7 +56,7 @@
         </div>
         <div class="cs_height_0 cs_height_lg_40"></div>
         <div class="cs_center mt-5">
-            <a href="services.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg ">
+            <a href="{{ URL::route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg ">
                 <span class="cs_btn_text">More Info</span>
             </a>
         </div>
@@ -70,7 +70,7 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
         <div class="cs_section_heading cs_style_1 cs_text_center wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.25s">
-            <div class="cs_section_heading_right cs_white_color text-end">the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized</div>
+            <div class="cs_section_heading_right cs_white_color text-end">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward</div>
         </div>
         <div class="cs_height_32 cs_height_lg_30"></div>
         <div class="cs_tabs cs_style_1 ">
@@ -82,7 +82,7 @@
                             <div class="cs_pricing_table cs_style_1 cs_type_2">
                                 <div class="cs_pricing_headedr">
                                     <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Get to know</h3>
-                                    <a href="contact.html" class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
+                                    <a href="{{ URL::route('message') }}" class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
                                         <span><i class="fa-solid fa-arrow-right"></i></span>
                                         <span><i class="fa-solid fa-arrow-right"></i></span>
                                     </a>
@@ -101,7 +101,7 @@
                                             <li><i class="fa-solid fa-check"></i>Contribute to evidence based NCD policies and practices.</li>
                                         </ul>
                                     </div>
-                                    <a href="contact.html" class="cs_pricing_btn cs_fs_18 cs_semibold cs_accent_color cs_white_bg cs_hover_up">Let's collaborate</a>
+                                    <a href="{{ URL::route('message') }}" class="cs_pricing_btn cs_fs_18 cs_semibold cs_accent_color cs_white_bg cs_hover_up">Let's collaborate</a>
                                 </div>
                             </div>
                         </div>
@@ -119,12 +119,11 @@
             <div class="col-lg-8 offset-lg-2">
                 <div class="cs_cta_in">
                     <div class="cs_cta_info">
-                        <h2 class="cs_cta_title">Meet the expert support team</h2>
-                        <p class="cs_cta_subtitle mb-0">Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.</p>
+                        <h2 class="cs_cta_title">Meet the expert support workforce</h2>
+                        <p class="cs_cta_subtitle mb-0">Get to know our dedicated team members who are committed to making a difference in the field of non-communicable diseases</p>
                     </div>
-                    <a href="contact.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-                        <span class="cs_btn_text">Contact Now</span>
+                    <a href="{{ URL::route('team')}}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+                        <span class="cs_btn_text">Workforce</span>
                     </a>
                 </div>
             </div>

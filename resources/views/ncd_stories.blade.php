@@ -6,7 +6,7 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
         <div class="cs_vider_wrapper cs_style_1">
-            <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
+            <a href="#" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
                 <span></span>
             </a>
             <h2 class="cs_video_title">Here our Stories
@@ -18,10 +18,10 @@
                 more at
                 risk for severe complications of COVID-19 and death when they are contracted.</p>
             <div class="cs_btns_group wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
-                <a href="about.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+                <a href="{{ URL::route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
                     <span class="cs_btn_text">Learn More</span>
                 </a>
-                <a href="contact.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+                <a href="{{ URL::route('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
                     <span class="cs_btn_text">Contact Now</span>
                 </a>
             </div>

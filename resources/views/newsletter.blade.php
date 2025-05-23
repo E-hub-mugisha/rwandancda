@@ -7,16 +7,16 @@
   <div class="cs_height_120 cs_height_lg_80"></div>
   <div class="container">
     <div class="cs_vider_wrapper cs_style_1">
-      <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
+      <a href="#" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
         <span></span>
       </a>
       <h2 class="cs_video_title">Rwanda NCD Alliance &nbsp;<span class="cs_accent_color">Quarterly newsletter</span></h2>
       <p class="cs_video_subtitle">Rwanda NCD Alliance newsletter is a quarterly output that intends to keep members and stakeholders up to date with our work.</p>
       <div class="cs_btns_group wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
-        <a href="about.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+        <a href="{{ URL::route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
           <span class="cs_btn_text">Learn More</span>
         </a>
-        <a href="contact.html" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+        <a href="{{ URL::route('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
           <span class="cs_btn_text">Contact Now</span>
         </a>
       </div>
@@ -52,7 +52,7 @@
         <div class="cs_pricing_table cs_style_1 cs_type_2">
           <div class="cs_pricing_headedr">
             <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Get to know</h3>
-            <a href="contact.html" class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
+            <a href="{{ URL::route('message') }}" class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
               <span><i class="fa-solid fa-arrow-right"></i></span>
               <span><i class="fa-solid fa-arrow-right"></i></span>
             </a>
@@ -89,8 +89,7 @@
         <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Resources</p>
         <h2 class="cs_section_title cs_accent_color mb-0">We offer more than Services &amp; all Solutions Medical.</h2>
       </div>
-      <div class="cs_section_heading_right cs_accent_color text-end">the other hand, we denounce with righteous
-        indignation and dislike men who are so beguiled and demoralized</div>
+      <div class="cs_section_heading_right cs_accent_color text-end">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward</div>
     </div>
     <div class="cs_height_100 cs_height_lg_40"></div>
     <div class="row cs_gap_y_30">

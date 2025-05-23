@@ -41,9 +41,9 @@
                     <h2 class="cs_footer_widget_title cs_fs_32 cs_white_color cs_bold">Resources</h2>
                     <ul class="cs_footer_widget_menu">
                         <li><a href="{{ URL::route('ncd_resources') }}">Publications</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">NCD Stories</a></li>
-                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="{{ URL::route('add_newsletter') }}">Newsletter</a></li>
+                        <li><a href="{{ URL::route('ncd_posts') }}">NCD Stories</a></li>
+                        <li><a href="#">Our Impact</a></li>
                     </ul>
                 </div>
             </div>

@@ -21,6 +21,7 @@ use App\Subscriber;
 use App\Program;
 use App\Comment;
 use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\HomeController;
 use App\Models\Banner;
 use App\Models\CarouselItem;
 use App\Models\User;
@@ -49,7 +50,7 @@ Route::get('/home', function () {
         ->inRandomOrder()
         ->first();
     $resourcedata = Resource::all()->take(3);
-    $banners = CarouselItem::latest()->get();
+    $banners = CarouselItem::latest()->take(3)->get();
     $images = Gallery::latest()->take(10)->get();
     return view('home', ['featured' => $featured, 'banners' => $banners, 'images' => $images, 'stories' => $stories, 'groupFocus' => $groupFocus, 'engagements' => $engagements, 'partners' => $partners, 'posts' => $data, 'resources_data' => $resourcedata]);
 });
@@ -62,7 +63,7 @@ Route::get('/', function () {
     $data = VoyagerPost::where('category_id', 1)->orderBy('created_at', 'desc')->take(6)->get();
     $resourcedata = Resource::all()->take(3);
     $newsletters = Newsletters::latest()->take(3)->get();
-    $banners = CarouselItem::latest()->get();
+    $banners = CarouselItem::latest()->take(3)->get();
     $images = Gallery::latest()->take(4)->get();
     $featured = VoyagerPost::where('category_id', 1)
         ->inRandomOrder()
@@ -105,9 +106,34 @@ Route::get('/know_your_numbers', function () {
 
 Route::get('/gallery', function () {
     $engagements = Engagement::all();
-    $images = Gallery::latest()->paginate(15);
-    return view('gallery', ['images' => $images, 'engagements' => $engagements]);
-});
+    $year = request('year');
+    $eventType = request('event_type');
+
+    $query = Gallery::query();
+
+    if ($year) {
+        $query->whereYear('updated_at', $year);
+    }
+
+    if ($eventType) {
+        $query->where('event_type', $eventType);
+    }
+
+    $images = $query->latest()->paginate(15);
+
+    $years = Gallery::selectRaw('YEAR(updated_at) as year')
+        ->distinct()
+        ->orderByDesc('year')
+        ->pluck('year');
+
+    $eventTypes = Gallery::select('event_type')
+        ->distinct()
+        ->orderBy('event_type')
+        ->pluck('event_type');
+
+    return view('gallery', compact('images', 'years', 'eventTypes', 'engagements'));
+})->name('gallery');
+
 
 Route::get('/video-gallery', function () {
     $engagements = Engagement::all();
@@ -215,6 +241,7 @@ Route::get('/newsletter/add', function () {
     return view('newsletter', ['newsletters' => $newsletters, 'engagements' => $engagements]);
 })->name('add_newsletter');
 
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/foo', function () {
     Artisan::call('make:controller MailController');

@@ -10,8 +10,7 @@
         <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Resources</p>
         <h2 class="cs_section_title cs_accent_color mb-0">We offer more than Services &amp; all Solutions Medical.</h2>
       </div>
-      <div class="cs_section_heading_right cs_accent_color text-end">the other hand, we denounce with righteous
-        indignation and dislike men who are so beguiled and demoralized</div>
+      <div class="cs_section_heading_right cs_accent_color text-end">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward</div>
     </div>
     <div class="cs_height_100 cs_height_lg_40"></div>
     <div class="row cs_gap_y_30">
@@ -40,7 +39,7 @@
       @endif
       @endforeach
 
-      {{ $resources_data->links('vendor.pagination.custom-pagination') }}
+      {{ $resources_data->links() }}
     </div>
   </div>
   <div class="cs_height_120 cs_height_lg_80"></div>

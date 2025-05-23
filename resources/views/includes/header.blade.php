@@ -10,6 +10,11 @@
                     <div class="cs_nav cs_fs_18 cs_semibold">
                         <div class="cs_nav_list_wrap">
                             <ul class="cs_nav_list">
+                                <li>
+                                    <a href="{{ URL::route('home') }}">
+                                        <div>Home</div>
+                                    </a>
+                                </li>
                                 <li class="menu-item-has-children">
                                     <a>
                                         <div>Who We are</div>
@@ -26,8 +31,13 @@
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="#">
+                                                <div>Our Impact</div>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="{{ URL::route('team')}}">
-                                                <div>Team members</div>
+                                                <div>WorkForces</div>
                                             </a>
                                         </li>
                                         <li>
@@ -112,6 +122,12 @@
                     </div>
                 </div>
                 <div class="cs_main_header_right">
+                    <button type="button" class="cs_search_toggle_btn text-black">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.3337 27.9998C22.3293 27.9998 28.0003 22.3288 28.0003 15.3332C28.0003 8.33756 22.3293 2.6665 15.3337 2.6665C8.33805 2.6665 2.66699 8.33756 2.66699 15.3332C2.66699 22.3288 8.33805 27.9998 15.3337 27.9998Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M29.3337 29.3332L26.667 26.6665" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
                     <div class="cs_header_social_links">
                         <a href="https://www.facebook.com/RwandaNCDA" class="cs_center">
                             <i class="fa-brands fa-facebook-f"></i>
