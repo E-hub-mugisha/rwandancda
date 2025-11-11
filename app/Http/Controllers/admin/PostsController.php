@@ -46,13 +46,12 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'slug' => 'required',
             'title' => 'required',
             'status' => 'required',
             'featured' => 'required',
             'body' => 'required',
             'category_id'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $post = new Post();
@@ -85,7 +84,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
         $post = Post::findOrFail($id);
         $slug = $post->slug;
@@ -117,16 +116,15 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $post=Post::findOrFail($id);
+        $post = Post::findOrFail($id);
         
         $request->validate([
-            'slug' => 'required',
             'title' => 'required',
             'status' => 'required',
             'featured' => 'required',
             'body' => 'required',
             'category_id'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $slugTitle = Str::slug($request->input("title"));

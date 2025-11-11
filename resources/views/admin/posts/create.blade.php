@@ -44,10 +44,6 @@
                                 <label for="title">title</label>
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Enter title">
                             </div>
-                            <div class="form-group">
-                                <label for="slug">slug</label>
-                                <input type="text" class="form-control" name="slug" id="slug" placeholder="Enter slug">
-                            </div>
                             <div class="row">
                             <div class="col-md-4 form-group">
                                     <label>Post Category</label>

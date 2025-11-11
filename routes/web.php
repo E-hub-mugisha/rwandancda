@@ -147,7 +147,7 @@ Route::get('/program/{id}', function ($id) {
 })->name('detail');
 
 Route::get('/ncd_news', function () {
-    $data = VoyagerPost::where('category_id', 1)->simplePaginate(6);
+    $data = VoyagerPost::where('category_id', 1)->latest()->simplePaginate(6);
     $engagements = Engagement::all();
     return view('posts', ['posts' => $data, 'engagements' => $engagements]);
 })->name('ncd_posts');
