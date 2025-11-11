@@ -22,21 +22,16 @@
     {{-- Resource Cards --}}
     <div class="row cs_gap_y_30">
       @forelse($resources_data as $resource)
-        @php
-          $fileObj = json_decode($resource->file)[0] ?? null;
-          $fileLink = $fileObj->download_link ?? null;
-        @endphp
-
-        @if($fileLink)
+        
         <div class="col-lg-4">
           <div class="cs_iconbox cs_style_8 cs_white_bg shadow-sm p-4 h-100 d-flex flex-column justify-content-between">
             <div>
               <h3 class="cs_iconbox_title cs_fs_28 cs_semibold">
-                <a href="{{ asset($fileLink) }}" target="_blank">{{ Str::limit($resource->title, 60) }}</a>
+                <a href="{{ asset('file/' . $resource->file) }}" target="_blank">{{ Str::limit($resource->title, 60) }}</a>
               </h3>
             </div>
             <div class="mt-3">
-              <a href="{{ asset($fileLink) }}" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+              <a href="{{ asset('file/' . $resource->file) }}" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
                 <span>Download Resource</span>
                 <div class="cs_text_btn_icon cs_center">
                   <i class="fa-solid fa-arrow-right-long"></i>
@@ -45,7 +40,6 @@
             </div>
           </div>
         </div>
-        @endif
 
       @empty
         <div class="col-12 text-center">
@@ -55,7 +49,7 @@
     </div>
 
     <div class="mt-5 d-flex justify-content-center">
-      {{ $resources_data->links() }}
+     
     </div>
 
   </div>

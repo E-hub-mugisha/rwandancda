@@ -70,7 +70,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ $resource->file }}" target="_blank">
+                                <a href="{{ asset('file/' .$resource->file )}}" target="_blank">
                                     <span class="badge badge-success">Download </span>
                                 </a>
                             </td>

@@ -169,7 +169,7 @@ Route::get('/ncd_news/{slug}', function ($slug) {
 Route::get('/ncd_resources', function () {
     // return redirect()->action([PdfResourcesController::class, 'index']);
     $engagements = Engagement::all();
-    $data = Resource::simplePaginate(6);
+    $data = Resource::latest()->get();
     return view('resources', ['resources_data' => $data, 'engagements' => $engagements]);
 })->name('ncd_resources');
 
