@@ -541,4 +541,25 @@ Route::put('/admin/banner/update/{id}', [App\Http\Controllers\admin\BannerContro
 Route::delete('/admin/banner/delete/{id}', [App\Http\Controllers\admin\BannerController::class, "destroy"])
     ->middleware(['auth'])->name('banners.destroy');
 
+
+
+Route::get('/deploy/composer', function () {
+
+    // Run composer install
+    $output = null;
+    $returnVar = null;
+
+    // Change directory to your project
+    chdir(base_path());
+
+    // Run composer install
+    exec('composer install --no-dev --optimize-autoloader 2>&1', $output, $returnVar);
+
+    return response()->json([
+        'output' => $output,
+        'status' => $returnVar
+    ]);
+});
+
+
 require __DIR__ . '/auth.php';
