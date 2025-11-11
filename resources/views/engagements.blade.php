@@ -49,7 +49,7 @@
                 <div class="cs_about_content">
                     <div class="cs_section_heading cs_style_1">
                         <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Engagements</p>
-                        <h2 class="cs_section_title cs_fs_48 mb-0">{{ $eng_title }} <span class="cs_accent_color">In Rwanda NCDA.</span></h2>
+                        <h2 class="cs_section_title cs_fs_48 mb-0">{{ $eng_title }} <span class="cs_accent_color">In Rwanda NCD Alliance.</span></h2>
                     </div>
                     <p class="cs_about_text cs_heading_color">
                         {{ $data->content }}
