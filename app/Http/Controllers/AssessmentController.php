@@ -31,20 +31,29 @@ class AssessmentController extends Controller
             'age' => 'required|integer|min:1',
             'weight' => 'required|numeric|min:1',
             'height' => 'required|numeric|min:50',
-            'family_history' => 'boolean',
-            'physical_activity' => 'boolean',
-            'smoking' => 'boolean',
-            'hypertension' => 'boolean',
-            'high_cholesterol' => 'boolean',
+            'family_history' => 'required|boolean',
+            'physical_activity' => 'required|boolean',
+            'smoking' => 'required|boolean',
+            'hypertension' => 'required|boolean',
+            'high_cholesterol' => 'required|boolean',
         ]);
 
-        // Calculate BMI based on weight and height from the form
-        $bmi = $this->calculateBMI($validated['weight'], $validated['height']);
+        // Calculate BMI
+        $heightInMeters = $validated['height'] / 100;
+        $bmi = round($validated['weight'] / ($heightInMeters * $heightInMeters), 1);
 
-        // Calculate the risk score, incorporating BMI
-        $riskScore = $this->calculateRiskScore($validated, $bmi);
+        // Calculate risk score
+        $riskScore = 0;
+        if ($validated['age'] > 45) $riskScore += 5;
+        if ($bmi >= 25 && $bmi < 30) $riskScore += 3;
+        if ($bmi >= 30) $riskScore += 5;
+        if ($validated['family_history']) $riskScore += 4;
+        if ($validated['hypertension']) $riskScore += 3;
+        if ($validated['smoking']) $riskScore += 2;
+        if ($validated['high_cholesterol']) $riskScore += 3;
+        if ($validated['physical_activity']) $riskScore -= 2;
 
-        // Save the assessment with the calculated risk score
+        // Save Assessment
         $assessment = Assessment::create([
             ...$validated,
             'bmi' => $bmi,
@@ -55,77 +64,9 @@ class AssessmentController extends Controller
                          ->with('success', 'Assessment completed successfully.');
     }
 
-    /**
-     * Display the assessment result.
-     *
-     * @param  \App\Models\Assessment  $assessment
-     * @return \Illuminate\View\View
-     */
     public function show(Assessment $assessment)
     {
         $engagements = Engagement::all();
         return view('assessment.result', compact('assessment', 'engagements'));
-    }
-
-    /**
-     * Calculate BMI based on weight and height.
-     *
-     * @param  float  $weight
-     * @param  float  $height
-     * @return float
-     */
-    private function calculateBMI($weight, $height)
-    {
-        // Convert height from cm to meters
-        $heightInMeters = $height / 100;
-        return round($weight / ($heightInMeters * $heightInMeters), 1);
-    }
-
-    /**
-     * Calculate the risk score based on health factors and BMI.
-     *
-     * @param  array  $validated
-     * @param  float  $bmi
-     * @return int
-     */
-    private function calculateRiskScore($validated, $bmi)
-    {
-        $riskScore = 0;
-
-        // Age factor
-        if ($validated['age'] > 45) {
-            $riskScore += 5;
-        }
-
-        // BMI factor (increase risk if BMI is above 25)
-        if ($bmi >= 25 && $bmi < 30) {
-            $riskScore += 3; // Overweight
-        } elseif ($bmi >= 30) {
-            $riskScore += 5; // Obese
-        }
-
-        // Health factors
-        if ($validated['family_history']) {
-            $riskScore += 4;
-        }
-
-        if ($validated['hypertension']) {
-            $riskScore += 3;
-        }
-
-        if ($validated['smoking']) {
-            $riskScore += 2;
-        }
-
-        if ($validated['high_cholesterol']) {
-            $riskScore += 3;
-        }
-
-        // Physical activity (lower risk if active)
-        if ($validated['physical_activity']) {
-            $riskScore -= 2;
-        }
-
-        return $riskScore;
     }
 }

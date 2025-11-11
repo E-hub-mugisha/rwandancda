@@ -43,6 +43,7 @@ class MembersController extends Controller
             'name' => 'required',
             'website' => 'required',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required|in:founding,adherent,affiliated',
         ]);
   
         $input = $request->all();
@@ -100,6 +101,8 @@ class MembersController extends Controller
         $request->validate([
             'name' => 'required',
             'website' => 'required',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required|in:founding,adherent,affiliated',
         ]);
   
         $input = $request->all();

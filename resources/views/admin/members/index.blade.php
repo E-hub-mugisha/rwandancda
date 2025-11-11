@@ -54,6 +54,9 @@
                             <th style="width: 8%" class="text-center">
                                 Website
                             </th>
+                            <th style="width: 8%" class="text-center">
+                                Category
+                            </th>
                             <th style="width: 20%">
                             </th>
                         </tr>
@@ -72,12 +75,15 @@
                             <td>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar" src="{{ URL::asset($member->logo) }}">
+                                        <img alt="Avatar" class="table-avatar" src="{{ asset('new/img/'.$member->logo) }}">
                                     </li>
                                 </ul>
                             </td>
                             <td class="project-state">
                                 <span class="badge badge-success">{{ $member->website }}</span>
+                            </td>
+                            <td class="project-state">
+                                <span class="badge badge-info">{{ ucfirst($member->category) }}</span>
                             </td>
                             <td class="project-actions text-right">
                                 <a class="btn btn-primary btn-sm" href="{{ route('members.show', $member->id) }}">
@@ -148,6 +154,15 @@
                                             <label class="custom-file-label" for="logo">Choose logo</label>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select class="form-control" name="category" id="category">
+                                        <option value="founding">Founding Member</option>
+                                        <option value="adherent">Adherent Member</option>
+                                        <option value="affiliated">Affiliated Member</option>
+                                    </select>
+                                    <small class="form-text text-muted">Select the category for this member.</small>
                                 </div>
                             </div>
                             <!-- /.card-body -->

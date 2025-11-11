@@ -69,9 +69,11 @@ Route::get('/Mission_Vision_Objectives', function () {
 
 Route::get('/partnerships-members', function () {
     $engagements = Engagement::all();
-    $members = Member::all();
     $partners = Partner::all();
-    return view('partnerships', ['partners' => $partners, 'members' => $members, 'engagements' => $engagements]);
+    $founders = Member::where('category', 'founding')->get();
+    $adherents = Member::where('category', 'adherent')->get();
+    $affiliated = Member::where('category', 'affiliated')->get();
+    return view('partnerships', compact('founders', 'adherents', 'affiliated', 'partners', 'engagements'));
 })->name('partnerships');
 
 Route::get('/team_members', function () {

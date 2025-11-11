@@ -37,7 +37,7 @@
                                 <!-- Age -->
                                 <div class="col-md-4 mb-3">
                                     <div class="cs_form_field_wrapper cs_radius_10">
-                                        <input type="number" name="fitness-form-age" class="cs_form_field cs_fs_14" placeholder="Your Age" required>
+                                        <input type="number" name="age" class="cs_form_field cs_fs_14" placeholder="Your Age" required>
                                     </div>
                                 </div>
 
@@ -63,10 +63,9 @@
                                     <div class="cs_form_field_wrapper cs_radius_10">
                                         <select class="cs_form_field cs_fs_14" id="family_history" name="family_history" required>
                                             <option value="" disabled selected>-- Select --</option>
-                                            <option value="1" {{ old('family_history') == 1 ? 'selected' : '' }}>Yes</option>
-                                            <option value="0" {{ old('family_history') == 0 ? 'selected' : '' }}>No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
                                         </select>
-                                        @error('family_history') <div class="text-danger">{{ $message }}</div> @enderror
                                     </div>
                                 </div>
 
@@ -76,10 +75,9 @@
                                     <div class="cs_form_field_wrapper cs_radius_10">
                                         <select class="cs_form_field cs_fs_14" id="physical_activity" name="physical_activity" required>
                                             <option value="" disabled selected>-- Select --</option>
-                                            <option value="1" {{ old('physical_activity') == 1 ? 'selected' : '' }}>Yes</option>
-                                            <option value="0" {{ old('physical_activity') == 0 ? 'selected' : '' }}>No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
                                         </select>
-                                        @error('physical_activity') <div class="text-danger">{{ $message }}</div> @enderror
                                     </div>
                                 </div>
 
@@ -89,10 +87,9 @@
                                     <div class="cs_form_field_wrapper cs_radius_10">
                                         <select class="cs_form_field cs_fs_14" id="smoking" name="smoking" required>
                                             <option value="" disabled selected>-- Select --</option>
-                                            <option value="1" {{ old('smoking') == 1 ? 'selected' : '' }}>Yes</option>
-                                            <option value="0" {{ old('smoking') == 0 ? 'selected' : '' }}>No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
                                         </select>
-                                        @error('smoking') <div class="text-danger">{{ $message }}</div> @enderror
                                     </div>
                                 </div>
 
@@ -102,10 +99,9 @@
                                     <div class="cs_form_field_wrapper cs_radius_10">
                                         <select class="cs_form_field cs_fs_14" id="hypertension" name="hypertension" required>
                                             <option value="" disabled selected>-- Select --</option>
-                                            <option value="1" {{ old('hypertension') == 1 ? 'selected' : '' }}>Yes</option>
-                                            <option value="0" {{ old('hypertension') == 0 ? 'selected' : '' }}>No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
                                         </select>
-                                        @error('hypertension') <div class="text-danger">{{ $message }}</div> @enderror
                                     </div>
                                 </div>
 
@@ -115,10 +111,9 @@
                                     <div class="cs_form_field_wrapper cs_radius_10">
                                         <select class="cs_form_field cs_fs_14" id="high_cholesterol" name="high_cholesterol" required>
                                             <option value="" disabled selected>-- Select --</option>
-                                            <option value="1" {{ old('high_cholesterol') == 1 ? 'selected' : '' }}>Yes</option>
-                                            <option value="0" {{ old('high_cholesterol') == 0 ? 'selected' : '' }}>No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
                                         </select>
-                                        @error('high_cholesterol') <div class="text-danger">{{ $message }}</div> @enderror
                                     </div>
                                 </div>
 
@@ -134,6 +129,7 @@
                     </div>
 
                 </form>
+
 
             </div>
         </div>

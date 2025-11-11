@@ -65,10 +65,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select class="form-control" name="category" id="category">
+                                        <option value="founding" {{ $member->category == 'founding' ? 'selected' : '' }}>Founding Member</option>
+                                        <option value="adherent" {{ $member->category == 'adherent' ? 'selected' : '' }}>Adherent Member</option>
+                                        <option value="affiliated" {{ $member->category == 'affiliated' ? 'selected' : '' }}>Affiliated Member</option>
+                                    </select>
+                                    <small class="form-text text-muted">Select the category for this member.</small>
+                                </div>
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
                             </div>
                         </form>
                     </div>
