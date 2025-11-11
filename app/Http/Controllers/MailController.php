@@ -105,4 +105,31 @@ class MailController extends Controller
         return redirect()->route('add_newsletter')->with('status', 'Successfully Sent, Thank you for your collaboration!');
 
     }
+    
+    public function send(Request $request)
+    {
+        $validated = $request->validate([
+            'fname' => 'required|string|max:50',
+            'lname' => 'required|string|max:50',
+            'email' => 'required|email',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'required|string|max:100',
+            'message' => 'required|string|max:1000',
+        ]);
+
+        $data = [
+            'fullname' => $validated['fname'] . ' ' . $validated['lname'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'subject' => $validated['subject'],
+            'messageBody' => $validated['message'],
+        ];
+
+        Mail::send('emails.contact', $data, function($message) use ($data) {
+            $message->to('info@rwandancda.org')  // your receiving email
+                    ->subject('New Contact Message: ' . $data['subject']);
+        });
+
+        return back()->with('success', 'Thank you! Your message has been sent.');
+    }
 }

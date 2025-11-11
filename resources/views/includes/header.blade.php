@@ -31,7 +31,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ URL::route('our_impact') }}">
                                                 <div>Our Impact</div>
                                             </a>
                                         </li>

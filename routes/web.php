@@ -40,35 +40,19 @@ use TCG\Voyager\Models\Category;
 |
 */
 
-Route::get('/home', function () {
-    $stories = Story::latest()->take(3)->get();
-    $partners = Partner::all();
-    $groupFocus = Engagement::all();
-    $engagements = Engagement::all();
-    $data = VoyagerPost::where('category_id', 1)->orderBy('created_at', 'desc')->take(6)->get();
-    $featured = VoyagerPost::where('category_id', 1)
-        ->inRandomOrder()
-        ->first();
-    $resourcedata = Resource::all()->take(3);
-    $banners = CarouselItem::latest()->take(3)->get();
-    $images = Gallery::latest()->take(10)->get();
-    return view('home', ['featured' => $featured, 'banners' => $banners, 'images' => $images, 'stories' => $stories, 'groupFocus' => $groupFocus, 'engagements' => $engagements, 'partners' => $partners, 'posts' => $data, 'resources_data' => $resourcedata]);
-});
-
 Route::get('/', function () {
     $stories = Story::latest()->take(3)->get();
     $partners = Partner::all();
     $groupFocus = Engagement::all();
     $engagements = Engagement::all();
     $data = VoyagerPost::where('category_id', 1)->orderBy('created_at', 'desc')->take(6)->get();
-    $resourcedata = Resource::all()->take(3);
-    $newsletters = Newsletters::latest()->take(3)->get();
-    $banners = CarouselItem::latest()->take(3)->get();
-    $images = Gallery::latest()->take(4)->get();
     $featured = VoyagerPost::where('category_id', 1)
-        ->inRandomOrder()
-        ->first();
-    return view('home', ['featured' => $featured, 'banners' => $banners, 'images' => $images, 'stories' => $stories, 'groupFocus' => $groupFocus, 'engagements' => $engagements, 'partners' => $partners, 'posts' => $data, 'resources_data' => $resourcedata, 'newsletters' => $newsletters,]);
+        ->latest()
+        ->take(1)->first();
+    $resourcedata = Resource::all()->take(3);
+    $banners = CarouselItem::latest()->take(3)->get();
+    $images = Gallery::latest()->take(10)->get();
+    return view('home', ['featured' => $featured, 'banners' => $banners, 'images' => $images, 'stories' => $stories, 'groupFocus' => $groupFocus, 'engagements' => $engagements, 'partners' => $partners, 'posts' => $data, 'resources_data' => $resourcedata]);
 })->name('home');
 
 Route::get('/about_us', function () {
@@ -150,7 +134,7 @@ Route::get('/ncd_engagements/{title}', function ($title) {
     $engagements = Engagement::all();
     $data = Engagement::where('title', $title)->first();
     $programs = Program::where('engagement', $data->id)->get();
-    return view('engagements', ['programs' => $programs, 'eng_title' => $title, 'engagements' => $engagements]);
+    return view('engagements', ['programs' => $programs, 'eng_title' => $title, 'data' => $data, 'engagements' => $engagements]);
 })->name('ncd_engagements');
 
 Route::get('/program/{id}', function ($id) {
@@ -210,6 +194,8 @@ Route::post('/newsletter/add/send', [MailController::class, 'attached_mail'])->n
 
 Route::post('/contact/send', [MailController::class, 'html_mail'])->name('send_contact');
 Route::post('/sendContact', [App\Http\Controllers\MailController::class, 'sendContact'])->name('sendContact');
+
+Route::post('/contact/send', [App\Http\Controllers\MailController::class, 'send'])->name('contact.send');
 
 Route::get('/test-email', function () {
     $details = [
@@ -277,6 +263,11 @@ Route::get('/ncd_stories', function () {
     $stories = Story::latest()->get();
     return view('ncd_stories', ['engagements' => $engagements, 'stories' => $stories]);
 })->name('ncd_stories');
+
+Route::get('/our-impact', function () {
+    $engagements = Engagement::all();
+    return view('our_impact', ['engagements' => $engagements]);
+})->name('our_impact');
 
 // ********************************Dashboard ROUTES********************************* //
 

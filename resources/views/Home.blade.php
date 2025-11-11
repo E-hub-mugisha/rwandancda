@@ -56,24 +56,47 @@
 <!-- Start Hero Section -->
 <section id="heroCarousel" class="carousel slide carousel-fade cs_style_1 position-relative full-height" data-bs-ride="carousel" data-bs-interval="4000">
     <div class="carousel-inner full-height">
-        @foreach ($banners as $index => $item)
-        <div class="carousel-item {{ $index === 0 ? 'active' : '' }} cs_bg_filed full-height" style="background-image: url('{{ asset($item->image_path) }}');">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active cs_bg_filed full-height" style="background-image: url('new/img/intro-carousel/banner.jpg');">
             <div class="cs_hero_overlay"></div>
             <div class="container">
                 <div class="cs_hero_content_wrapper cs_hero_content">
                     <div class="cs_hero_content wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
                         <h3 class="cs_hero_title_mini cs_white_color cs_semibold">Rwanda NCD Alliance</h3>
-                        <h1 class="cs_hero_title cs_white_color">{{ $item->title }}</h1>
-                        @if ($item->description)
+                        <h1 class="cs_hero_title cs_white_color">Welcome to Rwanda NCD Alliance</h1>
                         <p class="cs_hero_subtitle cs_medium cs_white_color cs_heading_font">
-                            {{ Str::limit($item->description, 60) }}
+                            Rwanda Non-Communicable Diseases Alliance is a unique civil society network, founded in 2016 and uniting 25 organizations ( NCDs Patients, health care professionals and youth-led organizations and private institutions) working on NCDs in Rwanda.
                         </p>
-                        @endif
                         <div class="cs_btns_group wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.25s">
-                            <a href="{{ url('ncd_stories') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                            <a href="{{ route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                                <span class="cs_btn_text">About Us</span>
+                            </a>
+                            <a href="{{ route('ncd_posts') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                                <span class="cs_btn_text">Recent News</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item cs_bg_filed full-height" style="background-image: url('new/img/intro-carousel/banner-2.jpg');">
+            <div class="cs_hero_overlay"></div>
+            <div class="container">
+                <div class="cs_hero_content_wrapper cs_hero_content">
+                    <div class="cs_hero_content wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                        <h3 class="cs_hero_title_mini cs_white_color cs_semibold">Rwanda NCD Alliance</h3>
+                        <h1 class="cs_hero_title cs_white_color">Promoting Health Through Kigali Car Free Day Initiative</h1>
+                        <p class="cs_hero_subtitle cs_medium cs_white_color cs_heading_font">
+                            Kigali Car Free Day encourages walking, running, and cycling to promote healthy lifestyles, reduce pollution, and raise NCD awareness.
+                        </p>
+                        <div class="cs_btns_group wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                            <a href="https://www.kigalicity.gov.rw/news-detail/expanding-kigali-car-free-day" target="_blank" rel="noopener noreferrer" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
                                 <span class="cs_btn_text">Learn More</span>
                             </a>
-                            <a href="{{ url('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                            <a href="{{ route('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
                                 <span class="cs_btn_text">Contact Now</span>
                             </a>
                         </div>
@@ -81,7 +104,31 @@
                 </div>
             </div>
         </div>
-        @endforeach
+
+        <!-- Slide 3 -->
+        <div class="carousel-item cs_bg_filed full-height" style="background-image: url('new/img/intro-carousel/forum.jpg');">
+            <div class="cs_hero_overlay"></div>
+            <div class="container">
+                <div class="cs_hero_content_wrapper cs_hero_content">
+                    <div class="cs_hero_content wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                        <h3 class="cs_hero_title_mini cs_white_color cs_semibold">Global NCD Forum (#NCDAF2025)</h3>
+                        <h1 class="cs_hero_title cs_white_color">Global NCD Community Gathered in Kigali for 4th Global NCDA Forum 2025</h1>
+                        <p class="cs_hero_subtitle cs_medium cs_white_color cs_heading_font">
+                            The city of Kigali successfully hosted the 4th Global NCD Alliance Forum, which took place from February 13-15, 2025. Led by the Global NCD Alliance and the Rwanda NCD Alliance, the forum brought together experts and advocates to champion the global NCD response.
+                        </p>
+                        <div class="cs_btns_group wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                            <a href="https://forum.ncdalliance.org/" target="_blank" rel="noopener noreferrer" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                                <span class="cs_btn_text">Learn More</span>
+                            </a>
+                            <a href="https://forum.ncdalliance.org/photos/" target="_blank" rel="noopener noreferrer" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                                <span class="cs_btn_text">Event Highlights</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Carousel Controls -->
@@ -92,7 +139,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
 </section>
-
 
 <!-- Start Features Section -->
 <section class="cs_features cs_style_1 m-0">
@@ -121,7 +167,7 @@
                         </div>
                         <h3 class="cs_iconbox_title cs_fs_32 cs_bold">{{ $engagement->title }}</h3>
                         <p class="cs_iconbox_subtitle mb-0">
-                            Engaging individuals, communities and government to bring the NCDs into the public spotlight and on national agenda
+                            {{ $engagement->content }}
                         </p>
                     </div>
                 </div>
@@ -138,15 +184,30 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
         <div class="row align-items-center cs_gap_y_40">
+            <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                <div class="cs_about_content">
+                    <div class="cs_section_heading cs_style_1">
+                        <p class="cs_section_subtitle cs_accent_color cs_fs_18 cs_semibold cs_heading_font">About us</p>
+                        <h2 class="cs_section_title cs_fs_48 mb-0">Rwanda Non-Communicable <span
+                                class="cs_accent_color">Disease Alliance</span></h2>
+                    </div>
+                    <p class="cs_about_text">Rwanda Non-Communicable Diseases Alliance is a unique civil society network, <a
+                            href="https://ncdalliance.org/news-events/news/launch-of-the-rwanda-non-communicable-disease-alliance"
+                            target="_blank">founded in 2016</a> and uniting 25 organizations
+                        ( NCDs Patients, health care professionals and youth-led organizations and private institutions)
+                        working on NCDs in Rwanda.</p>
+
+                </div>
+            </div>
             <div class="col-lg-6">
                 <div class="cs_about_thumbnail">
                     <div class="cs_about_thumbnail_1">
                         <img src="{{ asset('new/img/content/about-05.jpg')}}" alt="Image">
-                        <a href="#" class="cs_player_btn cs_style_1 cs_video_open">
+                        <a href="{{ route('ncd_posts')}}" class="cs_player_btn cs_style_1 cs_video_open">
                             <span class="cs_player_btn_icon cs_center">
                                 <img src="assets/img/icons/player_icon.svg" alt="Icon">
                             </span>
-                            <span class="cs_play_btn_text cs_fs_18 cs_semibold cs_accent_color">How We Works</span>
+                            <span class="cs_play_btn_text cs_fs_18 cs_semibold cs_accent_color">See our Impact</span>
                         </a>
                     </div>
                     <div class="cs_about_thumbnail_2">
@@ -163,22 +224,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
-                <div class="cs_about_content">
-                    <div class="cs_section_heading cs_style_1">
-                        <p class="cs_section_subtitle cs_accent_color cs_fs_18 cs_semibold cs_heading_font">About us</p>
-                        <h2 class="cs_section_title cs_fs_48 mb-0">Rwanda Non-Communicable <span
-                                class="cs_accent_color">Disease Alliance</span></h2>
-                    </div>
-                    <p class="cs_about_text">Rwanda Non-Communicable Diseases Alliance is a unique civil society network, <a
-                            href="https://ncdalliance.org/news-events/news/launch-of-the-rwanda-non-communicable-disease-alliance"
-                            target="_blank">founded in 2016</a> and uniting 25 organizations
-                        ( NCDs Patients, health care professionals and youth-led organizations and private institutions)
-                        working on NCDs in Rwanda.</p>
 
-                    <a href="{{ URL::route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100"><span class="cs_btn_text">Info More About</span></a>
-                </div>
-            </div>
         </div>
     </div>
     <div class="cs_about_shape_1">
@@ -200,28 +246,98 @@
 </section>
 <!-- End About Section -->
 
+<section class="cs_pricing_section cs_accent_bg cs_hide_before_after">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="cs_height_32 cs_height_lg_30"></div>
+        <div class="cs_tabs cs_style_1 ">
+            <div class="cs_height_32 cs_height_lg_30"></div>
+            <div class="cs_tab_body">
+                <div class="cs_tab active" id="cs_monthly">
+                    <div class="row justify-content-center cs_row_gap_30 cs_gap_y_30">
+                        <div class="col-lg-12">
+                            <div class="cs_pricing_table cs_style_1 cs_type_2">
+                                <div class="cs_pricing_headedr">
+                                    <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Get to know</h3>
+                                    <a href="{{ URL::route('about_us') }}"
+                                        class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
+                                        <span><i class="fa-solid fa-arrow-right"></i></span>
+                                        <span><i class="fa-solid fa-arrow-right"></i></span>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 cs_pricing_feature">
+                                        <h3 class="cs_pricing_feature_title cs_fs_32"><a href="#">Rwanda NCDA
+                                                vision</a>
+                                        </h3>
+                                        <p class="cs_pricing_feature_list cs_mp0">
+                                            A healthy people in a nation free from preventable suffering,
+                                            disability, and deaths caused by Non
+                                            Communicable Diseases.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 cs_pricing_feature">
+                                        <h3 class="cs_pricing_feature_title cs_fs_32"><a href="#">Rwanda NCDA
+                                                Mission</a></h3>
+                                        <p class="cs_pricing_feature_list cs_mp0">
+                                            To unite the efforts and create a powerful voice for the NCDs awareness
+                                            rising,
+                                            advocate for the
+                                            prevention and control of NCDs and their risk factors in Rwanda, by
+                                            promoting
+                                            multisectoral
+                                            partnerships, healthy living style education, early detection and responding
+                                            to
+                                            NCDs challenges
+                                            to
+                                            improve health and well-being.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 cs_pricing_feature">
+                                        <h3 class="cs_pricing_feature_title cs_fs_32">Our Objectives</h3>
+                                        <ul class="cs_pricing_feature_list cs_mp0">
+                                            <li><i class="fa-solid fa-check"></i>Building capacity and providing
+                                                technical
+                                                support to the members</li>
+                                            <li><i class="fa-solid fa-check"></i>Leading awareness and healthy life
+                                                education for NCDs Prevention</li>
+                                            <li><i class="fa-solid fa-check"></i>Empower people living with NCDs and
+                                                Advocate for them on access to quality care</li>
+                                            <li><i class="fa-solid fa-check"></i>Empower people living with NCDs and
+                                                Advocate for them on access to quality care</li>
+                                            <li><i class="fa-solid fa-check"></i> Advocate for the community concerning
+                                                the
+                                                prevention and control of NCDs</li>
+                                            <li><i class="fa-solid fa-check"></i>Contribute to evidence based NCD
+                                                policies
+                                                and practices.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+
 <section class="cs_video_section cs_style_1 cs_accent_bg position-relative mt-5">
     <div class="container">
         <div class="cs_vider_wrapper cs_style_1">
-            <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
+            <a href="https://www.youtube.com/watch?v=G6DP05PcKhk"
+                class="cs_player_btn cs_style_2 cs_center cs_video_open">
                 <span></span>
             </a>
-            <h2 class="cs_video_title">Here our Stories
-                <span class="cs_accent_color">About NCDs</span>
+
+            <h2 class="cs_video_title">Life with
+                <span class="cs_accent_color">NCDs</span>
             </h2>
-            <p class="cs_video_subtitle">Most people nowadays face a lot of challenges because of the COVID-19
-                pandemic either changing their lifestyles,
-                economy, and health, particularly people living with non-communicable diseases (PLWNCDs) who are
-                more at
-                risk for severe complications of COVID-19 and death when they are contracted.</p>
-            <div class="cs_btns_group wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
-                <a href="{{ url('ncd_stories') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-                    <span class="cs_btn_text">Learn More</span>
-                </a>
-                <a href="{{ url('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-                    <span class="cs_btn_text">Contact Now</span>
-                </a>
-            </div>
+            <p class="cs_video_subtitle">Many people face challenges in lifestyle, economy, and health, especially those living with non-communicable diseases (PLWNCDs), who are at higher risk of severe complications.</p>
+
             <div class="cs_video_shape_3">
                 <img src="assets/img/heartbeat.svg" alt="Icon">
             </div>
@@ -242,9 +358,8 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
         <div class="cs_section_heading cs_style_1 cs_type_1">
-            <div class="cs_section_heading_right cs_white_color_8">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward.</div>
             <div class="cs_section_heading_left">
-                <p class="cs_section_subtitle cs_white_color">Our Stories</p>
+                <p class="cs_section_subtitle cs_white_color">NCD Stories & Challenges</p>
                 <h2 class="cs_section_title cs_white_color">Hear testimony from our community.</h2>
             </div>
         </div>
@@ -270,6 +385,11 @@
                         </div>
                     </div>
                     @endforeach
+                </div>
+                <div class="cs_btns_group wow fadeInUp animated mt-5 justify-content-center" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
+                    <a href="{{ url('ncd_stories') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100" style="background:black;">
+                        <span class="cs_btn_text">Read More</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -307,52 +427,62 @@
 
 @include('includes.event-posts')
 
-<section class="cs_video_section cs_style_2 cs_heading_bg cs_bg_filed position-relative" data-src="new/img/content/about-02.jpg" style="background-image: url(&quot;new/img/content/about-02.jpg&quot;);">
+{{-- Impact Section --}}
+<section class="cs_video_section cs_style_2 cs_heading_bg cs_bg_filed position-relative" data-src="{{ asset('new/img/content/about-02.jpg') }}" style="background-image: url('{{ asset('new/img/content/about-02.jpg') }}');">
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
-        <div class="cs_section_heading cs_style_1">
+        <div class="cs_section_heading cs_style_1 text-center">
             <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_white_color cs_heading_font">Success Story</p>
             <h2 class="cs_section_title cs_fs_48 cs_white_color mb-0">Get to know our impact to the community</h2>
         </div>
+
         <div class="cs_height_50 cs_height_lg_40"></div>
-        <div class="cs_open_video_content wow fadeInRight animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInRight;">
-            <a href="{{ url('ncd_stories') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
+
+        <div class="cs_open_video_content wow fadeInRight animated" data-wow-duration="0.9s" data-wow-delay="0.25s">
+            <a href="{{ url('ncd_stories') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
                 <span class="cs_btn_text"><i class="fa-solid fa-user-group"></i> Our Impact</span>
             </a>
-
         </div>
-        <div class="cs_height_40 cs_height_lg_40"></div>
 
+        <div class="cs_height_40 cs_height_lg_40"></div>
     </div>
     <div class="cs_height_120 cs_height_lg_80"></div>
 </section>
 
+{{-- Resources Section --}}
 <section class="cs_service_area cs_type_3">
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
+
+        {{-- Section Header --}}
         <div class="cs_section_heading cs_style_1 cs_type_1">
             <div class="cs_section_heading_left">
                 <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Rwanda NCD Alliance</p>
-                <h2 class="cs_section_title cs_accent_color mb-0">Publications &amp; Resources.</h2>
+                <h2 class="cs_section_title cs_accent_color mb-0">Publications & Resources</h2>
             </div>
-            <div class="cs_section_heading_right cs_accent_color text-end">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward</div>
+            <div class="cs_section_heading_right cs_accent_color text-end">
+                Uniting our efforts to share knowledge, support advocacy, and strengthen Rwanda’s response to non-communicable diseases.
+            </div>
         </div>
+
         <div class="cs_height_100 cs_height_lg_40"></div>
+
+        {{-- Resources --}}
         <div class="row cs_gap_y_30">
             @foreach($resources_data as $resource)
-            @if( empty( (json_decode($resource->file))[0]->download_link ) )
-            @continue
-            @else
+            @php
+            $fileData = json_decode($resource->file);
+            $fileLink = $fileData[0]->download_link ?? null;
+            @endphp
+
+            @if($fileLink)
             <div class="col-lg-4">
-                <?php $file = (json_decode($resource->file))[0]->download_link; ?>
                 <div class="cs_iconbox cs_style_8 cs_white_bg">
                     <h3 class="cs_iconbox_title cs_fs_32 cs_semibold">
-                        <a href="{{ URL::asset( $file ) }}" target="_blank">{{ Str::limit($resource->title, 50)}}</a>
+                        <a href="{{ asset($fileLink) }}" target="_blank">{{ Str::limit($resource->title, 50) }}</a>
                     </h3>
-                    <!-- <p class="cs_iconbox_subtitle">
-                        {{ Str::limit($resource->title, 50)}}
-                    </p> -->
-                    <a href="{{ URL::asset( $file ) }}" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+
+                    <a href="{{ asset($fileLink) }}" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
                         <span>Read More</span>
                         <div class="cs_text_btn_icon cs_center">
                             <span><i class="fa-solid fa-arrow-right-long"></i></span>
@@ -367,5 +497,6 @@
     </div>
     <div class="cs_height_120 cs_height_lg_80"></div>
 </section>
+
 
 @endsection

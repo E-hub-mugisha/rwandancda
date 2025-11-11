@@ -9,22 +9,13 @@
             <a href="#" class="cs_player_btn cs_style_2 cs_center cs_video_open wow zoomIn animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: zoomIn;">
                 <span></span>
             </a>
-            <h2 class="cs_video_title">Here our Stories
-                <span class="cs_accent_color">About NCDs</span>
+            <h2 class="cs_video_title">Life with
+                <span class="cs_accent_color">NCDs</span>
             </h2>
-            <p class="cs_video_subtitle">Most people nowadays face a lot of challenges because of the COVID-19
-                pandemic either changing their lifestyles,
-                economy, and health, particularly people living with non-communicable diseases (PLWNCDs) who are
-                more at
-                risk for severe complications of COVID-19 and death when they are contracted.</p>
-            <div class="cs_btns_group wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
-                <a href="{{ URL::route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-                    <span class="cs_btn_text">Learn More</span>
-                </a>
-                <a href="{{ URL::route('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-                    <span class="cs_btn_text">Contact Now</span>
-                </a>
-            </div>
+            <p class="cs_video_subtitle">
+                Many people face challenges in lifestyle, economy, and health, especially those living with non-communicable diseases (PLWNCDs), who are at higher risk of severe complications.
+                </p>
+            
             <div class="cs_video_shape_3">
                 <img src="assets/img/heartbeat.svg" alt="Icon">
             </div>
@@ -45,9 +36,8 @@
     <div class="cs_height_120 cs_height_lg_80"></div>
     <div class="container">
         <div class="cs_section_heading cs_style_1 cs_type_1">
-            <div class="cs_section_heading_right cs_white_color_8">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward.</div>
             <div class="cs_section_heading_left">
-                <p class="cs_section_subtitle cs_white_color">Our Stories</p>
+                <p class="cs_section_subtitle cs_white_color">NCD Stories & Challenges</p>
                 <h2 class="cs_section_title cs_white_color">Hear testimony from our community.</h2>
             </div>
         </div>

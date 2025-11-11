@@ -11,15 +11,8 @@
         <span></span>
       </a>
       <h2 class="cs_video_title">Rwanda NCD Alliance &nbsp;<span class="cs_accent_color">Quarterly newsletter</span></h2>
-      <p class="cs_video_subtitle">Rwanda NCD Alliance newsletter is a quarterly output that intends to keep members and stakeholders up to date with our work.</p>
-      <div class="cs_btns_group wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
-        <a href="{{ URL::route('about_us') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-          <span class="cs_btn_text">Learn More</span>
-        </a>
-        <a href="{{ URL::route('message') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg  cs_radius_100">
-          <span class="cs_btn_text">Contact Now</span>
-        </a>
-      </div>
+      <p class="cs_video_subtitle">Stay informed with our latest updates, campaigns, advocacy milestones, and member contributions in the fight against NCDs.</p>
+      
       <div class="cs_video_shape_3">
         <img src="{{ asset('assets/img/heartbeat.svg') }}" alt="Icon">
       </div>
@@ -40,10 +33,9 @@
   <div class="cs_height_120 cs_height_lg_80"></div>
   <div class="container">
     <div class="cs_section_heading cs_style_1 cs_type_1">
-      <div class="cs_section_heading_right cs_white_color_8">This tool was designed to collect inputs from our members and engage them in the content development process.</div>
       <div class="cs_section_heading_left">
         <p class="cs_section_subtitle cs_white_color">Newsletter</p>
-        <h2 class="cs_section_title cs_white_color">We offer Members submission should include but not limited.</h2>
+        <h2 class="cs_section_title cs_white_color">Contribute to the Quarterly Newsletter</h2>
       </div>
     </div>
     <div class="cs_height_50 cs_height_lg_40"></div>
@@ -51,14 +43,14 @@
       <div class="col-lg-6">
         <div class="cs_pricing_table cs_style_1 cs_type_2">
           <div class="cs_pricing_headedr">
-            <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Get to know</h3>
+            <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Our Newsletter</h3>
             <a href="{{ URL::route('message') }}" class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
               <span><i class="fa-solid fa-arrow-right"></i></span>
               <span><i class="fa-solid fa-arrow-right"></i></span>
             </a>
           </div>
           <div class="cs_pricing_feature">
-            <h3 class="cs_pricing_feature_title cs_fs_32">Our Objectives</h3>
+            <h3 class="cs_pricing_feature_title cs_fs_32">Newsletter Objectives</h3>
             <ul class="cs_pricing_feature_list cs_mp0">
               <li><i class="fa-solid fa-check"></i>Recent news items or activities such as campaigns, meetings, advocacy successes, event reports, or any other developments your organization has organized;</li>
               <li><i class="fa-solid fa-check"></i>Upcoming events that you are planning that are relevant for the NCD community;</li>
@@ -66,7 +58,7 @@
               <li><i class="fa-solid fa-check"></i>Any other opportunities in your organization that could benefit other members, such as internship, volunteerism, scholarships... </li>
               <li><i class="fa-solid fa-question"></i>Note: You can submit your content for the next publications at any time.</li>
             </ul>
-            <button class="cs_pricing_btn cs_fs_18 cs_semibold cs_accent_color cs_white_bg cs_hover_up" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Let's collaborate</button>
+            <button class="cs_pricing_btn cs_fs_18 cs_semibold cs_accent_color cs_white_bg cs_hover_up" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Submit Your Article</button>
           </div>
         </div>
       </div>
@@ -86,10 +78,9 @@
   <div class="container">
     <div class="cs_section_heading cs_style_1 cs_type_1">
       <div class="cs_section_heading_left">
-        <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Resources</p>
-        <h2 class="cs_section_title cs_accent_color mb-0">We offer more than Services &amp; all Solutions Medical.</h2>
+        <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Recent Editions</p>
+        <h2 class="cs_section_title cs_accent_color mb-0">Latest Newsletter Publications</h2>
       </div>
-      <div class="cs_section_heading_right cs_accent_color text-end">Working together as an alliance provides a mutual platform for collaboration and joint advocacy to drive the NCDs agenda forward</div>
     </div>
     <div class="cs_height_100 cs_height_lg_40"></div>
     <div class="row cs_gap_y_30">
