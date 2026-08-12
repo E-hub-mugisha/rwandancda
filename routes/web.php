@@ -239,6 +239,10 @@ Route::get('/diabetes/assessments', [AssessmentController::class, 'create'])->na
 Route::post('/assessments', [AssessmentController::class, 'store'])->name('assessments.store');
 Route::get('/assessments/{assessment}', [AssessmentController::class, 'show'])->name('assessments.show');
 
+Route::get('/video-gallery', function () {
+    $engagements = Engagement::all();
+    return view('video-gallery', ['engagements' => $engagements]);
+})->name('video-gallery');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

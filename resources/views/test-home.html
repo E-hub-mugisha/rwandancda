@@ -1,0 +1,706 @@
+@extends('layouts.base')
+@section('title','Home')
+@section('content')
+
+<style>
+    :root{
+        --home-blue:#5D89C8;
+        --home-blue-dark:#2E4A73;
+        --home-amber:#F2A93B;
+        --home-amber-dark:#D98F1F;
+        --home-ink:#12232E;
+        --home-slate:#5B6B78;
+        --home-mist:#F6F9FC;
+        --home-border:rgba(18,35,46,.08);
+        --home-shadow-sm:0 10px 26px -14px rgba(18,35,46,.18);
+        --home-shadow-md:0 24px 48px -20px rgba(18,35,46,.22);
+        --home-shadow-lg:0 34px 70px -24px rgba(18,35,46,.28);
+        --home-radius:22px;
+        --home-font-display:'Fraunces',Georgia,serif;
+        --home-font-body:'Inter',system-ui,-apple-system,sans-serif;
+    }
+
+    /* ================= Hero (split: text left / photo card right) ================= */
+    .cs_hero_v2{
+        position:relative;
+        padding:172px 0 80px;
+        background:linear-gradient(180deg,var(--home-mist) 0%,#FFFFFF 70%);
+        overflow:hidden;
+    }
+    .cs_hero_v2_bg_shape{
+        position:absolute;
+        top:-120px;right:-160px;
+        width:520px;height:520px;
+        border-radius:50%;
+        background:radial-gradient(circle at 30% 30%, rgba(93,137,200,.10), rgba(93,137,200,0) 70%);
+        pointer-events:none;
+    }
+    .cs_hero_v2_row{position:relative;z-index:1;}
+
+    .cs_hero_v2_eyebrow{
+        display:inline-flex;align-items:center;gap:8px;
+        padding:7px 15px;border-radius:999px;
+        background:#EAF0F9;color:var(--home-blue-dark);
+        font-size:12.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+        margin-bottom:20px;
+    }
+    .cs_hero_v2_eyebrow i{color:var(--home-amber);font-size:12px;}
+
+    .cs_hero_v2_title{
+        font-family:var(--home-font-display);
+        font-weight:600;
+        font-size:46px;
+        line-height:1.14;
+        color:var(--home-ink);
+        margin-bottom:20px;
+        max-width:560px;
+    }
+    .cs_hero_v2_title em{
+        font-style:normal;
+        color:var(--home-blue);
+    }
+
+    .cs_hero_v2_desc{
+        font-family:var(--home-font-body);
+        font-size:16.5px;
+        line-height:1.75;
+        color:var(--home-slate);
+        max-width:520px;
+        margin-bottom:34px;
+    }
+
+    .cs_hero_v2_btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
+    .cs_hero_v2_btn{
+        display:inline-flex;align-items:center;gap:10px;
+        padding:14px 26px;border-radius:999px;
+        font-family:var(--home-font-body);
+        font-size:14.5px;font-weight:700;
+        text-decoration:none;white-space:nowrap;
+        transition:.2s ease;
+    }
+    .cs_hero_v2_btn_primary{
+        background:var(--home-blue);color:#fff;
+        box-shadow:0 14px 28px -12px rgba(93,137,200,.6);
+    }
+    .cs_hero_v2_btn_primary:hover{background:var(--home-blue-dark);color:#fff;transform:translateY(-2px);}
+    .cs_hero_v2_btn_ghost{
+        background:transparent;color:var(--home-ink);
+        border:1.5px solid rgba(18,35,46,.16);
+    }
+    .cs_hero_v2_btn_ghost:hover{border-color:var(--home-blue);color:var(--home-blue);}
+
+    /* Slide navigation, redrawn as a compact control row under the text column */
+    .cs_hero_v2_controls{display:flex;align-items:center;gap:18px;}
+    .cs_hero_v2_dots{display:flex;gap:8px;margin:0;padding:0;}
+    .cs_hero_v2_dots [data-bs-slide-to]{
+        width:8px;height:8px;border-radius:50%;
+        background:rgba(18,35,46,.18);border:none;padding:0;
+        transition:.2s ease;
+    }
+    .cs_hero_v2_dots [data-bs-slide-to].active{
+        width:22px;border-radius:5px;background:var(--home-blue);
+    }
+    .cs_hero_v2_arrows{display:flex;gap:8px;}
+    .cs_hero_v2_arrow_btn{
+        width:38px;height:38px;border-radius:50%;
+        border:1.5px solid rgba(18,35,46,.14);background:#fff;
+        display:inline-flex;align-items:center;justify-content:center;
+        color:var(--home-ink);cursor:pointer;transition:.2s ease;
+    }
+    .cs_hero_v2_arrow_btn:hover{background:var(--home-blue);border-color:var(--home-blue);color:#fff;}
+    .cs_hero_v2_arrow_btn i{font-size:13px;}
+
+    /* Photo card */
+    .cs_hero_v2_photo_wrap{position:relative;max-width:460px;margin:0 auto;}
+    .cs_hero_v2_photo_wrap::before{
+        content:"";
+        position:absolute;
+        top:28px;left:-28px;right:28px;bottom:-28px;
+        background:linear-gradient(135deg, rgba(242,169,59,.20), rgba(93,137,200,.20));
+        border-radius:26px;
+        z-index:0;
+    }
+    .cs_hero_v2_photo_card{
+        position:relative;z-index:1;
+        border-radius:26px;
+        overflow:hidden;
+        aspect-ratio:4/5;
+        box-shadow:var(--home-shadow-lg);
+    }
+    .cs_hero_v2_photo_card img{
+        width:100%;height:100%;object-fit:cover;display:block;
+    }
+    .cs_hero_v2_badge{
+        position:absolute;left:-18px;bottom:-18px;z-index:2;
+        background:#fff;border-radius:16px;
+        padding:16px 20px;
+        box-shadow:var(--home-shadow-md);
+        min-width:152px;
+    }
+    .cs_hero_v2_badge_num{
+        display:block;
+        font-family:var(--home-font-display);
+        font-weight:600;font-size:26px;line-height:1;
+        color:var(--home-blue);
+    }
+    .cs_hero_v2_badge_label{
+        display:block;
+        font-family:var(--home-font-body);
+        font-size:11.5px;font-weight:600;
+        color:var(--home-slate);
+        margin-top:5px;
+    }
+
+    @media (max-width:991.98px){
+        .cs_hero_v2{padding:150px 0 60px;}
+        .cs_hero_v2_title{font-size:36px;}
+        .cs_hero_v2_photo_wrap{margin-top:48px;max-width:380px;}
+    }
+    @media (max-width:575.98px){
+        .cs_hero_v2{padding:132px 0 50px;}
+        .cs_hero_v2_title{font-size:30px;}
+        .cs_hero_v2_badge{left:12px;bottom:-14px;padding:12px 16px;min-width:128px;}
+        .cs_hero_v2_badge_num{font-size:21px;}
+    }
+
+    /* ================= Light polish pass on the rest of the page ================= */
+
+    .cs_iconbox.cs_style_4{
+        background:#fff;
+        border:1px solid var(--home-border);
+        border-radius:var(--home-radius);
+        transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .cs_iconbox.cs_style_4:hover{
+        transform:translateY(-6px);
+        box-shadow:var(--home-shadow-md);
+    }
+
+    .cs_about_thumbnail_1 img,
+    .cs_about_thumbnail_2 img{border-radius:18px;}
+    .cs_experience_box{box-shadow:var(--home-shadow-md);}
+
+    .cs_pricing_table.cs_style_1.cs_type_2{
+        background:#fff;
+        border-radius:28px;
+        box-shadow:var(--home-shadow-lg);
+    }
+
+    .cs_iconbox.cs_style_2{
+        border-radius:var(--home-radius);
+        transition:transform .25s ease;
+    }
+    .cs_iconbox.cs_style_2:hover{transform:translateY(-4px);}
+
+    .cs_iconbox.cs_style_8.cs_white_bg{
+        border-radius:18px;
+        border:1px solid var(--home-border);
+        box-shadow:var(--home-shadow-sm);
+        transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .cs_iconbox.cs_style_8.cs_white_bg:hover{
+        transform:translateY(-4px);
+        box-shadow:var(--home-shadow-md);
+    }
+
+    .cs_stories_more_btn{
+        display:inline-flex;align-items:center;gap:10px;
+        padding:14px 30px;border-radius:999px;
+        background:var(--home-amber);color:var(--home-ink);
+        font-weight:700;text-decoration:none;
+        transition:.2s ease;
+    }
+    .cs_stories_more_btn:hover{background:var(--home-amber-dark);color:#fff;transform:translateY(-2px);}
+</style>
+
+<!-- Start Hero Section -->
+<section id="heroCarousel" class="carousel slide cs_hero_v2" data-bs-ride="carousel" data-bs-interval="6000">
+    <div class="cs_hero_v2_bg_shape" aria-hidden="true"></div>
+
+    <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row align-items-center cs_gap_y_40 cs_hero_v2_row">
+                    <div class="col-lg-6 order-2 order-lg-1 wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.15s">
+                        <span class="cs_hero_v2_eyebrow"><i class="bi-heart-pulse-fill"></i>Rwanda NCD Alliance</span>
+                        <h1 class="cs_hero_v2_title">Welcome to <em>Rwanda NCD Alliance</em></h1>
+                        <p class="cs_hero_v2_desc">
+                            Rwanda Non-Communicable Diseases Alliance is a unique civil society network, founded in 2016 and uniting 25 organizations (NCD patients, health care professionals, youth-led organizations and private institutions) working on NCDs in Rwanda.
+                        </p>
+                        <div class="cs_hero_v2_btns">
+                            <a href="{{ route('about_us') }}" class="cs_hero_v2_btn cs_hero_v2_btn_primary">About Us <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="{{ route('ncd_posts') }}" class="cs_hero_v2_btn cs_hero_v2_btn_ghost">Recent News</a>
+                        </div>
+                        <div class="cs_hero_v2_controls">
+                            <div class="cs_hero_v2_arrows">
+                                <button class="cs_hero_v2_arrow_btn" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide"><i class="fa-solid fa-arrow-left"></i></button>
+                                <button class="cs_hero_v2_arrow_btn" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide"><i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                            <div class="cs_hero_v2_dots">
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                        <div class="cs_hero_v2_photo_wrap">
+                            <div class="cs_hero_v2_photo_card">
+                                <img src="{{ asset('new/img/intro-carousel/banner.jpg') }}" alt="Rwanda NCD Alliance">
+                            </div>
+                            <div class="cs_hero_v2_badge">
+                                <span class="cs_hero_v2_badge_num">25+</span>
+                                <span class="cs_hero_v2_badge_label">Member Organizations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row align-items-center cs_gap_y_40 cs_hero_v2_row">
+                    <div class="col-lg-6 order-2 order-lg-1 wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.15s">
+                        <span class="cs_hero_v2_eyebrow"><i class="bi-bicycle"></i>Community Initiative</span>
+                        <h1 class="cs_hero_v2_title">Promoting Health Through <em>Kigali Car Free Day</em></h1>
+                        <p class="cs_hero_v2_desc">
+                            Kigali Car Free Day encourages walking, running, and cycling to promote healthy lifestyles, reduce pollution, and raise NCD awareness.
+                        </p>
+                        <div class="cs_hero_v2_btns">
+                            <a href="https://www.kigalicity.gov.rw/news-detail/expanding-kigali-car-free-day" target="_blank" rel="noopener noreferrer" class="cs_hero_v2_btn cs_hero_v2_btn_primary">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="{{ route('message') }}" class="cs_hero_v2_btn cs_hero_v2_btn_ghost">Contact Now</a>
+                        </div>
+                        <div class="cs_hero_v2_controls">
+                            <div class="cs_hero_v2_arrows">
+                                <button class="cs_hero_v2_arrow_btn" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide"><i class="fa-solid fa-arrow-left"></i></button>
+                                <button class="cs_hero_v2_arrow_btn" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide"><i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                            <div class="cs_hero_v2_dots">
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class="active" aria-current="true" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                        <div class="cs_hero_v2_photo_wrap">
+                            <div class="cs_hero_v2_photo_card">
+                                <img src="{{ asset('new/img/intro-carousel/banner-2.jpg') }}" alt="Kigali Car Free Day">
+                            </div>
+                            <div class="cs_hero_v2_badge">
+                                <span class="cs_hero_v2_badge_num">Monthly</span>
+                                <span class="cs_hero_v2_badge_label">Car-Free Day Events</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row align-items-center cs_gap_y_40 cs_hero_v2_row">
+                    <div class="col-lg-6 order-2 order-lg-1 wow fadeInUp" data-wow-duration="0.9s" data-wow-delay="0.15s">
+                        <span class="cs_hero_v2_eyebrow"><i class="bi-globe-americas"></i>#NCDAF2025</span>
+                        <h1 class="cs_hero_v2_title">Global NCD Community Gathered in <em>Kigali</em></h1>
+                        <p class="cs_hero_v2_desc">
+                            Kigali successfully hosted the 4th Global NCD Alliance Forum, February 13&ndash;15, 2025. Led by the Global NCD Alliance and the Rwanda NCD Alliance, the forum brought together experts and advocates to champion the global NCD response.
+                        </p>
+                        <div class="cs_hero_v2_btns">
+                            <a href="https://forum.ncdalliance.org/" target="_blank" rel="noopener noreferrer" class="cs_hero_v2_btn cs_hero_v2_btn_primary">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="https://forum.ncdalliance.org/photos/" target="_blank" rel="noopener noreferrer" class="cs_hero_v2_btn cs_hero_v2_btn_ghost">Event Highlights</a>
+                        </div>
+                        <div class="cs_hero_v2_controls">
+                            <div class="cs_hero_v2_arrows">
+                                <button class="cs_hero_v2_arrow_btn" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide"><i class="fa-solid fa-arrow-left"></i></button>
+                                <button class="cs_hero_v2_arrow_btn" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide"><i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                            <div class="cs_hero_v2_dots">
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" class="active" aria-current="true" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                        <div class="cs_hero_v2_photo_wrap">
+                            <div class="cs_hero_v2_photo_card">
+                                <img src="{{ asset('new/img/intro-carousel/forum.jpg') }}" alt="Global NCD Alliance Forum in Kigali">
+                            </div>
+                            <div class="cs_hero_v2_badge">
+                                <span class="cs_hero_v2_badge_num">4th</span>
+                                <span class="cs_hero_v2_badge_label">Global NCDA Forum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero Section -->
+
+<!-- Start Features Section -->
+<section class="cs_features cs_style_1 m-0">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="row cs_row_gap_30 cs_gap_y_30 wow fadeIn" data-wow-duration="0.9s" data-wow-delay="0.25s">
+            @foreach( $engagements as $engagement )
+            <div class="col-lg-4">
+                <div class="cs_iconbox cs_style_4 position-relative">
+                    <div class="cs_iconbox_content">
+                        <div class="cs_iconbox_header">
+                            <div class="cs_iconbox_icon cs_center cs_radius_50 cs_accent_color">
+                                <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2095 5.00343C14.4914 4.61685 15.0244 4.37887 15.4938 4.33792C15.7173 4.31843 15.9444 4.34161 16.1501 4.43536C16.363 4.53233 16.5272 4.69911 16.6272 4.91041C16.7279 5.12353 16.7655 5.3641 16.786 5.59704C16.8155 5.93211 16.8161 6.27783 16.8214 6.61428L16.8234 6.73891C16.5326 6.69683 16.2375 6.68714 15.9428 6.70491L15.9415 6.62814C15.9369 6.33625 15.9355 6.03917 15.9147 5.74806C15.9054 5.61698 15.8882 5.40622 15.8315 5.28635C15.8207 5.26351 15.8085 5.24653 15.7854 5.23594C15.7256 5.20864 15.6344 5.20874 15.5704 5.21435C15.3621 5.23258 15.046 5.3419 14.9237 5.51781C14.7225 5.80735 14.3633 5.95539 14.0191 5.86315L11.6699 5.23372L11.7838 4.80898L11.8977 4.38403L14.2095 5.00343Z" fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.805859 0.996469L0.370485 2.62141C0.351525 2.69235 0.36231 2.76951 0.400041 2.83329C0.435768 2.8935 0.491262 2.93543 0.556373 2.95151L1.30928 3.13574L1.87604 1.02068L1.13176 0.803764C1.10955 0.797521 1.08669 0.79396 1.06381 0.793945C1.02065 0.793945 0.977271 0.805552 0.937305 0.827856C0.872713 0.864419 0.824804 0.925981 0.805859 0.996469Z" fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.36955 1.16455L1.80859 3.25798L9.4809 5.13538L9.95273 3.37457L2.36955 1.16455ZM8.46466 4.17642C8.44266 4.17642 8.42025 4.17376 8.398 4.1675L3.275 2.795C3.13794 2.75842 3.05661 2.61749 3.09331 2.4801C3.13009 2.34315 3.27076 2.26198 3.408 2.29855L8.53097 3.67149C8.66804 3.70806 8.7494 3.84901 8.71265 3.98597C8.68187 4.10059 8.57807 4.17642 8.46466 4.17642Z" fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4464 3.51807L9.98047 5.25725L10.7226 5.43886C10.8729 5.4759 11.0209 5.39251 11.0593 5.24888L11.218 4.65697L11.3766 4.06505C11.4144 3.9241 11.3261 3.77469 11.18 3.73185L10.4464 3.51807Z" fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8599 9.06784C12.7303 8.04102 9.84708 6.99236 8.1788 7.64805C7.51544 7.90899 7.14678 8.42508 7.083 9.18292C7.06835 9.35691 7.05844 9.51768 7.05273 9.66687L8.59453 8.91171C8.66086 8.87915 8.73797 8.87692 8.80622 8.90503C8.87443 8.93356 8.92709 8.98976 8.95082 9.05981L9.45339 10.5411L11.1342 9.75474C11.2627 9.69452 11.4156 9.75029 11.4757 9.87873C11.5359 10.0072 11.4804 10.1602 11.3519 10.2204L9.41117 11.1281C9.37672 11.1442 9.33951 11.1522 9.30233 11.1522C9.26808 11.1522 9.23376 11.1455 9.2015 11.1317C9.13436 11.1031 9.08246 11.047 9.059 10.9778L8.55812 9.50183L7.05305 10.2387C7.09556 11.1412 7.35003 11.4795 7.63394 11.8565C7.87301 12.1741 8.14392 12.5336 8.30882 13.2179C8.49341 13.9833 8.49982 14.5645 8.50669 15.18C8.50987 15.466 8.51312 15.7621 8.53492 16.0886C8.66089 17.9777 9.05493 19.3234 9.61603 19.781C9.7859 19.9198 9.96948 19.9737 10.1773 19.9461C10.2126 19.9398 10.7693 19.8368 11.0132 19.4849C11.1195 19.3314 11.15 19.1503 11.1063 18.9322L11.1052 18.9264C10.5964 16.0561 11.2971 14.4526 12.1225 13.9092C12.5969 13.597 13.1409 13.597 13.6153 13.9092C14.4407 14.4525 15.1414 16.0561 14.6325 18.9264L14.6315 18.9322C14.5876 19.1512 14.6184 19.3328 14.7257 19.4867C14.9687 19.8355 15.5253 19.9398 15.5604 19.9461C15.7682 19.9733 15.9518 19.9193 16.1217 19.781C16.6827 19.3234 17.0768 17.9777 17.2026 16.0886C17.2245 15.7621 17.2276 15.4664 17.2312 15.1801C17.2363 14.7124 17.2411 14.2646 17.3241 13.7407L17.3257 13.7308C17.3517 13.5681 17.3853 13.3981 17.4288 13.2179C17.5938 12.5336 17.8681 12.1732 18.1103 11.8556C18.4886 11.3583 18.8155 10.9292 18.6549 9.18515C18.5814 8.39028 18.2102 7.83985 17.5519 7.54903C17.316 7.44472 17.0531 7.37805 16.7742 7.34408L17.3364 8.7993C17.3806 8.91439 17.3369 9.04508 17.232 9.1102L16.339 9.66553L17.3784 10.7829C17.4752 10.8868 17.4693 11.0496 17.3654 11.146C17.3159 11.1919 17.253 11.2147 17.1906 11.2147C17.1216 11.2147 17.053 11.1875 17.0023 11.133L15.7502 9.78687C15.698 9.73067 15.6735 9.65394 15.6837 9.5781C15.6939 9.50183 15.7375 9.43449 15.8027 9.3939L16.7803 8.78592L16.2132 7.31787C15.2594 7.33846 14.2135 7.66674 13.4478 8.13514C13.7441 8.31489 14.0016 8.50225 14.2055 8.6878C14.3106 8.78326 14.3183 8.94561 14.2229 9.05088C14.1274 9.1557 13.9649 9.16328 13.8599 9.06784Z" fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7153 16.1228C17.6355 17.3164 17.3647 19.4302 16.4461 20.1796C16.2115 20.3709 15.9499 20.4673 15.6663 20.4673C15.6075 20.4673 15.5478 20.4628 15.4871 20.4548C15.4854 20.4544 15.4837 20.4544 15.482 20.4539C15.4495 20.449 14.6815 20.3223 14.3038 19.7804C14.1155 19.5101 14.056 19.192 14.1268 18.8343C14.5918 16.208 13.9897 14.7713 13.3325 14.339C13.0334 14.1419 12.704 14.1419 12.4048 14.339C11.7477 14.7713 11.1454 16.208 11.6105 18.8343C11.6813 19.192 11.6218 19.5101 11.4334 19.7804C11.0557 20.3223 10.2877 20.449 10.2552 20.4539C10.2535 20.4544 10.2518 20.4544 10.2501 20.4548C9.89687 20.503 9.57435 20.4106 9.29106 20.1796C8.37225 19.4302 8.10158 17.3164 8.02197 16.1228C7.99928 15.7824 7.99587 15.4791 7.99261 15.1861C7.98848 14.8137 7.9847 14.4723 7.94368 14.102C6.1845 14.5979 5.10449 15.3431 5.10449 16.0737V22.2056H20.6388V16.0737C20.6388 15.3421 19.5565 14.5965 17.7938 14.1001C17.7526 14.4711 17.7489 14.813 17.7448 15.1861C17.7412 15.4791 17.7381 15.7824 17.7153 16.1228Z" fill="currentColor" />
+                                </svg>
+                            </div>
+                            <a href="{{ url('ncd_engagements', $engagement->title) }}" class="cs_iconbox_btn_icon cs_center">
+                                <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                                <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                            </a>
+                        </div>
+                        <h3 class="cs_iconbox_title cs_fs_32 cs_bold">{{ $engagement->title }}</h3>
+                        <p class="cs_iconbox_subtitle mb-0">
+                            {{ $engagement->content }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+<!-- End Features Section -->
+
+<!-- Start About Section -->
+<section class="cs_about cs_style_1 position-relative" id="about">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="row align-items-center cs_gap_y_40">
+            <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.9s" data-wow-delay="0.25s">
+                <div class="cs_about_content">
+                    <div class="cs_section_heading cs_style_1">
+                        <p class="cs_section_subtitle cs_accent_color cs_fs_18 cs_semibold cs_heading_font">About us</p>
+                        <h2 class="cs_section_title cs_fs_48 mb-0">Rwanda Non-Communicable <span
+                                class="cs_accent_color">Disease Alliance</span></h2>
+                    </div>
+                    <p class="cs_about_text">Rwanda Non-Communicable Diseases Alliance is a unique civil society network, <a
+                            href="https://ncdalliance.org/news-events/news/launch-of-the-rwanda-non-communicable-disease-alliance"
+                            target="_blank">founded in 2016</a> and uniting 25 organizations
+                        ( NCDs Patients, health care professionals and youth-led organizations and private institutions)
+                        working on NCDs in Rwanda.</p>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="cs_about_thumbnail">
+                    <div class="cs_about_thumbnail_1">
+                        <img src="{{ asset('new/img/content/about-05.jpg')}}" alt="Image">
+                        <a href="{{ route('ncd_posts')}}" class="cs_player_btn cs_style_1 cs_video_open">
+                            <span class="cs_player_btn_icon cs_center">
+                                <img src="assets/img/icons/player_icon.svg" alt="Icon">
+                            </span>
+                            <span class="cs_play_btn_text cs_fs_18 cs_semibold cs_accent_color">See our Impact</span>
+                        </a>
+                    </div>
+                    <div class="cs_about_thumbnail_2">
+                        <img src="{{ asset('new/img/content/about-02.jpg')}}" alt="About Image">
+                        <svg class="cs_about_thumbnail_shape_2 cs_accent_color" width="123" height="125" viewBox="0 0 123 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle opacity="0.3" cx="73" cy="75" r="49.5" stroke="currentColor" stroke-dasharray="4 4" />
+                            <circle opacity="0.3" cx="62" cy="50" r="49.5" stroke="currentColor" stroke-dasharray="4 4" />
+                            <circle opacity="0.3" cx="50" cy="72" r="49.5" stroke="currentColor" stroke-dasharray="4 4" />
+                        </svg>
+                    </div>
+                    <div class="cs_experience_box cs_center cs_accent_bg cs_radius_50">
+                        <p class="cs_experience_box_number cs_fs_48 cs_bold cs_white_color">9+</p>
+                        <p class="cs_experience_box_title cs_fs_20 cs_medium cs_white_color">Experience</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="cs_about_shape_1">
+        <img src="assets/img/about_shape_1.svg" alt="Shape Image">
+    </div>
+    <div class="cs_about_shape_2">
+        <img src="assets/img/about_shape_1.svg" alt="Shape Image">
+    </div>
+    <div class="cs_about_shape_3">
+        <img src="assets/img/about_shape_1.svg" alt="Shape Image">
+    </div>
+    <div class="cs_about_shape_4">
+        <img src="assets/img/about_shape_1.svg" alt="Shape Image">
+    </div>
+    <div class="cs_about_shape_5">
+        <img src="assets/img/about_shape_4.svg" alt="Shape Image">
+    </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+<!-- End About Section -->
+
+<section class="cs_pricing_section cs_accent_bg cs_hide_before_after">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="cs_height_32 cs_height_lg_30"></div>
+        <div class="cs_tabs cs_style_1 ">
+            <div class="cs_height_32 cs_height_lg_30"></div>
+            <div class="cs_tab_body">
+                <div class="cs_tab active" id="cs_monthly">
+                    <div class="row justify-content-center cs_row_gap_30 cs_gap_y_30">
+                        <div class="col-lg-12">
+                            <div class="cs_pricing_table cs_style_1 cs_type_2">
+                                <div class="cs_pricing_headedr">
+                                    <h3 class="cs_pricing_head_title cs_fs_24 mb-0">Get to know</h3>
+                                    <a href="{{ URL::route('about_us') }}"
+                                        class="cs_pricing_icon cs_center cs_white_bg cs_radius_50">
+                                        <span><i class="fa-solid fa-arrow-right"></i></span>
+                                        <span><i class="fa-solid fa-arrow-right"></i></span>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 cs_pricing_feature">
+                                        <h3 class="cs_pricing_feature_title cs_fs_32"><a href="#">Rwanda NCDA
+                                                vision</a>
+                                        </h3>
+                                        <p class="cs_pricing_feature_list cs_mp0">
+                                            A healthy people in a nation free from preventable suffering,
+                                            disability, and deaths caused by Non
+                                            Communicable Diseases.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 cs_pricing_feature">
+                                        <h3 class="cs_pricing_feature_title cs_fs_32"><a href="#">Rwanda NCDA
+                                                Mission</a></h3>
+                                        <p class="cs_pricing_feature_list cs_mp0">
+                                            To unite the efforts and create a powerful voice for the NCDs awareness
+                                            rising,
+                                            advocate for the
+                                            prevention and control of NCDs and their risk factors in Rwanda, by
+                                            promoting
+                                            multisectoral
+                                            partnerships, healthy living style education, early detection and responding
+                                            to
+                                            NCDs challenges
+                                            to
+                                            improve health and well-being.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 cs_pricing_feature">
+                                        <h3 class="cs_pricing_feature_title cs_fs_32">Our Objectives</h3>
+                                        <ul class="cs_pricing_feature_list cs_mp0">
+                                            <li><i class="fa-solid fa-check"></i>Building capacity and providing
+                                                technical
+                                                support to the members</li>
+                                            <li><i class="fa-solid fa-check"></i>Leading awareness and healthy life
+                                                education for NCDs Prevention</li>
+                                            <li><i class="fa-solid fa-check"></i>Empower people living with NCDs and
+                                                Advocate for them on access to quality care</li>
+                                            <li><i class="fa-solid fa-check"></i>Empower people living with NCDs and
+                                                Advocate for them on access to quality care</li>
+                                            <li><i class="fa-solid fa-check"></i> Advocate for the community concerning
+                                                the
+                                                prevention and control of NCDs</li>
+                                            <li><i class="fa-solid fa-check"></i>Contribute to evidence based NCD
+                                                policies
+                                                and practices.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+
+<section class="cs_video_section cs_style_1 cs_accent_bg position-relative mt-5">
+    <div class="container">
+        <div class="cs_vider_wrapper cs_style_1">
+            <a href="https://www.youtube.com/watch?v=G6DP05PcKhk"
+                class="cs_player_btn cs_style_2 cs_center cs_video_open">
+                <span></span>
+            </a>
+
+            <h2 class="cs_video_title">Life with
+                <span class="cs_accent_color">NCDs</span>
+            </h2>
+            <p class="cs_video_subtitle">Many people face challenges in lifestyle, economy, and health, especially those living with non-communicable diseases (PLWNCDs), who are at higher risk of severe complications.</p>
+
+            <div class="cs_video_shape_3">
+                <img src="assets/img/heartbeat.svg" alt="Icon">
+            </div>
+            <div class="cs_video_shape_4">
+                <img src="assets/img/stethoscope.svg" alt="Icon">
+            </div>
+        </div>
+        <div class="cs_video_shape_1">
+            <img src="assets/img/icons/coronavirus.svg" alt="Icon">
+        </div>
+        <div class="cs_video_shape_2">
+            <img src="assets/img/icons/health-insurance.svg" alt="Icon" class="cs_spinner_img">
+        </div>
+    </div>
+</section>
+
+<section class="cs_service_area cs_accent_bg position-relative mb-5 pb-5">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="cs_section_heading cs_style_1 cs_type_1">
+            <div class="cs_section_heading_left">
+                <p class="cs_section_subtitle cs_white_color">NCD Stories & Challenges</p>
+                <h2 class="cs_section_title cs_white_color">Hear testimony from our community.</h2>
+            </div>
+        </div>
+        <div class="cs_height_50 cs_height_lg_40"></div>
+        <div class="row cs_gap_y_40">
+            <div class="col-xl-12">
+                <div class="cs_iconbox_wrapper cs_style_2">
+                    @foreach( $stories as $story)
+                    <div class="col-md-4 ">
+                        <div class="cs_iconbox cs_style_2 wow fadeInUp animated" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
+                            <div class="cs_iconbox_text">
+                                <h3 class="cs_iconbox_title cs_fs_24 cs_white_color"><a data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ $story->id }}">{{ $story->name }}</a>
+                                </h3>
+                                <p class="cs_iconbox_subtitle cs_white_color">{{ Str::limit($story->headline, 100) }}</p>
+                                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ $story->id }}" class="cs_text_btn">
+                                    <span>Read More</span>
+                                    <div class="cs_text_btn_icon cs_center">
+                                        <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                                        <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="cs_btns_group wow fadeInUp animated mt-5 justify-content-center" data-wow-duration="0.9s" data-wow-delay="0.25s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.25s; animation-name: fadeInUp;">
+                    <a href="{{ url('ncd_stories') }}" class="cs_stories_more_btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cs_service_shape_1 position-absolute">
+        <img src="assets/img/heartbeat_2.svg" alt="Shape">
+    </div>
+    <div class="cs_service_shape_2 position-absolute">
+        <img src="assets/img/stethoscope_2.svg" alt="Shape" class="cs_spinner_img">
+    </div>
+</section>
+
+@foreach( $stories as $story)
+<!-- static Modal -->
+<div class="modal fade" id="staticBackdrop{{ $story->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <h3>{{ $story->name }}s' Story</h3>
+                    <h5><strong>Disease</strong></strong>: {{ $story->disease }}</h5>
+
+                    <p class="mt-3">
+                        {!! $story->content !!}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
+@include('includes.event-posts')
+
+{{-- Impact Section --}}
+<section class="cs_video_section cs_style_2 cs_heading_bg cs_bg_filed position-relative" data-src="{{ asset('new/img/content/about-02.jpg') }}" style="background-image: url('{{ asset('new/img/content/about-02.jpg') }}');">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="cs_section_heading cs_style_1 text-center">
+            <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_white_color cs_heading_font">Success Story</p>
+            <h2 class="cs_section_title cs_fs_48 cs_white_color mb-0">Get to know our impact to the community</h2>
+        </div>
+
+        <div class="cs_height_50 cs_height_lg_40"></div>
+
+        <div class="cs_open_video_content wow fadeInRight animated" data-wow-duration="0.9s" data-wow-delay="0.25s">
+            <a href="{{ url('ncd_stories') }}" class="cs_btn cs_style_1 cs_fs_18 cs_semibold cs_accent_bg cs_radius_100">
+                <span class="cs_btn_text"><i class="fa-solid fa-user-group"></i> Our Impact</span>
+            </a>
+        </div>
+
+        <div class="cs_height_40 cs_height_lg_40"></div>
+    </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+
+{{-- Resources Section --}}
+<section class="cs_service_area cs_type_3">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+
+        {{-- Section Header --}}
+        <div class="cs_section_heading cs_style_1 cs_type_1">
+            <div class="cs_section_heading_left">
+                <p class="cs_section_subtitle cs_fs_18 cs_semibold cs_accent_color cs_heading_font">Rwanda NCD Alliance</p>
+                <h2 class="cs_section_title cs_accent_color mb-0">Publications & Resources</h2>
+            </div>
+            <div class="cs_section_heading_right cs_accent_color text-end">
+                Uniting our efforts to share knowledge, support advocacy, and strengthen Rwanda’s response to non-communicable diseases.
+            </div>
+        </div>
+
+        <div class="cs_height_100 cs_height_lg_40"></div>
+
+        {{-- Resources --}}
+        <div class="row cs_gap_y_30">
+            @foreach($resources_data as $resource)
+            @php
+            $fileData = json_decode($resource->file);
+            $fileLink = $fileData[0]->download_link ?? null;
+            @endphp
+
+            @if($fileLink)
+            <div class="col-lg-4">
+                <div class="cs_iconbox cs_style_8 cs_white_bg">
+                    <h3 class="cs_iconbox_title cs_fs_32 cs_semibold">
+                        <a href="{{ asset($fileLink) }}" target="_blank">{{ Str::limit($resource->title, 50) }}</a>
+                    </h3>
+
+                    <a href="{{ asset($fileLink) }}" target="_blank" class="cs_text_btn cs_fs_18 cs_semibold cs_heading_color">
+                        <span>Read More</span>
+                        <div class="cs_text_btn_icon cs_center">
+                            <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                            <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            @endif
+            @endforeach
+        </div>
+    </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
+</section>
+
+
+@endsection

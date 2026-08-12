@@ -4516,9 +4516,9 @@ a.ui-button:active,
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.cs_site_header.cs_style_1 .cs_main_header_in {
+/* .cs_site_header.cs_style_1 .cs_main_header_in {
   height: 100px;
-}
+} */
 .cs_site_header.cs_style_1 .cs_top_header_in {
   height: 60px;
 }
