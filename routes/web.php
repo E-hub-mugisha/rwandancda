@@ -40,32 +40,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about_us', [HomeController::class, 'about'])->name('about_us');
 
 Route::get('/Mission_Vision_Objectives', function () {
-    $engagements = Engagement::all();
-    return view('Mission_Vision_Objectives', ['engagements' => $engagements]);
+    return view('Mission_Vision_Objectives');
 })->name('Mission.Vision.Objectives');
 
-Route::get('/partnerships-members', function () {
-    $engagements = Engagement::all();
-    $partners = Partner::all();
-    $founders = Member::where('category', 'founding')->get();
-    $adherents = Member::where('category', 'adherent')->get();
-    $affiliated = Member::where('category', 'affiliated')->get();
-    return view('partnerships', compact('founders', 'adherents', 'affiliated', 'partners', 'engagements'));
-})->name('partnerships');
+Route::get('/partnerships-members', [HomeController::class, 'partnerships'])->name('partnerships');
 
-Route::get('/team_members', function () {
-    $engagements = Engagement::all();
-    $members = Member::all();
-    $workers = Worker::orderBy('created_at', 'desc')->get();
-    return view('team_member', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
-})->name('team');
+Route::get('/team_members', [HomeController::class, 'team'])->name('team');
 
-Route::get('/know_your_numbers', function () {
-    $engagements = Engagement::all();
-    $members = Member::all();
-    $workers = Worker::orderBy('created_at', 'desc')->get();
-    return view('know_your_numbers', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
-})->name('know_your_numbers');
+Route::get('/know_your_numbers', [HomeController::class, 'knowYourNumbers'])->name('know_your_numbers');
 
 Route::get('/gallery', function () {
     $engagements = Engagement::all();

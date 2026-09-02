@@ -53,6 +53,32 @@ class HomeController extends Controller
         return view('about', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
     }
 
+    public function partnerships()
+    {
+        $engagements = Engagement::all();
+        $partners = Partner::all();
+        $founders = Member::where('category', 'founding')->get();
+        $adherents = Member::where('category', 'adherent')->get();
+        $affiliated = Member::where('category', 'affiliated')->get();
+        return view('partnerships', compact('founders', 'adherents', 'affiliated', 'partners', 'engagements'));
+    }
+
+    public function team()
+    {
+        $engagements = Engagement::all();
+        $members = Member::all();
+        $workers = Worker::orderBy('created_at', 'desc')->get();
+        return view('team_member', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
+    }
+
+    public function knowYourNumbers()
+    {
+        $engagements = Engagement::all();
+        $members = Member::all();
+        $workers = Worker::orderBy('created_at', 'desc')->get();
+        return view('know_your_numbers', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
+    }
+
     public function search(Request $request)
     {
         $query = $request->input('query');

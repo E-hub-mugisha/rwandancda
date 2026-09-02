@@ -15,6 +15,10 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('website')->unique();
+            $table->string('logo');
+            $table->enum('category', ['founding', 'adherent', 'affiliated']);
             $table->timestamps();
         });
     }
