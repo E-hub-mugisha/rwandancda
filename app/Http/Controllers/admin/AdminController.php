@@ -285,7 +285,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required'
+            'description' => 'required',
         ]);
 
         $input = $request->all();
@@ -305,7 +305,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required',
+            'description' => 'required',
         ]);
 
         $data = Category::where('id', $id)->first();

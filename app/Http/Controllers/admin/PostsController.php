@@ -21,10 +21,25 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(10);
-    
-        return view('admin.posts.index',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+        $posts = Post::with(['author', 'category'])
+            ->latest()
+            ->paginate(10);
+
+        $totalPosts = Post::count();
+
+        $publishedPosts = Post::where('status', 'published')->count();
+
+        $draftPosts = Post::where('status', 'draft')->count();
+
+        $featuredPosts = Post::where('featured', 1)->count();
+
+        return view('admin.posts.index', compact(
+            'posts',
+            'totalPosts',
+            'publishedPosts',
+            'draftPosts',
+            'featuredPosts'
+        ));
     }
 
     /**
@@ -49,34 +64,32 @@ class PostsController extends Controller
         $request->validate([
             'title' => 'required',
             'status' => 'required',
-            'featured' => 'required',
+            'featured' => 'boolean',
             'body' => 'required',
-            'category_id'=>'required',
+            'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $post = new Post();
-        $slugTitle = Str::slug($request->input("title"));
-        $post->slug = $slugTitle;
         $post->author_id = Auth::user()->id;
         $post->category_id = $request->input('category_id');
-        $post->status = $request->input( 'status');
+        $post->status = $request->input('status');
         $post->title = $request->input('title');
         $post->featured = $request->input('featured');
         $post->body = $request->input('body');
-  
-  
+
+
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileimage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileimage);
             $post['image'] = "$profileimage";
         }
-    
+
         $post->save();
-     
+
         return redirect()->route('posts')
-                        ->with('success','Post created successfully.');
+            ->with('success', 'Post created successfully.');
     }
 
     /**
@@ -87,10 +100,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
-        $slug = $post->slug;
-        $comments_data = Comment::where('post', $slug)->get();
-        return view('admin.posts.show',compact('post','comments_data'));
+        $post = Post::with(['author', 'category', 'comments'])->findOrFail($id);
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -103,7 +114,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
-        return view('admin.posts.edit',compact('post','categories'));
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -113,42 +124,41 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+
 
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        
+
         $request->validate([
             'title' => 'required',
             'status' => 'required',
             'featured' => 'required',
             'body' => 'required',
-            'category_id'=>'required',
+            'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
-        $slugTitle = Str::slug($request->input("title"));
-        $post->slug = $slugTitle;
+
         $post->author_id = Auth::user()->id;
         $post->category_id = $request->input('category_id');
-        $post->status = $request->input( 'status');
+        $post->status = $request->input('status');
         $post->title = $request->input('title');
         $post->featured = $request->input('featured');
         $post->body = $request->input('body');
-  
-  
+
+
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileimage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileimage);
             $post['image'] = "$profileimage";
         }
-    
+
         $post->update();
-     
+
         return redirect()->route('posts')
-                        ->with('success','Post created successfully.');
+            ->with('success', 'Post created successfully.');
     }
 
     /**
@@ -157,20 +167,20 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $post=Post::findOrFail($id);
+        $post = Post::findOrFail($id);
         $post->delete();
-     
-        return redirect()->route( 'posts')
-                        ->with('success','Post deleted successfully');
-    }
-    public function destroyComment( $id)
-    {
-        $comment=Comment::findOrFail($id);
-        $comment->delete();
-     
+
         return redirect()->route('posts')
-                        ->with('success','comment deleted successfully');
+            ->with('success', 'Post deleted successfully');
+    }
+    public function destroyComment($id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+
+        return redirect()->route('posts')
+            ->with('success', 'comment deleted successfully');
     }
 }

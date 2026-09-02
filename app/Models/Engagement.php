@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Engagement extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'content',
+    ];
 }

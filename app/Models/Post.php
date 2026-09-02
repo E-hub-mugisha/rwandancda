@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Str;
 class Post extends Model
 {
     use HasFactory;
@@ -26,6 +26,12 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
+
+    // generate slug from title
+    public function getSlugAttribute()
+    {
+        return Str::slug($this->title);
+    }
 
     public function author()
     {

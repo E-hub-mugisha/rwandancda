@@ -16,9 +16,7 @@ class CreateEngagementsTable extends Migration
         Schema::create('engagements', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
