@@ -1,102 +1,106 @@
 <style>
-/* Smooth slide-up animation on load */
-.slide-up {
-    animation: slideUp 0.6s ease-out;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
+    /* Smooth slide-up animation on load */
+    .slide-up {
+        animation: slideUp 0.6s ease-out;
     }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
-}
 
-/* Flex row for equal height columns */
-.row-equal {
-    display: flex;
-    flex-wrap: wrap;
-    /* gap: 30px; optional spacing between columns */
-}
+    /* Flex row for equal height columns */
+    .row-equal {
+        display: flex;
+        flex-wrap: wrap;
+        /* gap: 30px; optional spacing between columns */
+    }
 
-/* Make columns equal height */
-.row-equal > [class*='col-'] {
-    display: flex;
-    flex-direction: column;
-}
+    /* Make columns equal height */
+    .row-equal>[class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
 
-/* Recent posts scrollable card */
-.scrollable-card {
-    flex: 1; /* fill the available height */
-    max-height: none; /* height is controlled by parent */
-    overflow-y: auto;
-    padding-right: 10px;
-}
+    /* Recent posts scrollable card */
+    .scrollable-card {
+        flex: 1;
+        /* fill the available height */
+        max-height: none;
+        /* height is controlled by parent */
+        overflow-y: auto;
+        padding-right: 10px;
+    }
 
-/* Optional scrollbar styling */
-.scrollable-card::-webkit-scrollbar {
-    width: 6px;
-}
+    /* Optional scrollbar styling */
+    .scrollable-card::-webkit-scrollbar {
+        width: 6px;
+    }
 
-.scrollable-card::-webkit-scrollbar-thumb {
-    background-color: #aaa;
-    border-radius: 10px;
-}
+    .scrollable-card::-webkit-scrollbar-thumb {
+        background-color: #aaa;
+        border-radius: 10px;
+    }
 
-.scrollable-card::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-}
+    .scrollable-card::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+    }
 
-/* Entry styles */
-.entry {
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-}
+    /* Entry styles */
+    .entry {
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
 
-.entry:last-child {
-    border-bottom: none;
-}
+    .entry:last-child {
+        border-bottom: none;
+    }
 
-.entry-image img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+    .entry-image img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
 
-.entry-title h4 {
-    font-size: 15px;
-    line-height: 1.4;
-    margin: 0;
-}
+    .entry-title h4 {
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 0;
+    }
 
-.entry-meta {
-    font-size: 13px;
-    color: #777;
-}
+    .entry-meta {
+        font-size: 13px;
+        color: #777;
+    }
 
-/* Feature article card */
-.entry-featured {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
-}
+    /* Feature article card */
+    .entry-featured {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+    }
 
-.entry-featured img {
-    width: 100%;
-    border-radius: 10px;
-}
+    .entry-featured img {
+        width: 100%;
+        border-radius: 10px;
+    }
 
-.entry-featured .cs_post_info {
-    padding: 20px;
-    flex: 1; /* allow info to grow if needed */
-}
+    .entry-featured .cs_post_info {
+        padding: 20px;
+        flex: 1;
+        /* allow info to grow if needed */
+    }
 </style>
 
 <section class="cs_service_area cs_type_3">

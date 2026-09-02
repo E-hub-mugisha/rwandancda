@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Calendar;
-use App\Engagement;
-use App\Gallery;
+use App\Models\Calendar;
+use App\Models\Engagement;
+use App\Models\Gallery;
 use App\Http\Controllers\Controller;
-use App\Subscriber;
-use App\Worker;
+use App\Models\Subscriber;
+use App\Models\Worker;
 use Illuminate\Http\Request;
-use TCG\Voyager\Models\Category;
+use App\Models\Category;
 
 class AdminController extends Controller
 {

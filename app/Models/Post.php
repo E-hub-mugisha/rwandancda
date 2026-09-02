@@ -4,25 +4,41 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use TCG\Voyager\Models\Category;
 
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable =  ['title', 'image', 'status', 'body', 'slug', 'featured', 'image'];
 
-    public function authorId()
+    protected $fillable = [
+        'title',
+        'body',
+        'author_id',
+        'category_id',
+        'image',
+        'status',
+        'featured',
+    ];
+
+    protected $hidden = [
+        'author_id',
+        'category_id',
+        'image',
+        'created_at',
+        'updated_at'
+    ];
+
+    public function author()
     {
-        return $this->belongsTo(User::class,'User');
+        return $this->belongsTo(User::class, 'author_id');
     }
 
-    
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id');
     }
 }

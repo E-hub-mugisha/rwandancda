@@ -81,7 +81,7 @@
 
           <div class="calendar-select-group">
             <label for="calendarYear"><i class="bi bi-calendar-event"></i> Annual Calendar</label>
-            <?php $calendars = App\Calendar::all(); ?>
+            <?php $calendars = App\Models\Calendar::all(); ?>
             <select id="calendarYear" class="form-select" onChange="selectChange(this)">
               <option value="{{ URL::current() }}" selected disabled>Choose a year</option>
               @foreach($calendars as $calendar)
@@ -121,17 +121,18 @@
 
 <style>
   :root{
-    --rncda-primary:#0f7a52;
-    --rncda-primary-dark:#0a5c3d;
-    --rncda-accent:#f2a900;
-    --rncda-ink:#0e1b16;
-    --rncda-muted:#a9c4b8;
-    --rncda-bg:#0b3d2b;
+    --rncda-green:#1DA851;
+    --rncda-green-dark:#167A3C;
+    --rncda-blue:#5D89C8;
+    --rncda-blue-dark:#3E6AA8;
+    --rncda-black:#0B0D0C;
+    --rncda-black-soft:#14211A;
+    --rncda-muted:#AEC2C8;
   }
 
   .footer-modern{
-    background: linear-gradient(180deg, var(--rncda-bg) 0%, var(--rncda-ink) 100%);
-    color: #dce9e2;
+    background: linear-gradient(180deg, var(--rncda-black-soft) 0%, var(--rncda-black) 100%);
+    color: #dce7e9;
     font-size: 15px;
     position: relative;
   }
@@ -164,21 +165,21 @@
     display:flex;
     align-items:flex-start;
     gap:.6rem;
-    color:#c9dcd3;
+    color:#c9dcdc;
   }
   .footer-contact-mini i{
-    color: var(--rncda-accent);
+    color: var(--rncda-green);
     margin-top: .2rem;
   }
   .footer-contact-mini a{
-    color:#c9dcd3;
+    color:#c9dcdc;
     text-decoration:none;
     transition: color .2s ease;
   }
-  .footer-contact-mini a:hover{ color: var(--rncda-accent); }
+  .footer-contact-mini a:hover{ color: var(--rncda-green); }
 
   .footer-modern h4{
-    color:#fff;
+    color: var(--rncda-blue);
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: .3px;
@@ -191,7 +192,7 @@
     position:absolute;
     left:0; bottom:0;
     width: 34px; height: 3px;
-    background: var(--rncda-accent);
+    background: var(--rncda-green);
     border-radius: 3px;
   }
 
@@ -212,11 +213,11 @@
   }
   .footer-links a i{
     font-size:.75rem;
-    color: var(--rncda-accent);
+    color: var(--rncda-green);
     transition: transform .2s ease;
   }
   .footer-links a:hover{
-    color:#fff;
+    color: var(--rncda-blue);
     transform: translateX(3px);
   }
   .footer-links a:hover i{ transform: translateX(3px); }
@@ -241,14 +242,14 @@
     color:#1a1a1a;
   }
   .newsletter-input-group button{
-    background: var(--rncda-primary);
+    background: var(--rncda-blue-dark);
     border:none;
     color:#fff;
     padding: 0 1.1rem;
     cursor:pointer;
     transition: background .2s ease;
   }
-  .newsletter-input-group button:hover{ background: var(--rncda-accent); }
+  .newsletter-input-group button:hover{ background: var(--rncda-green); }
 
   .calendar-select-group{
     margin-top: 1.5rem;
@@ -257,7 +258,7 @@
     display:flex;
     align-items:center;
     gap:.4rem;
-    color:#c9dcd3;
+    color:#c9dcdc;
     font-size:.85rem;
     margin-bottom:.5rem;
   }
@@ -282,9 +283,9 @@
     transition: all .2s ease;
   }
   .footer-contact-btn:hover{
-    background: var(--rncda-accent);
-    border-color: var(--rncda-accent);
-    color: #1a1a1a;
+    background: var(--rncda-green);
+    border-color: var(--rncda-green);
+    color: #0B0D0C;
   }
 
   .social-links{ display:flex; gap:.6rem; }
@@ -297,24 +298,24 @@
     transition: all .25s ease;
   }
   .social-links a:hover{
-    background: var(--rncda-accent);
-    color:#1a1a1a;
+    background: var(--rncda-blue);
+    color:#fff;
     transform: translateY(-3px);
   }
 
   .footer-bottom{
     padding: 1.1rem 0;
-    background: rgba(0,0,0,.2);
+    background: rgba(0,0,0,.25);
     font-size: .85rem;
   }
   .footer-bottom .copyright{ color: var(--rncda-muted); }
-  .footer-bottom .copyright strong{ color:#fff; }
+  .footer-bottom .copyright strong{ color: var(--rncda-blue); }
   .footer-bottom-links a{
     color: var(--rncda-muted);
     text-decoration:none;
     font-size:.85rem;
   }
-  .footer-bottom-links a:hover{ color: var(--rncda-accent); }
+  .footer-bottom-links a:hover{ color: var(--rncda-green); }
   .footer-bottom-links .divider{ margin: 0 .5rem; color: rgba(255,255,255,.2); }
 
   .back-to-top-btn{
@@ -323,8 +324,8 @@
     bottom: 22px;
     width: 46px; height: 46px;
     display:flex; align-items:center; justify-content:center;
-    background: var(--rncda-primary);
-    color:#fff;
+    background: var(--rncda-green);
+    color:#0B0D0C;
     border-radius: 50%;
     box-shadow: 0 6px 18px rgba(0,0,0,.25);
     opacity:0;
@@ -334,7 +335,7 @@
     text-decoration:none;
   }
   .back-to-top-btn.show{ opacity:1; visibility:visible; }
-  .back-to-top-btn:hover{ background: var(--rncda-accent); color:#1a1a1a; }
+  .back-to-top-btn:hover{ background: var(--rncda-blue); color:#fff; }
 
   @media (max-width: 767px){
     .footer-modern .footer-main{ padding: 50px 0 30px; }

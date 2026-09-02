@@ -3,10 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Str;
 
-use TCG\Voyager\Models\Post as VoyagerPost;
 use App\Http\Controllers\MailController;
 
 use App\Resource;
@@ -14,7 +11,6 @@ use App\Gallery;
 use App\Story;
 use App\Member;
 use App\Engagement;
-use App\Post;
 use App\Worker;
 use App\Partner;
 use App\Subscriber;
@@ -22,12 +18,11 @@ use App\Program;
 use App\Comment;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\HomeController;
-use App\Models\Banner;
 use App\Models\CarouselItem;
+use App\Models\Post as ModelsPost;
 use App\Models\User;
 use App\Newsletters;
 use Illuminate\Support\Facades\Mail;
-use TCG\Voyager\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,27 +35,9 @@ use TCG\Voyager\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    $stories = Story::latest()->take(3)->get();
-    $partners = Partner::all();
-    $groupFocus = Engagement::all();
-    $engagements = Engagement::all();
-    $data = VoyagerPost::where('category_id', 1)->orderBy('created_at', 'desc')->take(6)->get();
-    $featured = VoyagerPost::where('category_id', 1)
-        ->latest()
-        ->take(1)->first();
-    $resourcedata = Resource::all()->take(3);
-    $banners = CarouselItem::latest()->take(3)->get();
-    $images = Gallery::latest()->take(10)->get();
-    return view('home', ['featured' => $featured, 'banners' => $banners, 'images' => $images, 'stories' => $stories, 'groupFocus' => $groupFocus, 'engagements' => $engagements, 'partners' => $partners, 'posts' => $data, 'resources_data' => $resourcedata]);
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/about_us', function () {
-    $engagements = Engagement::all();
-    $members = Member::all();
-    $workers = Worker::orderBy('created_at', 'desc')->get();
-    return view('about', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
-})->name('about_us');
+Route::get('/about_us', [HomeController::class, 'about'])->name('about_us');
 
 Route::get('/Mission_Vision_Objectives', function () {
     $engagements = Engagement::all();
@@ -147,13 +124,13 @@ Route::get('/program/{id}', function ($id) {
 })->name('detail');
 
 Route::get('/ncd_news', function () {
-    $data = VoyagerPost::where('category_id', 1)->latest()->simplePaginate(6);
+    $data = ModelsPost::where('category_id', 1)->latest()->simplePaginate(6);
     $engagements = Engagement::all();
     return view('posts', ['posts' => $data, 'engagements' => $engagements]);
 })->name('ncd_posts');
 
 Route::get('/ncd_covid_19', function () {
-    $data = VoyagerPost::where('category_id', 2)->paginate(15);
+    $data = ModelsPost::where('category_id', 2)->paginate(15);
     $engagements = Engagement::all();
     return view('posts', ['posts' => $data, 'engagements' => $engagements, 'header' => 'NCDs and COVID-19']);
 })->name('ncd_covid_posts');
@@ -161,8 +138,8 @@ Route::get('/ncd_covid_19', function () {
 Route::get('/ncd_news/{slug}', function ($slug) {
     $comments = Comment::where('post', $slug)->get();
     $engagements = Engagement::all();
-    $data = VoyagerPost::where('slug', $slug)->first();
-    $related_data = VoyagerPost::where('category_id', 1)->orderBy('created_at', 'desc')->take(6)->get();
+    $data = ModelsPost::where('slug', $slug)->first();
+    $related_data = ModelsPost::where('category_id', 1)->orderBy('created_at', 'desc')->take(6)->get();
     return view('post_details', ['related_data' => $related_data, 'data' => $data, 'engagements' => $engagements, 'comments_data' => $comments]);
 });
 
@@ -244,9 +221,7 @@ Route::get('/video-gallery', function () {
     return view('video-gallery', ['engagements' => $engagements]);
 })->name('video-gallery');
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+
 
 Route::get('/conference-2022', function () {
     $engagements = Engagement::all();
