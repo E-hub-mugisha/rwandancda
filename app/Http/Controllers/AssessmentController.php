@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Engagement;
+use App\Models\Engagement;
 use App\Models\Assessment;
 use Illuminate\Http\Request;
 

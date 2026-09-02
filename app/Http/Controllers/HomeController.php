@@ -79,6 +79,11 @@ class HomeController extends Controller
         return view('know_your_numbers', ['workers' => $workers, 'members' => $members, 'engagements' => $engagements]);
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
     public function search(Request $request)
     {
         $query = $request->input('query');

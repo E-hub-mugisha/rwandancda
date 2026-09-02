@@ -171,10 +171,7 @@ Route::get('/test-email', function () {
     return 'Email sent!';
 });
 
-Route::get('/contact', function () {
-    $engagements = Engagement::all();
-    return view('contact', ['engagements' => $engagements]);
-})->name('message');
+Route::get('/contact', [HomeController::class, 'contact'])->name('message');
 
 Route::get('/newsletters', function () {
     $engagements = Engagement::all();

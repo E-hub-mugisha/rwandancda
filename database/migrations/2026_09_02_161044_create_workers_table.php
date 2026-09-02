@@ -17,9 +17,8 @@ class CreateWorkersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('title');
-            $table->string('email')->unique();
-            $table->string('phone')->nullable();
             $table->string('department')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

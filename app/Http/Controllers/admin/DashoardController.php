@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Resource;
-use App\Story;
-use App\Worker;
+use App\Models\Resource;
+use App\Models\Story;
+use App\Models\Worker;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

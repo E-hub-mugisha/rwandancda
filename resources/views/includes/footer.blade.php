@@ -1,365 +1,943 @@
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer-modern">
-
-  <div class="footer-main">
-    <div class="container">
-      <div class="row gy-5">
-
-        {{-- Org info --}}
-        <div class="col-lg-4 col-md-6 footer-info">
-          <a href="{{ URL::route('home') }}" class="footer-logo-link">
-            <img src="{{ URL::asset('img/logo-footer.png') }}" alt="{{ config('app.name') }}" class="img-fluid footer-logo" />
-          </a>
-          <p class="footer-tagline">
-            NCDs affect people in all corners of the globe — rich and poor, old and young,
-            in cities and villages, the privileged and the vulnerable. It's better to fight as one.
-          </p>
-
-          <div class="footer-contact-mini">
-            <div class="contact-line">
-              <i class="bi bi-geo-alt-fill"></i>
-              <span>Kigali - Kinamba, KN 8 AVE 27, Rwanda</span>
-            </div>
-            <div class="contact-line">
-              <i class="bi bi-telephone-fill"></i>
-              <a href="tel:+250791232176">+250 791 232 176</a>
-            </div>
-            <div class="contact-line">
-              <i class="bi bi-envelope-fill"></i>
-              <a href="mailto:info@rwandancda.org">info@rwandancda.org</a>
-            </div>
-          </div>
-
-          <div class="social-links">
-            <a href="#" class="twitter" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="{{ URL::route('video-gallery') ?? '#' }}" class="youtube" aria-label="Video Gallery"><i class="bi bi-youtube"></i></a>
-          </div>
-        </div>
-
-        {{-- About the org --}}
-        <div class="col-lg-2 col-md-6 col-6 footer-links">
-          <h4>About Us</h4>
-          <ul>
-            <li><a href="{{ URL::route('about_us') }}"><i class="bi bi-chevron-right"></i> Who We Are</a></li>
-            <li><a href="{{ URL::route('Mission.Vision.Objectives') }}"><i class="bi bi-chevron-right"></i> Mission &amp; Vision</a></li>
-            <li><a href="{{ URL::route('partnerships') }}"><i class="bi bi-chevron-right"></i> Partnerships &amp; Members</a></li>
-            <li><a href="{{ URL::route('team') }}"><i class="bi bi-chevron-right"></i> Team Members</a></li>
-            <li><a href="{{ URL::route('our_impact') }}"><i class="bi bi-chevron-right"></i> Our Impact</a></li>
-            <li><a href="{{ URL::route('know_your_numbers') }}"><i class="bi bi-chevron-right"></i> Know Your Numbers</a></li>
-          </ul>
-        </div>
-
-        {{-- Resources / media --}}
-        <div class="col-lg-3 col-md-6 col-6 footer-links">
-          <h4>Resources &amp; Media</h4>
-          <ul>
-            <li><a href="{{ URL::route('ncd_posts') }}"><i class="bi bi-chevron-right"></i> Latest News</a></li>
-            <li><a href="{{ URL::route('ncd_covid_posts') }}"><i class="bi bi-chevron-right"></i> NCDs &amp; COVID-19</a></li>
-            <li><a href="{{ URL::route('ncd_resources') }}"><i class="bi bi-chevron-right"></i> Resource Library</a></li>
-            <li><a href="{{ URL::route('ncd_stories') }}"><i class="bi bi-chevron-right"></i> Stories</a></li>
-            <li><a href="{{ URL::route('gallery') }}"><i class="bi bi-chevron-right"></i> Photo Gallery</a></li>
-            <li><a href="{{ URL::route('video-gallery') }}"><i class="bi bi-chevron-right"></i> Video Gallery</a></li>
-            <li><a href="{{ URL::route('newsletters') }}"><i class="bi bi-chevron-right"></i> Newsletters</a></li>
-            <li><a href="{{ URL::route('assessments.create') }}"><i class="bi bi-chevron-right"></i> Diabetes Self-Assessment</a></li>
-          </ul>
-        </div>
-
-        {{-- Newsletter + calendar --}}
-        <div class="col-lg-3 col-md-6 footer-newsletter">
-          <h4>Stay Connected</h4>
-          <p>Subscribe to receive our latest news, reports and event updates.</p>
-          <form action="{{ URL::route('subscribe') }}" method="POST" class="newsletter-form">
-            @csrf
-            <div class="newsletter-input-group">
-              <input type="email" name="email" placeholder="Your email address" required>
-              <button type="submit" aria-label="Subscribe"><i class="bi bi-send-fill"></i></button>
-            </div>
-          </form>
-
-          <div class="calendar-select-group">
-            <label for="calendarYear"><i class="bi bi-calendar-event"></i> Annual Calendar</label>
-            <?php $calendars = App\Models\Calendar::all(); ?>
-            <select id="calendarYear" class="form-select" onChange="selectChange(this)">
-              <option value="{{ URL::current() }}" selected disabled>Choose a year</option>
-              @foreach($calendars as $calendar)
-                <option value="{{ $calendar->file }}">{{ $calendar->year }}</option>
-              @endforeach
-            </select>
-          </div>
-
-          <a href="{{ URL::route('message') }}" class="footer-contact-btn">
-            <i class="bi bi-chat-dots-fill"></i> Contact Us
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <div class="copyright">
-        &copy; {{ date('Y') }} <strong>{{ config('app.name') }}</strong>. All Rights Reserved.
-      </div>
-      <div class="footer-bottom-links">
-        <a href="{{ URL::route('conference-2022') }}">Conference 2022</a>
-        <span class="divider">/</span>
-        <a href="{{ URL::route('conference-2021') }}">Conference 2021</a>
-        <span class="divider">/</span>
-        <a href="{{ url('login') }}">Login</a>
-      </div>
-    </div>
-  </div>
-</footer><!-- End Footer -->
-
-<a href="#" id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
-  <i class="bi bi-arrow-up"></i>
-</a>
+<!-- =========================
+     RNCDA PROFESSIONAL FOOTER
+========================= -->
 
 <style>
-  :root{
-    --rncda-green:#1DA851;
-    --rncda-green-dark:#167A3C;
-    --rncda-blue:#5D89C8;
-    --rncda-blue-dark:#3E6AA8;
-    --rncda-black:#0B0D0C;
-    --rncda-black-soft:#14211A;
-    --rncda-muted:#AEC2C8;
-  }
+    :root {
+        --rncda-footer-navy: #082B4C;
+        --rncda-footer-dark: #061D32;
+        --rncda-footer-blue: #0A599E;
+        --rncda-footer-green: #16845C;
+        --rncda-footer-text: #B9C8D4;
+        --rncda-footer-muted: #8298AA;
+        --rncda-footer-border: rgba(255,255,255,.10);
+    }
 
-  .footer-modern{
-    background: linear-gradient(180deg, var(--rncda-black-soft) 0%, var(--rncda-black) 100%);
-    color: #dce7e9;
-    font-size: 15px;
-    position: relative;
-  }
+    .rncda-footer {
+        font-family: 'Inter', sans-serif;
+        background: var(--rncda-footer-dark);
+        color: var(--rncda-footer-text);
+    }
 
-  .footer-modern .footer-main{
-    padding: 70px 0 40px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
+    /* =========================
+       CTA BAND
+    ========================= */
 
-  .footer-modern .footer-logo{
-    height: 4.5rem;
-    margin-bottom: 1.25rem;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
-  }
+    .rncda-footer-cta {
+        background: var(--rncda-footer-blue);
+        color: #fff;
+        padding: 34px 0;
+    }
 
-  .footer-modern .footer-tagline{
-    color: var(--rncda-muted);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    max-width: 340px;
-  }
+    .rncda-footer-cta-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
 
-  .footer-contact-mini{
-    display:flex;
-    flex-direction:column;
-    gap:.6rem;
-    margin-bottom: 1.5rem;
-  }
-  .footer-contact-mini .contact-line{
-    display:flex;
-    align-items:flex-start;
-    gap:.6rem;
-    color:#c9dcdc;
-  }
-  .footer-contact-mini i{
-    color: var(--rncda-green);
-    margin-top: .2rem;
-  }
-  .footer-contact-mini a{
-    color:#c9dcdc;
-    text-decoration:none;
-    transition: color .2s ease;
-  }
-  .footer-contact-mini a:hover{ color: var(--rncda-green); }
+    .rncda-footer-cta h3 {
+        margin: 0 0 6px;
+        color: #fff;
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 25px;
+        font-weight: 600;
+    }
 
-  .footer-modern h4{
-    color: var(--rncda-blue);
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: .3px;
-    margin-bottom: 1.4rem;
-    position: relative;
-    padding-bottom: .7rem;
-  }
-  .footer-modern h4::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width: 34px; height: 3px;
-    background: var(--rncda-green);
-    border-radius: 3px;
-  }
+    .rncda-footer-cta p {
+        margin: 0;
+        color: rgba(255,255,255,.78);
+        font-size: 14px;
+    }
 
-  .footer-links ul{
-    list-style:none;
-    margin:0; padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:.65rem;
-  }
-  .footer-links a{
-    color: var(--rncda-muted);
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    gap:.4rem;
-    transition: all .2s ease;
-  }
-  .footer-links a i{
-    font-size:.75rem;
-    color: var(--rncda-green);
-    transition: transform .2s ease;
-  }
-  .footer-links a:hover{
-    color: var(--rncda-blue);
-    transform: translateX(3px);
-  }
-  .footer-links a:hover i{ transform: translateX(3px); }
+    .rncda-footer-cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
 
-  .footer-newsletter p{
-    color: var(--rncda-muted);
-    margin-bottom: 1.1rem;
-  }
-  .newsletter-input-group{
-    display:flex;
-    background:#fff;
-    border-radius: 8px;
-    overflow:hidden;
-    box-shadow: 0 4px 14px rgba(0,0,0,.15);
-  }
-  .newsletter-input-group input{
-    flex:1;
-    border:none;
-    padding: .75rem 1rem;
-    font-size:.9rem;
-    outline:none;
-    color:#1a1a1a;
-  }
-  .newsletter-input-group button{
-    background: var(--rncda-blue-dark);
-    border:none;
-    color:#fff;
-    padding: 0 1.1rem;
-    cursor:pointer;
-    transition: background .2s ease;
-  }
-  .newsletter-input-group button:hover{ background: var(--rncda-green); }
+        padding: 12px 20px;
+        border-radius: 8px;
 
-  .calendar-select-group{
-    margin-top: 1.5rem;
-  }
-  .calendar-select-group label{
-    display:flex;
-    align-items:center;
-    gap:.4rem;
-    color:#c9dcdc;
-    font-size:.85rem;
-    margin-bottom:.5rem;
-  }
-  .calendar-select-group .form-select{
-    border-radius: 8px;
-    border: none;
-    padding: .55rem .75rem;
-    font-size: .88rem;
-  }
+        background: #fff;
+        color: var(--rncda-footer-blue);
 
-  .footer-contact-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    margin-top: 1.4rem;
-    padding: .6rem 1.1rem;
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius: 8px;
-    color:#fff;
-    text-decoration:none;
-    font-size:.88rem;
-    transition: all .2s ease;
-  }
-  .footer-contact-btn:hover{
-    background: var(--rncda-green);
-    border-color: var(--rncda-green);
-    color: #0B0D0C;
-  }
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
 
-  .social-links{ display:flex; gap:.6rem; }
-  .social-links a{
-    width: 38px; height: 38px;
-    display:flex; align-items:center; justify-content:center;
-    border-radius: 50%;
-    background: rgba(255,255,255,.08);
-    color:#fff;
-    transition: all .25s ease;
-  }
-  .social-links a:hover{
-    background: var(--rncda-blue);
-    color:#fff;
-    transform: translateY(-3px);
-  }
+        white-space: nowrap;
 
-  .footer-bottom{
-    padding: 1.1rem 0;
-    background: rgba(0,0,0,.25);
-    font-size: .85rem;
-  }
-  .footer-bottom .copyright{ color: var(--rncda-muted); }
-  .footer-bottom .copyright strong{ color: var(--rncda-blue); }
-  .footer-bottom-links a{
-    color: var(--rncda-muted);
-    text-decoration:none;
-    font-size:.85rem;
-  }
-  .footer-bottom-links a:hover{ color: var(--rncda-green); }
-  .footer-bottom-links .divider{ margin: 0 .5rem; color: rgba(255,255,255,.2); }
+        transition: .2s ease;
+    }
 
-  .back-to-top-btn{
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    width: 46px; height: 46px;
-    display:flex; align-items:center; justify-content:center;
-    background: var(--rncda-green);
-    color:#0B0D0C;
-    border-radius: 50%;
-    box-shadow: 0 6px 18px rgba(0,0,0,.25);
-    opacity:0;
-    visibility:hidden;
-    transition: all .3s ease;
-    z-index: 999;
-    text-decoration:none;
-  }
-  .back-to-top-btn.show{ opacity:1; visibility:visible; }
-  .back-to-top-btn:hover{ background: var(--rncda-blue); color:#fff; }
+    .rncda-footer-cta-button:hover {
+        background: #EAF7F1;
+        color: var(--rncda-footer-green);
+        transform: translateY(-1px);
+    }
 
-  @media (max-width: 767px){
-    .footer-modern .footer-main{ padding: 50px 0 30px; }
-    .footer-modern h4{ margin-top: .5rem; }
-  }
+    /* =========================
+       MAIN FOOTER
+    ========================= */
+
+    .rncda-footer-main {
+        padding: 65px 0 48px;
+    }
+
+    .rncda-footer-logo {
+        height: 58px;
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    .rncda-footer-description {
+        max-width: 350px;
+        color: var(--rncda-footer-muted);
+        line-height: 1.75;
+        font-size: 13.5px;
+        margin-bottom: 24px;
+    }
+
+    /* Contact */
+    .rncda-footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+    }
+
+    .rncda-footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--rncda-footer-text);
+        font-size: 13px;
+    }
+
+    .rncda-footer-contact-item svg {
+        color: #63C697;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .rncda-footer-contact-item a {
+        color: var(--rncda-footer-text);
+        text-decoration: none;
+    }
+
+    .rncda-footer-contact-item a:hover {
+        color: #fff;
+    }
+
+    /* =========================
+       FOOTER HEADINGS
+    ========================= */
+
+    .rncda-footer-heading {
+        position: relative;
+
+        margin: 0 0 20px;
+
+        color: #fff;
+
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .01em;
+    }
+
+    .rncda-footer-heading::after {
+        content: "";
+
+        display: block;
+
+        width: 28px;
+        height: 2px;
+
+        margin-top: 9px;
+
+        background: var(--rncda-footer-green);
+        border-radius: 2px;
+    }
+
+    /* =========================
+       LINKS
+    ========================= */
+
+    .rncda-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rncda-footer-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+
+        color: var(--rncda-footer-muted);
+        text-decoration: none;
+
+        font-size: 13px;
+
+        transition: .2s ease;
+    }
+
+    .rncda-footer-links a::before {
+        content: "›";
+
+        color: var(--rncda-footer-green);
+        font-size: 17px;
+        line-height: 1;
+    }
+
+    .rncda-footer-links a:hover {
+        color: #fff;
+        transform: translateX(3px);
+    }
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .rncda-newsletter-text {
+        color: var(--rncda-footer-muted);
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .rncda-newsletter-form {
+        display: flex;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .rncda-newsletter-form input {
+        flex: 1;
+        min-width: 0;
+
+        border: 0;
+        outline: 0;
+
+        padding: 12px 13px;
+
+        font-size: 12.5px;
+        color: #172B3A;
+    }
+
+    .rncda-newsletter-form button {
+        width: 48px;
+
+        border: 0;
+
+        background: var(--rncda-footer-green);
+        color: #fff;
+
+        cursor: pointer;
+
+        transition: .2s ease;
+    }
+
+    .rncda-newsletter-form button:hover {
+        background: var(--rncda-footer-blue);
+    }
+
+    /* Calendar */
+    .rncda-calendar {
+        margin-top: 23px;
+    }
+
+    .rncda-calendar label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        color: var(--rncda-footer-text);
+
+        font-size: 12px;
+        font-weight: 600;
+
+        margin-bottom: 8px;
+    }
+
+    .rncda-calendar label svg {
+        color: #63C697;
+    }
+
+    .rncda-calendar select {
+        width: 100%;
+
+        padding: 10px 12px;
+
+        background: rgba(255,255,255,.07);
+        color: #fff;
+
+        border: 1px solid var(--rncda-footer-border);
+        border-radius: 7px;
+
+        font-size: 12px;
+
+        outline: none;
+    }
+
+    .rncda-calendar select option {
+        color: #172B3A;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    .rncda-footer-social {
+        display: flex;
+        gap: 7px;
+        margin-top: 22px;
+    }
+
+    .rncda-footer-social a {
+        width: 35px;
+        height: 35px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid var(--rncda-footer-border);
+        border-radius: 7px;
+
+        color: var(--rncda-footer-text);
+        text-decoration: none;
+
+        transition: .2s ease;
+    }
+
+    .rncda-footer-social a:hover {
+        background: var(--rncda-footer-green);
+        border-color: var(--rncda-footer-green);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    /* =========================
+       BOTTOM
+    ========================= */
+
+    .rncda-footer-bottom {
+        border-top: 1px solid var(--rncda-footer-border);
+        background: rgba(0,0,0,.14);
+        padding: 17px 0;
+    }
+
+    .rncda-footer-bottom-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .rncda-copyright {
+        color: var(--rncda-footer-muted);
+        font-size: 11.5px;
+    }
+
+    .rncda-copyright strong {
+        color: #fff;
+    }
+
+    .rncda-bottom-links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .rncda-bottom-links a {
+        color: var(--rncda-footer-muted);
+        text-decoration: none;
+        font-size: 11.5px;
+    }
+
+    .rncda-bottom-links a:hover {
+        color: #fff;
+    }
+
+    .rncda-bottom-divider {
+        color: rgba(255,255,255,.18);
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    .rncda-back-top {
+        position: fixed;
+
+        right: 24px;
+        bottom: 24px;
+
+        width: 44px;
+        height: 44px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 8px;
+
+        background: var(--rncda-footer-green);
+        color: #fff;
+
+        box-shadow: 0 10px 30px rgba(0,0,0,.2);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(10px);
+
+        transition: .25s ease;
+
+        z-index: 999;
+        text-decoration: none;
+    }
+
+    .rncda-back-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .rncda-back-top:hover {
+        background: var(--rncda-footer-blue);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 767px) {
+
+        .rncda-footer-cta-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .rncda-footer-main {
+            padding: 50px 0 35px;
+        }
+
+        .rncda-footer-bottom-inner {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .rncda-bottom-links {
+            justify-content: center;
+        }
+
+        .rncda-back-top {
+            right: 16px;
+            bottom: 16px;
+        }
+    }
 </style>
 
-<script>
-  function selectChange(elm) {
-    if (elm.value) window.open(elm.value, '_blank');
-  }
 
-  (function () {
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 300) {
-        btn.classList.add('show');
-      } else {
-        btn.classList.remove('show');
-      }
-    });
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
+<footer class="rncda-footer">
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="rncda-footer-cta">
+
+        <div class="container">
+
+            <div class="rncda-footer-cta-inner">
+
+                <div>
+
+                    <h3>
+                        Together, we can build a healthier Rwanda.
+                    </h3>
+
+                    <p>
+                        Connect with us, learn more about our work or join the
+                        movement against non-communicable diseases.
+                    </p>
+
+                </div>
+
+                <a href="{{ URL::route('message') }}"
+                   class="rncda-footer-cta-button">
+
+                    Contact RNCDA
+
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN FOOTER
+    ========================= -->
+
+    <div class="rncda-footer-main">
+
+        <div class="container">
+
+            <div class="row gy-5">
+
+                <!-- ORGANIZATION -->
+                <div class="col-lg-4 col-md-6">
+
+                    <a href="{{ URL::route('home') }}">
+
+                        <img
+                            src="{{ asset('img/logo-footer.png') }}"
+                            alt="{{ config('app.name') }}"
+                            class="rncda-footer-logo"
+                        >
+
+                    </a>
+
+                    <p class="rncda-footer-description">
+
+                        NCDs affect people in all corners of the globe —
+                        rich and poor, old and young, in cities and villages,
+                        the privileged and the vulnerable.
+
+                        <strong>It's better to fight as one.</strong>
+
+                    </p>
+
+
+                    <div class="rncda-footer-contact">
+
+                        <div class="rncda-footer-contact-item">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-pin"/>
+                            </svg>
+
+                            <span>
+                                Kigali - Kinamba, KN 8 AVE 27, Rwanda
+                            </span>
+
+                        </div>
+
+
+                        <div class="rncda-footer-contact-item">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-phone"/>
+                            </svg>
+
+                            <a href="tel:+250791232176">
+                                +250 791 232 176
+                            </a>
+
+                        </div>
+
+
+                        <div class="rncda-footer-contact-item">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-mail"/>
+                            </svg>
+
+                            <a href="mailto:info@rwandancda.org">
+                                info@rwandancda.org
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rncda-footer-social">
+
+                        <a href="https://www.facebook.com/RwandaNCDA"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="Facebook">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-facebook"/>
+                            </svg>
+
+                        </a>
+
+                        <a href="https://twitter.com/RwandaNCDA"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="X">
+
+                            <strong>𝕏</strong>
+
+                        </a>
+
+                        <a href="http://www.youtube.com/@rwandancda"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="YouTube">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-youtube"/>
+                            </svg>
+
+                        </a>
+
+                        <a href="https://www.linkedin.com/company/65703122/"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="LinkedIn">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-linkedin"/>
+                            </svg>
+
+                        </a>
+
+                        <a href="https://wa.me/250791232176"
+                           target="_blank"
+                           rel="noopener"
+                           aria-label="WhatsApp">
+
+                            <svg width="16" height="16">
+                                <use href="#rncda-whatsapp"/>
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ABOUT -->
+                <div class="col-lg-2 col-md-6 col-6">
+
+                    <h4 class="rncda-footer-heading">
+                        About Us
+                    </h4>
+
+                    <ul class="rncda-footer-links">
+
+                        <li>
+                            <a href="{{ URL::route('about_us') }}">
+                                Who We Are
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('Mission.Vision.Objectives') }}">
+                                Mission & Vision
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('partnerships') }}">
+                                Partnerships & Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('team') }}">
+                                Our Team
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('our_impact') }}">
+                                Our Impact
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('know_your_numbers') }}">
+                                Know Your Numbers
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- RESOURCES -->
+                <div class="col-lg-3 col-md-6 col-6">
+
+                    <h4 class="rncda-footer-heading">
+                        Resources & Media
+                    </h4>
+
+                    <ul class="rncda-footer-links">
+
+                        <li>
+                            <a href="{{ URL::route('ncd_posts') }}">
+                                Latest News
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('ncd_covid_posts') }}">
+                                NCDs & COVID-19
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('ncd_resources') }}">
+                                Resource Library
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('ncd_stories') }}">
+                                NCD Stories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('gallery') }}">
+                                Photo Gallery
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('video-gallery') }}">
+                                Video Gallery
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('newsletters') }}">
+                                Newsletters
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ URL::route('assessments.create') }}">
+                                Diabetes Assessment
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- NEWSLETTER -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h4 class="rncda-footer-heading">
+                        Stay Connected
+                    </h4>
+
+                    <p class="rncda-newsletter-text">
+
+                        Subscribe for the latest news, reports,
+                        campaigns and event updates from RNCDA.
+
+                    </p>
+
+
+                    <form
+                        action="{{ URL::route('subscribe') }}"
+                        method="POST"
+                        class="rncda-newsletter-form">
+
+                        @csrf
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Your email address"
+                            required
+                            aria-label="Email address"
+                        >
+
+                        <button
+                            type="submit"
+                            aria-label="Subscribe">
+
+                            <span>→</span>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- CALENDAR -->
+
+                    <div class="rncda-calendar">
+
+                        <label for="calendarYear">
+
+                            <svg width="15" height="15">
+                                <use href="#rncda-calendar"/>
+                            </svg>
+
+                            Annual Calendar
+
+                        </label>
+
+
+                        <?php
+                            $calendars = App\Models\Calendar::all();
+                        ?>
+
+                        <select
+                            id="calendarYear"
+                            onchange="selectChange(this)">
+
+                            <option value="" selected disabled>
+                                Choose a year
+                            </option>
+
+                            @foreach($calendars as $calendar)
+
+                                <option value="{{ $calendar->file }}">
+                                    {{ $calendar->year }}
+                                </option>
+
+                            @endforeach
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         BOTTOM BAR
+    ========================= -->
+
+    <div class="rncda-footer-bottom">
+
+        <div class="container">
+
+            <div class="rncda-footer-bottom-inner">
+
+                <div class="rncda-copyright">
+
+                    © {{ date('Y') }}
+
+                    <strong>
+                        {{ config('app.name') }}
+                    </strong>.
+
+                    All Rights Reserved.
+
+                </div>
+
+
+                <div class="rncda-bottom-links">
+
+                    <a href="{{ URL::route('conference-2022') }}">
+                        Conference 2022
+                    </a>
+
+                    <span class="rncda-bottom-divider">|</span>
+
+                    <a href="{{ URL::route('conference-2021') }}">
+                        Conference 2021
+                    </a>
+
+                    <span class="rncda-bottom-divider">|</span>
+
+                    <a href="{{ url('login') }}">
+                        Login
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<a
+    href="#"
+    id="rncda-back-top"
+    class="rncda-back-top"
+    aria-label="Back to top">
+
+    ↑
+
+</a>
+
+
+<script>
+
+    function selectChange(elm) {
+
+        if (elm.value) {
+            window.open(elm.value, '_blank');
+        }
+
+    }
+
+
+    (function () {
+
+        const button =
+            document.getElementById('rncda-back-top');
+
+        if (!button) return;
+
+
+        window.addEventListener('scroll', function () {
+
+            if (window.scrollY > 350) {
+
+                button.classList.add('show');
+
+            } else {
+
+                button.classList.remove('show');
+
+            }
+
+        });
+
+
+        button.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        });
+
+    })();
+
 </script>
+
+<!-- =========================
+     END FOOTER
+========================= -->
